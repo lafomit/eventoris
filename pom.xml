@@ -4,14 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.vicky</groupId>
-    <artifactId>eventoris-dipl</artifactId>
+    <groupId>com.home</groupId>
+    <artifactId>eventoris_dipl</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1</version>
 	
 	<modules>
         <module>eventoris_jdbc</module>
         <module>FormHandling</module>
+        <module>eventorisMvc</module>
 	</modules>
 
 </project>

@@ -3,17 +3,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-  	<groupId>com.vicky</groupId>
-  	<artifactId>eventoris-dipl</artifactId>
+  	<groupId>com.home</groupId>
+  	<artifactId>eventoris_dipl</artifactId>
   	<version>0.0.1</version>
   </parent>
   
   <groupId>com.diplom.app</groupId>
-  <artifactId>eventoris</artifactId>
+  <artifactId>eventoris_jdbc</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
 
-  <name>eventoris</name>
+  <name>eventoris_jdbc</name>
   <url>http://maven.apache.org</url>
 
   <properties>

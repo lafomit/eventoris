@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
   	<groupId>com.vicky</groupId>
-  	<artifactId>eventoris-dipl</artifactId>
+  	<artifactId>eventoris_dipl</artifactId>
   	<version>0.0.1</version>
   </parent>
   
-  <groupId>com.vicky</groupId>
+  <groupId>com.home</groupId>
   <artifactId>FormHandling</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
