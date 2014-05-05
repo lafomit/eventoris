@@ -46,7 +46,7 @@ public class App
         //--------------------- SELECT ONE EVENT -----------------------//        
         /*event = eventJdbcTemplate.getEvent(2);
         
-			System.out.println(record);
+			System.out.println(event);
     	*/
         
         //--------------------- UPDATE OF EVENT ------------------------//
