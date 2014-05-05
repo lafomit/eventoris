@@ -39,28 +39,14 @@ public class App
         /*List<EventInfo> events = eventJdbcTemplate.getAll();
         
         for(EventInfo record:events){
-        	System.out.println("Id: " + record.getEventID());
-        	System.out.println("Title: " + record.getTitle());
-        	System.out.println("Category ID: " + record.getCategoryID());
-        	System.out.println("Description: " + record.getDescription());
-        	System.out.println("Date created: " + record.getDateCreated());
-        	System.out.println("Date of event: " + record.getDateOfEvent());
-        	System.out.println("Address: " + record.getAddress());
-        	System.out.println("Author ID: " + record.getAuthorID());
+        	System.out.println(record);
         }
         */
         
         //--------------------- SELECT ONE EVENT -----------------------//        
         /*event = eventJdbcTemplate.getEvent(2);
         
-        System.out.println("Id: " + event.getEventID());
-    	System.out.println("Title: " + event.getTitle());
-    	System.out.println("Category ID: " + event.getCategoryID());
-    	System.out.println("Description: " + event.getDescription());
-    	System.out.println("Date created: " + event.getDateCreated());
-    	System.out.println("Date of event: " + event.getDateOfEvent());
-    	System.out.println("Address: " + event.getAddress());
-    	System.out.println("Author ID: " + event.getAuthorID());
+			System.out.println(record);
     	*/
         
         //--------------------- UPDATE OF EVENT ------------------------//

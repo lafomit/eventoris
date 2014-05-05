@@ -13,6 +13,20 @@ public class EventInfo {
 	private int[] participantsID;
 	private int[] potentialParticipantsID;
 	
+	@Override
+	public String toString(){
+		StringBuilder builder = new StringBuilder(this.getClass().getCanonicalName());
+		builder.append("[Id: ").append(getEventID());
+		builder.append(";Id: ").append(getEventID());
+    	builder.append(";Title: ").append(getTitle());
+    	builder.append(";Category ID: ").append(getCategoryID());
+    	builder.append(";Description: ").append(getDescription());
+    	builder.append(";Date created: ").append(getDateCreated());
+    	builder.append(";Date of event: ").append(getDateOfEvent());
+    	builder.append(";Address: ").append(getAddress()).append("]");
+    	return builder.toString();
+	}
+	
 	public int getEventID(){
 		return eventID;
 	}
