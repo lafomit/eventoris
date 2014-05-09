@@ -3,7 +3,9 @@ import eventoris.datatypes.*;
 
 import java.util.Date;
 import java.util.List;
+
 import javax.sql.DataSource;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class EventJDBCTemplate implements EventDAO{
@@ -78,6 +80,33 @@ public class EventJDBCTemplate implements EventDAO{
 				   					   event.getEventID());
 		System.out.println("Updated!");
 		return;
+	}
+	
+	public List<EventInfo> getLastEventsByDate(int eventsCount){
+		String SQL = "select * from event_info order by date_created desc limit ?";
+		
+		List<EventInfo> events = jdbcTemplateObject.query(SQL, new Object[]{eventsCount}, new EventMapper());
+		
+		return events;
+	}
+	
+	public CategoryInfo getCategory(int id){
+		String SQL = "select * from event_categories where id_event_categories = ? ";
+		
+		CategoryInfo category = jdbcTemplateObject.queryForObject(SQL, new Object[]{id}, new CategoryMapper());
+		
+		return category;
+	}
+	
+	public List<EventInfo> getTopEvents(int eventsCount){
+		String SQL = "select * from event_info join "
+				   + "(select id_event, count(id_event) as member_count from participants where id_status = 1 group by id_event) as participants "
+				   + "on participants.id_event = event_info.id_event_info "
+				   + "order by participants.member_count desc limit ?";
+		
+		List<EventInfo> events = jdbcTemplateObject.query(SQL, new Object[]{eventsCount}, new EventMapper());
+		
+		return events;		
 	}
 	
 	// get participants where id and status

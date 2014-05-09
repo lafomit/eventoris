@@ -8,7 +8,7 @@ import java.util.Date;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import eventoris.dao.EventJDBCTemplate;
-import eventoris.datatypes.EventInfo;
+import eventoris.datatypes.*;
 
 public class App 
 {
@@ -22,18 +22,18 @@ public class App
         SimpleDateFormat formatedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         
         //--------------------- SET OBJECT ATRIBUTES --------------------//
-        
-        event.setAddress("Bubuieci");
-        event.setOwnerID(12);
-        event.setCategoryID(1);
+        /*
+        event.setAddress("Bd. Moscovei");
+        event.setOwnerID(2);
+        event.setCategoryID(3);
         event.setDateCreated(formatedDate.format(tempDate)); // date format?
-        event.setDateOfEvent(formatedDate.format(tempDate)); //date format?
-        event.setDescription("Teambuilding");
-        event.setTitle("PaintBall");
-        
+        event.setDateOfEvent("2014-12-25 14:00:00"); //date format?
+        event.setDescription("Umarm Menschen!!!");
+        event.setTitle("Free hugs!");
+        */
         
         //---------------------------Insert-----------------------------//
-        eventJdbcTemplate.create(event);
+       /* eventJdbcTemplate.create(event);*/
         
         //--------------------- LISTING ALL EVENTS ---------------------//
         /*List<EventInfo> events = eventJdbcTemplate.getAll();
@@ -63,6 +63,27 @@ public class App
         */
         
         //------------------------ DELETE EVENT ------------------------//
-        //eventJdbcTemplate.delete(2);
+        /*eventJdbcTemplate.delete(3);*/
+        
+        //-------------------SELELECT LAST 3 EVENTS---------------------//
+       /* int EVENTS_COUNT = 3;
+        List<EventInfo> events = eventJdbcTemplate.getLastEventsByDate(EVENTS_COUNT);
+        for(EventInfo record:events){
+        	System.out.println(record);
+        }
+        */
+        
+        //-------------------SELECT CATEGORY BY ID---------------------//
+        /*int categoryID = 3;
+        CategoryInfo category = new CategoryInfo();
+        category = eventJdbcTemplate.getCategory(categoryID);
+        System.out.println(category);*/
+        
+        //-------------------SELELECT TOP 3 EVENTS---------------------//
+        int EVENTS_COUNT = 3;
+        List<EventInfo> events = eventJdbcTemplate.getTopEvents(EVENTS_COUNT);
+        for(EventInfo record:events){
+        	System.out.println(record);
+        }
     }
 }
