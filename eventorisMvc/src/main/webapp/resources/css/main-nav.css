@@ -1,0 +1,179 @@
+/* Colors
+
+DARK RED #c0392b
+LIGHT RED #e74c3c
+*/
+
+/* Global CSS that are applied for all screen sizes */
+
+.nav ul {
+	max-width: 660px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nav li span {
+	display: block;
+}
+
+.nav a {
+	display: block;
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 18px;
+	padding-top: 10px;
+}
+
+.nav li:hover {
+	border-bottom: 5px solid #c0392b;
+}
+
+
+/* For screen bigger than 800px */
+@media (min-width: 50em) {
+
+	/* Transforms the list into a horizontal navigation */
+	.nav li {
+		float: left;
+		width: 115px;
+		height: 115px;
+		text-align: center;
+	}
+
+	.nav a {
+		display: block;
+		width: 110px;
+		height: 110px;
+	}
+
+	.nav i{
+		background-color: #c0392b;
+		border-radius: 100%;
+		font-size: 30px;
+		display: block;
+		height: 65px;
+		width: 65px;
+		margin: 0 auto 10px;
+	}		
+
+	.nav .active{
+		background-color: #c0392b;
+		border-bottom: 5px solid #c0392b;
+	}
+
+	.nav .active i{
+		background-color: #e74c3c;
+	}
+}
+
+@media (min-width: 50em) and (max-width: 61.250em) {
+
+	/* Size and font adjustments to make it fit into the screen*/
+	.nav ul {
+		font-size: 1.2em;
+	}
+
+}
+
+/* CSS specific to the 2x3 columns version */
+@media (min-width:32.5em) and (max-width: 49.938em) {
+	
+	/* Creating the 2 column layout using floating elements once again */
+	.nav li {
+		display: block;
+		float: left;
+		width: 50%;
+	}
+	.nav a{
+		height: 50px;
+		width: 100%;
+	}
+
+}
+
+/* Adapting the font size and width for smaller screns*/
+@media (min-width: 32.5em) and (max-width: 38.688em) {
+	
+	.nav li span.icon {
+		width: 50%;
+	}
+
+	.nav li .icon + span {
+		font-size: 0.9em;
+	}
+}
+
+/* Styling the toggle menu link and hiding it */
+.nav .navtoogle{
+	display: none;	
+	width: 100%;
+	padding: 0.5em 0.5em 0.8em;
+	font-weight: normal;;
+	text-align: left;
+	color: #d0272a;
+	font-size: 1.2em;
+	background: none;	
+	border: none;
+	cursor: pointer;
+}
+
+.navtoogle i{
+	z-index:-1;
+}
+
+@media (max-width: 32.438em) {
+
+	/* Unhiding the styled menu link */
+	.nav .navtoogle{
+		margin: 0;
+		display: block;
+	}
+	
+	/* Animating the height of the navigation when the button is clicked */
+	
+	/* When JavaScript is disabled, we hide the menu */
+	.no-js .nav ul {
+		max-height: 30em;
+		overflow: hidden;
+	}
+	
+	/* When JavaScript is enabled, we hide the menu */
+	.js .nav ul {
+		max-height: 0em;
+		overflow: hidden;
+	}
+	
+	/* Displaying the menu when the user has clicked on the button*/
+	.js .nav .active + ul {		
+		max-height: 30em;
+		overflow: hidden;
+		-webkit-transition: max-height .4s;
+		-moz-transition: max-height .4s;
+		-o-transition: max-height .4s;
+		-ms-transition: max-height .4s;
+		transition: max-height .4s;
+	}
+
+	/* Adapting the layout of the menu for smaller screens : icon on the left and text on the right*/
+	
+	.nav li span {
+		display: inline-block;
+		height: 100%;
+	}
+
+	.nav a {
+		padding: 0.5em;		
+	}
+	
+	.icon + span {
+		margin-left: 1em;
+		font-size: 0.8em;
+	}
+	
+	/* make the nav bigger on touch screens */
+	.touch .nav a {
+		padding: 0.8em;
+	}
+}
+
