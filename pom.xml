@@ -11,8 +11,7 @@
 	
 	<modules>
         <module>eventoris_jdbc</module>
-        <module>FormHandling</module>
-        <module>eventorisMvc</module>
+         <module>eventorisMvc</module>
 	</modules>
 
 </project>
