@@ -13,7 +13,7 @@
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>eventorisMvc-servlet.xml</servlet-name>
+    <servlet-name>eventorisMvc</servlet-name>
     <url-pattern>*.htm</url-pattern>
   </servlet-mapping>
 
