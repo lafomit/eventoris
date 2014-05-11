@@ -10,10 +10,14 @@
     <bean id="inMemoryDao" class="eventoris.dao.DummyInMemoryDao">
 	</bean>
 
-	<bean id="eventManager" class="com.eventoris.service.SimpleEventManager">
+	<bean id="eventManager" class="com.eventoris.service.EventManagerImpl">
 		<property name="dataSource" ref="inMemoryDao" />
 	</bean>
 
+
+	<bean id="categoryManager" class="com.eventoris.service.CategoryManagerImpl">
+		<property name="dataSource" ref="inMemoryDao" />
+	</bean>
 	
 	<bean name="/eventlist.htm" class="com.eventoris.web.controllers.EventListController">
 		<property name="eventManager" ref="eventManager" />
@@ -29,6 +33,7 @@
         <property name="formView" value="addevent"/>
         <property name="successView" value="eventlist.htm"/>
         <property name="eventManager" ref="eventManager"/>
+        <property name="categoryManager" ref="categoryManager"/>
     </bean>
     
 	<bean id="viewResolver"

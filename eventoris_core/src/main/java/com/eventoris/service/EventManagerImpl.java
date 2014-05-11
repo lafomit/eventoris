@@ -6,11 +6,11 @@ import eventoris.dao.EventDAO;
 import eventoris.dao.EventJDBCTemplate;
 import eventoris.datatypes.EventInfo;
 
-public class SimpleEventManager implements EventManager {
+public class  EventManagerImpl implements EventManager {
 
 	private EventDAO eventDaoProvider;
 
-	public SimpleEventManager() {
+	public EventManagerImpl() {
 		eventDaoProvider = new EventJDBCTemplate();
 	}
 

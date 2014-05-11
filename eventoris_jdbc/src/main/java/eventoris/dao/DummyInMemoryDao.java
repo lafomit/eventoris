@@ -85,5 +85,19 @@ public class DummyInMemoryDao implements EventDAO{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	
+	public List<CategoryInfo> getAllCategories() {
+		List<CategoryInfo> category = new ArrayList<CategoryInfo>();
+		CategoryInfo cat1= new CategoryInfo();cat1.setCategoryName("Sports"); cat1.setCategoryDescription("Sport Event"); cat1.setIdCategory(1);
+		category.add(cat1);
+		cat1= new CategoryInfo();cat1.setCategoryName("Social"); cat1.setCategoryDescription("Social Event"); cat1.setIdCategory(2);
+		category.add(cat1);
+		cat1= new CategoryInfo();cat1.setCategoryName("Wurst events"); cat1.setCategoryDescription("Religious Events against Concita"); cat1.setIdCategory(3);
+		category.add(cat1);
+		
+		return category;
+	}
 
 }

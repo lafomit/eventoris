@@ -169,4 +169,9 @@ public class EventJDBCTemplate implements EventDAO{
 		else
 			this.addParticipant(idEvent, idUser, idParticipationStatus);
 	}
+
+	public List<CategoryInfo> getAllCategories() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

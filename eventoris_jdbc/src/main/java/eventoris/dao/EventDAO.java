@@ -19,6 +19,7 @@ public interface EventDAO {
 	
 	public List<EventInfo> getLastEventsByDate(int eventsCount);
 	public CategoryInfo getCategory(int id);
+	public List<CategoryInfo> getAllCategories();
 	
 	public List<EventInfo> getTopEvents(int eventsCount);
 	

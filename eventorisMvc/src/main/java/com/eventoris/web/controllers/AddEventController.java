@@ -2,6 +2,10 @@ package com.eventoris.web.controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,9 +16,11 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.eventoris.service.CategoryManager;
 import com.eventoris.service.EventManager;
 import com.eventoris.web.formbeans.AddEventFormData;
 
+import eventoris.datatypes.CategoryInfo;
 import eventoris.datatypes.EventInfo;
 
 public class AddEventController extends SimpleFormController {
@@ -23,6 +29,7 @@ public class AddEventController extends SimpleFormController {
     protected final Log logger = LogFactory.getLog(getClass());
 
     private EventManager eventManager;
+    private CategoryManager categoryManager;
     
     public ModelAndView onSubmit(Object command)
             throws ServletException {
@@ -43,6 +50,22 @@ public class AddEventController extends SimpleFormController {
         return new ModelAndView(new RedirectView(getSuccessView()));
     }
 
+    @Override
+    protected Map referenceData(HttpServletRequest request) throws Exception {
+    	List<CategoryInfo> categories = this.categoryManager.getAllCategories();
+    	Map<Integer,String> countryMap = new LinkedHashMap<Integer,String>();
+    	for(CategoryInfo category:categories){
+    		countryMap.put(category.getIdCategory(), category.getCategoryName());
+    	}
+		Map<String, Object> myModel = new HashMap<String, Object>();
+		myModel.put("categories", countryMap);
+    	return myModel;
+    }
+    
+    
+ 
+	
+	
     protected Object formBackingObject(HttpServletRequest request) throws ServletException {
     	AddEventFormData eventInfo = new AddEventFormData();
         return eventInfo;
@@ -50,5 +73,9 @@ public class AddEventController extends SimpleFormController {
  
     public void setEventManager(EventManager eventManager) {
 		this.eventManager = eventManager;
+	}
+    
+    public void setCategoryManager(CategoryManager categoryManager) {
+		this.categoryManager = categoryManager;
 	}
 }

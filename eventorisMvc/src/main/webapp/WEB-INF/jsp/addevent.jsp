@@ -30,7 +30,19 @@
           <form:errors path="description" cssClass="error"/>
         </td>
     </tr>
+     <tr>
+      <td align="right" width="20%">Category:</td>
+        <td width="20%">
+          <form:select path="category">
+          	 <form:options items="${categories}" />
+          </form:select>
+        </td>
+        <td width="60%">
+          <form:errors path="category" cssClass="error"/>
+        </td>
+    </tr>
   </table>
+  
   <br>
   <input type="submit" align="center" value="Execute">
 </form:form>
