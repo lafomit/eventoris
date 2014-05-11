@@ -1,6 +1,7 @@
 package eventoris.dao;
 import eventoris.datatypes.*;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -109,5 +110,63 @@ public class EventJDBCTemplate implements EventDAO{
 		return events;		
 	}
 	
-	// get participants where id and status
+	private boolean checkIfParticipantExists(int idUser, int idEvent){
+		String SQL = "select count(*) from participants where id_user = ? and id_event = ?";
+		boolean exists = false;
+		
+		int count = jdbcTemplateObject.queryForInt(SQL, new Object[]{idUser, idEvent});
+		
+		System.out.println(count);
+		
+		if(count != 0)
+			exists = true;
+		
+		return exists;
+	}
+	
+	private boolean compareExistingAndRequestedStatus(int idEvent, int idUser, int idParticipationStatus){
+		String SQL = "select id_status from participants where id_event = ? and id_user = ?";
+		boolean isEqual = false;
+		
+		int existingStatus = jdbcTemplateObject.queryForInt(SQL, new Object[]{idEvent,idUser});
+		
+		if(existingStatus == idParticipationStatus){
+			isEqual = true;
+		}
+		return isEqual;
+	}
+	
+	private void changeParticipationStatus(int idEvent, int idUser, int idParticipationStatus){
+		String SQL = "update participants set id_status = ? where id_event = ? and id_user = ?";
+		
+		jdbcTemplateObject.update(SQL, new Object[]{idParticipationStatus, idEvent, idUser});
+		
+		System.out.println("Succesfully changed status");
+	}
+	
+	private void addParticipant(int idEvent, int idUser, int idParticipationStatus){
+		String SQL = "insert into participants (id_event, id_user, id_status, date_subscribed) values (?, ?, ?, ?)";
+		Date tempDate = new Date();
+		SimpleDateFormat formatedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String today = formatedDate.format(tempDate);
+		
+		jdbcTemplateObject.update(SQL, new Object[]{idEvent,idUser,idParticipationStatus,today});
+	}
+	
+	public void subscribeToEvent(int idEvent, int idUser, int idParticipationStatus){
+		boolean exists = this.checkIfParticipantExists(idUser, idEvent);
+		boolean isEqual = false;
+		
+		if(exists){
+			isEqual = this.compareExistingAndRequestedStatus(idEvent, idUser, idParticipationStatus);
+			if(isEqual)
+				System.out.println("Dvs. deja sunteţi înscris în lista dată");
+			else{
+				this.changeParticipationStatus(idUser, idEvent, idParticipationStatus);
+			}
+			
+		}
+		else
+			this.addParticipant(idEvent, idUser, idParticipationStatus);
+	}
 }
