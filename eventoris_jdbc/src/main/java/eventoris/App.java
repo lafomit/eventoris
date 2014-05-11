@@ -113,6 +113,6 @@ public class App
         //-------------CHANGE USER PARTICIPATION STATUS---------------//
         int userId = -2;
         int eventId = 4;
-        eventJdbcTemplate.changeParticipationStatus(eventId, userId, 2);
+     //   eventJdbcTemplate.changeParticipationStatus(eventId, userId, 2);
     }
 }

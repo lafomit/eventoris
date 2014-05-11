@@ -1,5 +1,6 @@
 package eventoris.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -9,29 +10,54 @@ import eventoris.datatypes.EventInfo;
 
 public class DummyInMemoryDao implements EventDAO{
 
+	/*
+		EventInfo event = new EventInfo();
+		event.setTitle("some title");
+		List<EventInfo> result = new ArrayList<EventInfo>();
+		result.add(event);
+		return result;
+	 */
+	
+	private static List<EventInfo> eventInfoDB = new ArrayList<EventInfo>();
+	
+	
+	private EventInfo createDummyEventInfo(int seedId){
+		EventInfo result = new EventInfo();
+		result.setDescription("Some event description " + seedId );
+		result.setTitle("EventIntersting Title" + seedId );
+		result.setDateCreated("dummy date" + seedId);
+		result.setOwnerID(2);
+		return result;
+	}
+	public DummyInMemoryDao(){
+		for(int i=0;i<10;i++){
+			eventInfoDB.add(createDummyEventInfo(eventInfoDB.size()));
+		}
+	}
+	
 	public void setDataSource(DataSource dataSource) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	public void create(EventInfo event) {
-		// TODO Auto-generated method stub
-		
+		eventInfoDB.add(event);
 	}
 
 	public EventInfo getEvent(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		if(id < eventInfoDB.size())
+			return eventInfoDB.get(id);
+		else 
+			return null;
 	}
 
 	public List<EventInfo> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return eventInfoDB;
 	}
 
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
+		if(id < eventInfoDB.size())
+			eventInfoDB.remove(id);
 	}
 
 	public void update(EventInfo event) {
@@ -52,6 +78,12 @@ public class DummyInMemoryDao implements EventDAO{
 	public List<EventInfo> getTopEvents(int eventsCount) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void subscribeToEvent(int idEvent, int idUser,
+			int participationStatus) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -1,12 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-  <!-- the application context definition for the springapp DispatcherServlet -->
+	<!-- the application context definition for the springapp DispatcherServlet -->
 
-  <bean name="/hello.htm" class="com.eventoris.web.HelloController"/>
+    <bean id="inMemoryDao" class="eventoris.dao.DummyInMemoryDao">
+	</bean>
 
+	<bean id="eventManager" class="com.eventoris.service.SimpleEventManager">
+		<property name="dataSource" ref="inMemoryDao" />
+	</bean>
+
+	
+	<bean name="/eventlist.htm" class="com.eventoris.web.controllers.EventListController">
+		<property name="eventManager" ref="eventManager" />
+	</bean>
+
+    <bean name="/addevent.htm" class="com.eventoris.web.controllers.AddEventController">
+        <property name="sessionForm" value="true"/>
+        <property name="commandName" value="createEvent"/>
+        <property name="commandClass" value="com.eventoris.web.formbeans.AddEventFormData"/>
+        <property name="validator">
+            <bean class="com.eventoris.web.validator.CreateEventValidator"/>
+        </property>
+        <property name="formView" value="addevent"/>
+        <property name="successView" value="eventlist.htm"/>
+        <property name="eventManager" ref="eventManager"/>
+    </bean>
+    
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView"></property>
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages"/>
+    </bean>
 </beans>
