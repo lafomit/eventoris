@@ -32,7 +32,7 @@
 		<property name="dataSource" ref="mysqlDao" />
 	</bean>
 	
-	<bean name="/home.htm" class="com.eventoris.web.controllers.EventListController">
+	<bean name="/index.htm" class="com.eventoris.web.controllers.IndexController">
 		<property name="eventManager" ref="eventManager" />
 	</bean>
 	

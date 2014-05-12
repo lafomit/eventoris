@@ -27,5 +27,12 @@ public class  EventManagerImpl implements EventManager {
 		// TODO Auto-generated method stub
 		eventDaoProvider.create(event);
 	}
-
+	
+	public List<EventInfo> getLastEventsByDate(int eventsCount){
+		return eventDaoProvider.getLastEventsByDate(eventsCount);
+	}
+	
+	public List<EventInfo> getTopEvents(int eventsCount){
+		return eventDaoProvider.getTopEvents(eventsCount);
+	}
 }

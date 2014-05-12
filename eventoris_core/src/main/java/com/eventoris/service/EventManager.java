@@ -9,4 +9,8 @@ public interface EventManager {
 	public List<EventInfo> getAllEventsForUser();
 	
 	public void createNewEventInfo(EventInfo event);
+	
+	public List<EventInfo> getLastEventsByDate(int eventsCount);
+	
+	public List<EventInfo> getTopEvents(int eventsCount);
 }
