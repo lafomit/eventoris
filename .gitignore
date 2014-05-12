@@ -214,4 +214,21 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 FormHandling/target/FormHandling.war
+eventorisMvc/target/
+eventoris_jdbc/target/
 *.war
+eventorisMvc/target/eventorisMvc.war
+*.class
+*.class
+*.war
+*.class
+*.class
+target/
+target/*
+/target/*
+eventoris_jdbc/target/surefire-reports/TEST-eventoris.AppTest.xml
+eventoris_jdbc/target/maven-archiver/pom.properties
+eventoris_jdbc/target/classes/eventoris/datatypes/EventInfo.class
+*.class
+*.class
+eventorisMvc/target/classes/com/home/controllers/IndexController.class
