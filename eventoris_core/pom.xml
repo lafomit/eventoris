@@ -21,9 +21,8 @@
  	  <dependency>
 		  	<groupId>com.diplom.app</groupId>
 			<artifactId>eventoris_jdbc</artifactId>
-			<version>1.0</version>
-			
-  </dependency>
+			<version>1.0</version>		
+  	  </dependency>
 	  
  </dependencies>
 </project>

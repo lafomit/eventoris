@@ -1,14 +1,12 @@
-<%@ include file="/WEB-INF/jsp/include.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
-<html>
-<head>
-  <title><fmt:message key="title"/></title>
-  <style>
-    .error { color: red; }
-  </style>  
-</head>
-<body>
+<%@ include file="/WEB-INF/jsp/include_links.jsp" %>
+
+<title>Eventoris | Home</title>
+
+<%@ include file="/WEB-INF/jsp/include_menu.jsp" %>
+
 <h1><fmt:message key="addevent.heading"/></h1>
 <form:form method="post" commandName="createEvent">
   <table width="95%" bgcolor="f8f8ff" border="0" cellspacing="0" cellpadding="5">
@@ -22,7 +20,7 @@
         </td>
     </tr>
      <tr>
-      <td align="right" width="20%">Description:</td>
+      <td align="right" width="20%">Descriptionăţ:</td>
         <td width="20%">
           <form:input path="description"/>
         </td>

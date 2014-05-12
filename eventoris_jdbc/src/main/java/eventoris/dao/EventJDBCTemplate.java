@@ -171,7 +171,8 @@ public class EventJDBCTemplate implements EventDAO{
 	}
 
 	public List<CategoryInfo> getAllCategories() {
-		// TODO Auto-generated method stub
-		return null;
+		String SQL = "select * from event_categories";
+		List<CategoryInfo> categories = jdbcTemplateObject.query(SQL, new CategoryMapper());
+		return categories;
 	}
 }

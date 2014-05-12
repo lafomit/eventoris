@@ -4,6 +4,19 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+       
+       <!-- Initialization for data source -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+     <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+     <property name="url" value="jdbc:mysql://localhost:3306/eventoris_db"/>
+     <property name="username" value="root"/>
+     <property name="password" value="Open123"/>
+ 	</bean>
+ 
+    <!-- Definition for studentJDBCTemplate bean -->
+   <bean id="mysqlDao" class="eventoris.dao.EventJDBCTemplate">
+      <property name="dataSource"  ref="dataSource" />    
+   </bean>
 
 	<!-- the application context definition for the springapp DispatcherServlet -->
 
@@ -11,12 +24,16 @@
 	</bean>
 
 	<bean id="eventManager" class="com.eventoris.service.EventManagerImpl">
-		<property name="dataSource" ref="inMemoryDao" />
+		<property name="dataSource" ref="mysqlDao" />
 	</bean>
 
 
 	<bean id="categoryManager" class="com.eventoris.service.CategoryManagerImpl">
-		<property name="dataSource" ref="inMemoryDao" />
+		<property name="dataSource" ref="mysqlDao" />
+	</bean>
+	
+	<bean name="/home.htm" class="com.eventoris.web.controllers.EventListController">
+		<property name="eventManager" ref="eventManager" />
 	</bean>
 	
 	<bean name="/eventlist.htm" class="com.eventoris.web.controllers.EventListController">

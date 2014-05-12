@@ -1,8 +1,11 @@
-<%@ include file="/WEB-INF/jsp/include.jsp" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ include file="/WEB-INF/jsp/include_links.jsp" %>
 
-<html>
-  <head><title>Hello :: eventList</title></head>
-  <body>
+<title>Eventoris | All Events</title>
+
+<%@ include file="/WEB-INF/jsp/include_menu.jsp" %>
+
+
     <h1>Hello: event list</h1>
     <p>Greetings, it is now <c:out value="${model.now}"/></p>
     

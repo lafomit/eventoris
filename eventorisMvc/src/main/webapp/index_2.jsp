@@ -8,7 +8,9 @@
 <html>
 
 <meta name="viewport" content="width=device-width, initial-scale = 1.0, user-scalable = no">
-	<title>Eventoris | Home</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Didact+Gothic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -24,6 +26,7 @@
 	<script type="text/javascript" src="resources/js/scripts.js"></script>
 	<script type="text/javascript" src="resources/js/jquery.sticky.js"></script>
 	<script type="text/javascript" src="resources/js/modernizr.custom.js"></script>
+	<title>Eventoris | Home</title>
 </head>
 
 <body>

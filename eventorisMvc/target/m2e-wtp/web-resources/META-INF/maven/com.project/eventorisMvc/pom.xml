@@ -15,11 +15,6 @@
   <name>eventorisMvc Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.version>3.0.5.RELEASE</spring.version>
-  </properties>
-  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -56,11 +51,65 @@
 		  	<groupId>com.diplom.app</groupId>
 			<artifactId>eventoris_jdbc</artifactId>
 			<version>1.0</version>
-			<scope>runtime</scope>
 	  </dependency>
 	  
+	  <dependency>
+		  	<groupId>com.diplom.app</groupId>
+			<artifactId>eventoris_core</artifactId>
+			<version>${eventoris.core.version}</version>
+	  </dependency>
+	  
+	  
+	  <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.0.1</version>
+        <scope>provided</scope>
+      </dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+            
   </dependencies>
   <build>
     <finalName>eventorisMvc</finalName>
+    
+    
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+    </plugin>
+    
+  
+	<!-- Maven Tomcat Plugin -->
+	<plugin>
+		<groupId>org.codehaus.mojo</groupId>
+		<artifactId>tomcat-maven-plugin</artifactId>
+		<configuration>
+			<url>http://127.0.0.1:8080/manager/html</url>
+			<server>TomcatServer</server>
+			<path>/eventorisMvc</path>
+		</configuration>
+	</plugin>
+	<!-- Maven compiler plugin -->
+	<plugin>
+		<artifactId>maven-compiler-plugin</artifactId>
+		<configuration>
+			<source>1.6</source>
+			<target>1.6</target>
+		</configuration>
+	</plugin>
+    
+      </plugins>
   </build>
 </project>
