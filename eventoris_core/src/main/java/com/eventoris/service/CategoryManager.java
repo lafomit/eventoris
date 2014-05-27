@@ -6,6 +6,6 @@ import eventoris.datatypes.CategoryInfo;
 
 public interface CategoryManager {
 
-	public List<CategoryInfo> getAllCategories();
+	public List<CategoryInfo>  getAllCategories();
 	
 }

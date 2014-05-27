@@ -16,7 +16,8 @@ public class CategoryManagerImpl implements CategoryManager{
 
 	
 	public List<CategoryInfo> getAllCategories() {
-		return eventDaoProvider.getAllCategories();
+		List<CategoryInfo> result = eventDaoProvider.getAllCategories()
+		return result;
 	}
 
 }
