@@ -14,7 +14,7 @@
 					<li data-slide="1">Home</li>
 					<li data-slide="2">Ultimele Evenimente</li>
 					<li data-slide="3">Top Evenimente</li>
-					<li data-slide="4">Ultimele Noutati</li>
+					<li data-slide="4">Ultimele Noutăţi</li>
 				</ul>
 				</nav>
 			</div>
