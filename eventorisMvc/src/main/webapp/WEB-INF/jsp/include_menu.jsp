@@ -16,8 +16,8 @@
 				<div class="grid_4 margin-padding-clear">
 					<nav id="menu" class="nav">					
 						<ul>
-							<li class = "active"><a href="#"><i class = "icon-home-outline"></i>Home</a></li>
-							<li><a href="#"><i class = "icon-calendar-outlilne"></i>Evenimente</a></li>
+							<li class = "active"><a href="<c:url value="index.htm"/>"><i class = "icon-home-outline"></i>Home</a></li>
+							<li><a href="<c:url value="events.htm"/>"><i class = "icon-calendar-outlilne"></i>Evenimente</a></li>
 							<li><a href="#"><i class = "icon-news"></i>Noutăţi</a></li>
 						</ul>
 					</nav>

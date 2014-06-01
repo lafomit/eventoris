@@ -13,8 +13,8 @@
 	<link href='http://fonts.googleapis.com/css?family=Didact+Gothic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="resources/css/grid.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="resources/css/fontello.css" type="text/css" media="screen">
-	<link rel="stylesheet" href="resources/css/style.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="resources/css/main-nav.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="resources/css/style.css" type="text/css" media="screen">
 	
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="resources/js/jquery.stellar.min.js"></script> 

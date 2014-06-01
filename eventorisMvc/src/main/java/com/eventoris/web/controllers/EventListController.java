@@ -33,7 +33,7 @@ public class EventListController implements Controller{
 		myModel.put("now", now);
 		myModel.put("products", events);
 
-		return new ModelAndView("eventlist", "model", myModel);
+		return new ModelAndView("events", "model", myModel);
 	}
 
 	public void setEventManager(EventManager eventManager) {

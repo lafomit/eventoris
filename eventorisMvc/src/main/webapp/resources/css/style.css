@@ -96,6 +96,12 @@ header{
 	display:inline;
 	margin-right:50px;
 }
+
+#stick-menu nav a{
+	color: #ffffff;
+	text-decoration: none;
+}
+
 #stick-menu nav li:hover{
 	cursor:pointer;
 	border-bottom: none;
