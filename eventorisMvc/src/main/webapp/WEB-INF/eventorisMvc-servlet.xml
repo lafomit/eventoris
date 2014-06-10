@@ -52,7 +52,7 @@
 		<property name="eventManager" ref="eventManager" />
 	</bean>
 	
-	<bean name="/eventlist.htm" class="com.eventoris.web.controllers.EventListController">
+	<bean name="/events.htm" class="com.eventoris.web.controllers.EventListController">
 		<property name="eventManager" ref="eventManager" />
 	</bean>
 
@@ -64,7 +64,7 @@
             <bean class="com.eventoris.web.validator.CreateEventValidator"/>
         </property>
         <property name="formView" value="addevent"/>
-        <property name="successView" value="eventlist.htm"/>
+        <property name="successView" value="events.htm"/>
         <property name="eventManager" ref="eventManager"/>
         <property name="categoryManager" ref="categoryManager"/>
     </bean>

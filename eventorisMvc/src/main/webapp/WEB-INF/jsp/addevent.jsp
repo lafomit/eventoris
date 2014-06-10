@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ include file="/WEB-INF/jsp/include_links.jsp" %>
 
@@ -7,43 +8,28 @@
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp" %>
 
-<h1><fmt:message key="addevent.heading"/></h1>
-<form:form method="post" commandName="createEvent">
-  <table width="95%" bgcolor="f8f8ff" border="0" cellspacing="0" cellpadding="5">
-    <tr>
-      <td align="right" width="20%">Title:</td>
-        <td width="20%">
-          <form:input path="title"/>
-        </td>
-        <td width="60%">
-          <form:errors path="title" cssClass="error"/>
-        </td>
-    </tr>
-     <tr>
-      <td align="right" width="20%">Descriptionăţ:</td>
-        <td width="20%">
-          <form:input path="description"/>
-        </td>
-        <td width="60%">
-          <form:errors path="description" cssClass="error"/>
-        </td>
-    </tr>
-     <tr>
-      <td align="right" width="20%">Category:</td>
-        <td width="20%">
-          <form:select path="category">
-          	 <form:options items="${categories}" />
-          </form:select>
-        </td>
-        <td width="60%">
-          <form:errors path="category" cssClass="error"/>
-        </td>
-    </tr>
-  </table>
-  
-  <br>
-  <input type="submit" align="center" value="Execute">
-</form:form>
-<a href="<c:url value="eventlist.htm"/>">Home</a>
-</body>
-</html>
+<div>
+	<div class = "container clearfix">
+		<div class="grid_12">
+			<h1><fmt:message key="addevent.heading"/></h1>
+			<form:form method="post" commandName="createEvent">
+				<form:input path="title"/>
+			    <form:errors path="title" cssClass="error"/>
+			          
+			    <form:input path="description"/>
+			    <form:errors path="description" cssClass="error"/>
+			        
+			    <form:select path="category">
+			    	<form:options items="${categories}" />
+			    </form:select>			        
+			    <form:errors path="category" cssClass="error"/>
+			  
+			  <br>
+			  <input type="submit" value="Execute">
+			</form:form>
+		</div>
+	</div>
+</div>
+
+<%@ include file="/WEB-INF/jsp/include_footer.jsp" %>
+<%@ include file="/WEB-INF/jsp/include_scripts.jsp" %>
