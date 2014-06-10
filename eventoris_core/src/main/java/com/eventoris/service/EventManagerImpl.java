@@ -35,4 +35,9 @@ public class  EventManagerImpl implements EventManager {
 	public List<EventInfo> getTopEvents(int eventsCount){
 		return eventDaoProvider.getTopEvents(eventsCount);
 	}
+	
+	public EventInfo getEventById(int id){
+		return eventDaoProvider.getEvent(id);
+	}
+	
 }

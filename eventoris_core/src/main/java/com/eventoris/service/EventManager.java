@@ -13,4 +13,6 @@ public interface EventManager {
 	public List<EventInfo> getLastEventsByDate(int eventsCount);
 	
 	public List<EventInfo> getTopEvents(int eventsCount);
+	
+	public EventInfo getEventById(int id);
 }
