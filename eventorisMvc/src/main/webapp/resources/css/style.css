@@ -298,6 +298,7 @@ footer{
 	height: 150px;
     position: absolute;
     width: 150px;
+    border-radius: 150px;
 }
 
 .event-description a{
@@ -405,7 +406,8 @@ footer{
 .block-header img{
 	height: 100px;
     position: absolute;
-    width: 100px;
+    width: 96px;
+    border-radius: 100px;
 }
 
 .block-header h1{
