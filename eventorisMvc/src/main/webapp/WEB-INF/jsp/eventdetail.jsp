@@ -6,6 +6,7 @@
 <title>Eventoris | event detail</title>
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
+<<<<<<< HEAD
 
 <div class="container clearfix">
 	<div id="content" class="grid_12">
@@ -33,18 +34,36 @@
 					</div>
 					<div class="block-content">
 						<p>
-							<em>Categorie:</em> <%=eventInfo.getCategoryID()%><br>
+							<em>Categorie:</em> XXXXX<br>
 							<br> <em>Descriere: </em><%=eventInfo.getDescription()%><br>
-							<br> <em>Data: <%=eventInfo.getDateOfEvent()%></em> <em>Ora: </em>
+							<br>
+							<%
+								String tmp = eventInfo.getDateOfEvent();
+									String year = tmp.substring(0, 4);
+									String date = tmp.substring(8, 10);
+									String month = tmp.substring(5, 7);
+							%>
+							<em>Data: </em>
+							<%=date%>.<%=month%>.<%=year%><br>
+							<br>
+							<%
+								String hour = tmp.substring(11, 13);
+									String minutes = tmp.substring(14, 16);
+							%>
+							<em>Ora: </em>
+							<%=hour%>:<%=minutes%>
 						</p>
 					</div>
 				</div>
+
 			</div>
-			<%
-				}
-			%>
 		</div>
 	</div>
+	<%
+		}
+	%>
+</div>
+</div>
 </div>
 <div class="container clearfix">
 	<div id="content" class="grid_12">
