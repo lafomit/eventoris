@@ -6,7 +6,7 @@
 <title>Eventoris | event detail</title>
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
-<<<<<<< HEAD
+
 
 <div class="container clearfix">
 	<div id="content" class="grid_12">
@@ -53,6 +53,7 @@
 							<em>Ora: </em>
 							<%=hour%>:<%=minutes%>
 						</p>
+
 					</div>
 				</div>
 
