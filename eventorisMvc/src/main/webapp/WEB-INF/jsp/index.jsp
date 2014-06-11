@@ -81,11 +81,7 @@
 									<h2>Data</h2>
 								</div>
 								<div class = "date-circle" id="day">
-<<<<<<< HEAD
-									<h1>21</h1>
-=======
 									<h1><c:out value="<%=date%>"/></h1>
->>>>>>> origin/master
 								</div>
 								<div class = "date-circle" id="month">
 									<h3><%=month %></h3>
