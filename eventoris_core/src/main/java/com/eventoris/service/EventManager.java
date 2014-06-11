@@ -15,6 +15,4 @@ public interface EventManager {
 	public List<EventInfo> getTopEvents(int eventsCount);
 	
 	public EventInfo getEventById(int id);
-	
-	/*public String getDay(String date);*/
 }

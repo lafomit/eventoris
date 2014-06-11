@@ -39,15 +39,5 @@ public class  EventManagerImpl implements EventManager {
 	public EventInfo getEventById(int id){
 		return eventDaoProvider.getEvent(id);
 	}
-/*	
-	public String getDay(List<EventInfo> events){
-		
-		String[] days; 
-		
-		for(int i = 1; i < events.size(); i++)
-		= date.substring(0, 4);
-		
-		return day;
-	}
-	*/
+	
 }
