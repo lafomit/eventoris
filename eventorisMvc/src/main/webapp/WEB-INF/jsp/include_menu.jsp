@@ -8,7 +8,7 @@
 			<div class="container clearfix">
 				<div class="grid_3 margin-padding-clear">
 					<div class = "logo">
-						<a href="#">
+						<a href="index.htm">
 							<img src="resources/img/logo_03.png"/>
 						</a>
 					</div>

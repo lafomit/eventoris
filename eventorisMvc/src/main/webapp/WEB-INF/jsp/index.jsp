@@ -32,11 +32,11 @@
 						<li>să fim prieteni</li>
 					</ul>
 					
-					<button>Logare</button>
+					<button onclick="window.location.href=''">Logare</button>
 				</div>
 			</div>
 			<div class="grid_6 omega">
-				
+				<button onclick="window.location.href='register_new.htm'">Înregistrare</button>
 			</div>
 
 		</div>
@@ -75,7 +75,7 @@
 									<h2>Data</h2>
 								</div>
 								<div class = "date-circle" id="day">
-									<h1><c:out value="${event.dateOfEvent}"/></h1>
+									<h1>21</h1>
 								</div>
 								<div class = "date-circle" id="month">
 									<h3>Septembrie</h3>
