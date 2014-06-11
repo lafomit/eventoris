@@ -39,6 +39,8 @@ body{
 	font-family: 'Didact Gothic', sans-serif;
 	margin: 0;
 	padding: 0;
+	background-color: #ecf0f1;
+	height:100%;
 }
 
 h1{
@@ -153,7 +155,7 @@ header{
 	color: #ffffff;
 }
 
-.intro-text button{
+.intro-text button, .registration button{
 	background-color: #3498db;
     border: medium none;
     border-radius: 20px;
@@ -164,11 +166,11 @@ header{
     width: 300px;
 }
 
-.intro-text button:hover{
+.intro-text button:hover, .registration button:hover{
 	background-color: #298bcc;
 }
 
-.intro-textg button:active{
+.intro-text button:active, .registration button:active{
 	background-color: #3498db;
 }
 /* Slide 2 */ 
@@ -200,6 +202,11 @@ header{
 
 
 /* Footer */
+
+footer{
+    height:200px; 
+    background-color:#2c3e50;
+}
 
 .social-networks{
 	background-color: #34495e;

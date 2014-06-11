@@ -36,7 +36,9 @@
 				</div>
 			</div>
 			<div class="grid_6 omega">
-				<button onclick="window.location.href='register_new.htm'">Înregistrare</button>
+				<div class = "registration">
+					<button onclick="window.location.href='register_new.htm'">Înregistrare</button>
+				</div>
 			</div>
 
 		</div>
@@ -111,20 +113,40 @@
 			<div id="content" class="grid_12">
 				<div class = "events">
 					<c:forEach items="${model.topEvents}" var="event">
+						<%
+							Calendar cal = Calendar.getInstance();
+						    String tmp = ((eventoris.datatypes.EventInfo)pageContext.findAttribute("event")).getDateOfEvent();
+						    String year = tmp.substring(0, 4);
+						    String date = tmp.substring(8,10);
+							String month = tmp.substring(5,7);
+						%>
 						<div class = "event-body">
-							<div class="event-title">
-								<h2><c:out value="${event.title}"/></h2>
+							<div class="left-event-half">
+								<div class="event-title">
+									<h2><c:out value="${event.title}"/></h2>
+								</div>
+								<div class = "event-description">							
+									<img alt="category" src="resources/img/categories/<c:out value="${event.categoryID}"/>.png">
+									<p>
+										<em>Descrierea: </em><c:out value="${event.description}"/>
+									</p>
+									<a href="#">Vezi tot</a>
+								</div>
 							</div>
-							<div class = "event-description">							
-								<img alt="category" src="resources/img/categories/<c:out value="${event.categoryID}"/>.png">
-								<p>
-									<em>Descrierea: </em><c:out value="${event.description}"/>
-								</p>
-								<a href="#">Vezi tot</a>
+							<div class="right-event-half">
+								<div class="event-date-title">
+									<h2>Data</h2>
+								</div>
+								<div class = "date-circle" id="day">
+									<h1><%=date%></h1>
+								</div>
+								<div class = "date-circle" id="month">
+									<h3><%=month %></h3>
+								</div>
+								<div class = "date-circle" id="year">
+									<h1><%=year %></h1>
+								</div>
 							</div>
-						</div>
-						<div class="">
-						
 						</div>
 					</c:forEach>
 				</div>

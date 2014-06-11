@@ -7,9 +7,6 @@
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
 
-<h1>
-	<fmt:message key="addevent.heading" />
-</h1>
 <form:form method="post" commandName="createUser">
 	<table width="95%" bgcolor="f8f8ff" border="0" cellspacing="0"
 		cellpadding="5">
