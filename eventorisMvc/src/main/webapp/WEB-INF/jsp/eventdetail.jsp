@@ -30,8 +30,18 @@
 							<p>
 							<em>Categorie:</em> XXXXX<br><br>
 							<em>Descriere: </em><%=eventInfo.getDescription()%><br><br>
-							<em>Data: </em>
-							<em>Ora: </em>
+							<%
+						    String tmp = eventInfo.getDateOfEvent();
+						    String year = tmp.substring(0, 4);
+						    String date = tmp.substring(8,10);
+							String month = tmp.substring(5,7);
+							%>
+							<em>Data: </em> <%=date%>.<%=month%>.<%=year%><br><br>
+							<%
+							String hour = tmp.substring(11, 13);
+						    String minutes = tmp.substring(14,16);
+							%>
+							<em>Ora: </em> <%=hour%>:<%=minutes %>
 							</p>
 							</div>
 						</div>
