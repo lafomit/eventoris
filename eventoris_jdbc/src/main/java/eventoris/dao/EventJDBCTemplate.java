@@ -21,6 +21,7 @@ public class EventJDBCTemplate implements EventDAO{
 	}
 	
 	public void create(EventInfo event){
+		
 		String SQL = "insert into event_info (title, id_category, description, date_created, date_of_event, address, id_owner) values (?, ?, ?, ?, ?, ?, ?)";
 		
 		jdbcTemplateObject.update(SQL, event.getTitle(), 
@@ -181,5 +182,13 @@ public class EventJDBCTemplate implements EventDAO{
 		String SQL = "select * from event_categories";
 		List<CategoryInfo> categories = jdbcTemplateObject.query(SQL, new CategoryMapper());
 		return categories;
+	}
+
+	public List<EventInfo> getEventsByTitle(String searchText) {
+		String SQL = "select * from event_info where title like '%"+searchText+"%'";
+		
+		List<EventInfo> events = jdbcTemplateObject.query(SQL,  new EventMapper());
+		
+		return events;
 	}
 }

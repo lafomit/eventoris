@@ -24,6 +24,7 @@ public interface EventDAO {
 	public List<EventInfo> getTopEvents(int eventsCount);
 	
 	public void subscribeToEvent(int idEvent, int idUser, int participationStatus);
+	public List<EventInfo> getEventsByTitle(String searchText);
 	//public boolean compareExistingAndRequestedStatus(int idEvent, int idUser, int participationStatus);
 	//public boolean checkIfParticipantExists(int idUser, int idEvent);
 	

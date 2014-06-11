@@ -99,5 +99,9 @@ public class DummyInMemoryDao implements EventDAO{
 		
 		return category;
 	}
+	public List<EventInfo> getEventsByTitle(String searchText) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

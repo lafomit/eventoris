@@ -15,4 +15,6 @@ public interface EventManager {
 	public List<EventInfo> getTopEvents(int eventsCount);
 	
 	public EventInfo getEventById(int id);
+	
+	public List<EventInfo> getEventByTitle(String searchText);
 }

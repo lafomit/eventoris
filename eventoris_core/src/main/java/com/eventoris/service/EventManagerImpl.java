@@ -39,5 +39,9 @@ public class  EventManagerImpl implements EventManager {
 	public EventInfo getEventById(int id){
 		return eventDaoProvider.getEvent(id);
 	}
+
+	public List<EventInfo> getEventByTitle(String searchText) {
+		return eventDaoProvider.getEventsByTitle(searchText);
+	}
 	
 }

@@ -26,19 +26,21 @@ public class IndexController implements Controller{
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
-		String now = (new java.util.Date()).toString();
-		logger.info(now+" | getting last events");
-		
-		System.out.println("I'm here in IndexController!");	
-		
-		List<EventInfo> lastEvents = this.eventManager.getLastEventsByDate(EVENTS_COUNT);
-		List<EventInfo> topEvents = this.eventManager.getTopEvents(EVENTS_COUNT);
-		
-		Map<Object, Object> myModel = new HashMap<Object, Object>();
-		myModel.put("topEvents", topEvents);
-		myModel.put("lastEvents", lastEvents);
 
-		return new ModelAndView("index", "model", myModel);
+			String now = (new java.util.Date()).toString();
+			logger.info(now+" | getting last events");
+			
+			System.out.println("I'm here in IndexController!");	
+			
+			List<EventInfo> lastEvents = this.eventManager.getLastEventsByDate(EVENTS_COUNT);
+			List<EventInfo> topEvents = this.eventManager.getTopEvents(EVENTS_COUNT);
+			
+			Map<Object, Object> myModel = new HashMap<Object, Object>();
+			myModel.put("topEvents", topEvents);
+			myModel.put("lastEvents", lastEvents);
+	
+			return new ModelAndView("index", "model", myModel);
+		
 	}
 	
 	public void setEventManager(EventManager eventManager) {
