@@ -73,7 +73,7 @@
 								<p>
 									<em>Descrierea: </em><c:out value="${event.description}"/>
 								</p>
-								<a href="#">Vezi tot</a>
+								<a href="eventdetail.htm?event=${event.eventID}">Vezi tot</a>
 							</div>
 						</div>
 						<div class="right-event-half">
@@ -120,7 +120,7 @@
 								<p>
 									<em>Descrierea: </em><c:out value="${event.description}"/>
 								</p>
-								<a href="#">Vezi tot</a>
+								<a href="eventdetail.htm?event=6">Vezi tot</a>
 							</div>
 						</div>
 						<div class="">

@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
@@ -18,7 +22,7 @@ import com.eventoris.service.EventManager;
 
 import eventoris.datatypes.EventInfo;
 
-public class EventListController implements Controller{
+public class EventDetailController implements Controller{
 
 	protected final Log logger = LogFactory.getLog(getClass());
 	private EventManager eventManager;
@@ -26,19 +30,29 @@ public class EventListController implements Controller{
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		String now = (new java.util.Date()).toString();
-		logger.info("returning eventlist view with " + now);
-		List<EventInfo> events = this.eventManager.getAllEventsForUser();
-		Map<String, Object> myModel = new HashMap<String, Object>();
-		myModel.put("now", now);
-		myModel.put("products", events);
+		String eventIdAsString = request.getParameter("event");
+		
+		int eventId = -1;
+		try{
+		    eventId = Integer.parseInt(eventIdAsString);
+		}catch(NumberFormatException ex){
+		 
+			return new ModelAndView("eventdetail", "eventInfo", null);
+		}
+		EventInfo resultEventInfo = eventManager.getEventById(eventId);
+		
+		logger.info("returning eventInfo:" + resultEventInfo);
+	 
+	 
 
-		return new ModelAndView("events", "model", myModel);
+		return new ModelAndView("eventdetail", "eventInfo", resultEventInfo);
 	}
 
 	public void setEventManager(EventManager eventManager) {
 		this.eventManager = eventManager;
 	}
 
-
+	
+ 
+	
 }

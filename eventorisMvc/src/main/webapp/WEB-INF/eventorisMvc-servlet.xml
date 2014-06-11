@@ -18,7 +18,7 @@
    		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
    		<property name="url" value="jdbc:mysql://localhost:3306/eventoris_db"/>
    		<property name="username" value="root"/>
-   		<property name="password" value="Open123"/>
+   		<property name="password" value=""/>
 	</bean>
  
     <!-- Definition for  JDBCTemplate bean -->
@@ -49,6 +49,10 @@
 	</bean>
 	
 	<bean name="/index.htm" class="com.eventoris.web.controllers.IndexController">
+		<property name="eventManager" ref="eventManager" />
+	</bean>
+	
+	<bean name="/eventdetail.htm" class="com.eventoris.web.controllers.EventDetailController">
 		<property name="eventManager" ref="eventManager" />
 	</bean>
 	
