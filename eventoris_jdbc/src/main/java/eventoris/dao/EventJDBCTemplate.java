@@ -1,13 +1,15 @@
 package eventoris.dao;
-import eventoris.datatypes.*;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import eventoris.datatypes.CategoryInfo;
+import eventoris.datatypes.EventInfo;
 
 public class EventJDBCTemplate implements EventDAO{
 	private DataSource dataSource;
@@ -40,7 +42,12 @@ public class EventJDBCTemplate implements EventDAO{
 	
 	public EventInfo getEvent(int id){ // Aici tot un obiect intreg pentru id?
 		String SQL = "select * from event_info where id_event_info = ?";
-		EventInfo event = jdbcTemplateObject.queryForObject(SQL, new Object[]{id}, new EventMapper());
+		EventInfo event = null;
+		try{
+			  event = jdbcTemplateObject.queryForObject(SQL, new Object[]{id}, new EventMapper());
+		}catch (IncorrectResultSizeDataAccessException  ex){
+			return null;
+		}
 		
 		return event;
 	}

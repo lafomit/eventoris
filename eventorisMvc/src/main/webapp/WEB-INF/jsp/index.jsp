@@ -75,7 +75,7 @@
 								<p>
 									<em>Descrierea: </em><c:out value="${event.description}"/>
 								</p>
-								<a href="#">Vezi tot</a>
+								<a href="eventdetail.htm?event=${event.eventID}">Vezi tot</a>
 							</div>
 						</div>
 						<div class="right-event-half">
@@ -146,6 +146,14 @@
 								<div class = "date-circle" id="year">
 									<h1><%=year %></h1>
 								</div>
+
+							<div class = "event-description">							
+								<img alt="category" src="resources/img/categories/<c:out value="${event.categoryID}"/>.png">
+								<p>
+									<em>Descrierea: </em><c:out value="${event.description}"/>
+								</p>
+								<a href="eventdetail.htm?event=6">Vezi tot</a>
+
 							</div>
 						</div>
 					</c:forEach>
