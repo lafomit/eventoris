@@ -60,6 +60,10 @@ a{
 a href{
 	text-decoration: underline;
 }
+em{
+	font-weight: bold;
+	font-style: normal;
+}
 
 .slide-title{
 	text-align:center;
@@ -279,10 +283,7 @@ footer{
     position: relative;
 }
 
-.events em{
-	color: #2d2d2e;
-	font-style: normal;
-}
+
 
 .event-description{
 	background-color: #FFFFFF;
@@ -370,6 +371,51 @@ footer{
 #year{
 	position: absolute;
 	left: 340px;
+}
+
+/* event details */
+
+.event-detail-wrapper{
+	padding-top: 130px;
+}
+
+.left-column-eventdetail{
+
+}
+
+.block{
+	width: 475px;
+	background-color: #ffffff;
+	border-top-left-radius: 50px;
+}
+
+.block-header{
+	height: 100px;
+	border-bottom-left-radius: 100px;
+	border-top-left-radius: 100px;
+	background-color: #e74c3c;
+	position: relative;	
+}
+
+.block-content p{
+	color: #636466;
+	padding: 20px;
+}
+
+.block-header img{
+	height: 100px;
+    position: absolute;
+    width: 100px;
+}
+
+.block-header h1{
+	border: medium none;
+    font-size: 25px;
+    font-weight: bold;
+    left: 120px;
+    margin-top: 30px;
+    padding: 0;
+    position: absolute;
 }
 
 /* Tablet */
