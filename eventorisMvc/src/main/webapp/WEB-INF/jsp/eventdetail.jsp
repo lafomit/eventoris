@@ -9,17 +9,35 @@
 					
 			<div class="container clearfix">
 			<div id="content" class="grid_12">
-				<%
-					eventoris.datatypes.EventInfo eventInfo = ((eventoris.datatypes.EventInfo)request.getAttribute("eventInfo"));
-					if(eventInfo == null){
-					%>	Ne cerem scuze dar evenimentul cerut nu a fost gasit<% 
-					}else{ 
-				    String name =  eventInfo.getTitle();
- 					%>
-					
-								Nume:<%=name %>
-
+				<div class = "event-detail-wrapper">
+					<%
+						eventoris.datatypes.EventInfo eventInfo = ((eventoris.datatypes.EventInfo)request.getAttribute("eventInfo"));
+						if(eventInfo == null){
+					%>	
+						Ne cerem scuze dar evenimentul cerut nu a fost gasit
+					<% 
+						}else{ 
+					    	String name =  eventInfo.getTitle();
+	 				%>
+					<div class = "left-column-eventdetail">
+						<div class = "block">
+							<div class = "block-header">
+								<img alt="category" src="resources/img/categories/<%=eventInfo.getCategoryID()%>.png">
+							
+							<h1><%=name %></h1>
+							</div>
+							<div class = "block-content">
+							<p>
+							<em>Categorie:</em> XXXXX<br><br>
+							<em>Descriere: </em><%=eventInfo.getDescription()%><br><br>
+							<em>Data: </em>
+							<em>Ora: </em>
+							</p>
+							</div>
+						</div>
+					</div>
 					<%} %>
+				</div>
 			</div>
 		</div>
 		<div class="container clearfix">
