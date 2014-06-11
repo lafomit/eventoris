@@ -23,7 +23,10 @@
 					</nav>
 				</div>
 				<div class = "grid_4 margin-padding-clear">
-				
+				<form action="">
+  					<input type="search" name=""><br>
+ 					 <input type="submit">
+				</form>
 				</div>
 			</div>
 		</div>
