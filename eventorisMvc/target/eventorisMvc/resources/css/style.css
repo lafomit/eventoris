@@ -8,6 +8,7 @@ DARK BLUE 298bcc
 
 FOOTER DARK 2c3e50
 FOOTER LIGHT 34495e
+
 */
 
 .clear{
@@ -49,6 +50,15 @@ h1{
 	padding: 0 20px;
 }
 
+a{
+	color: #3498db;
+	text-decoration: none;
+}
+
+a href{
+	text-decoration: underline;
+}
+
 .slide-title{
 	text-align:center;
 	margin: 70px 0 90px;
@@ -84,7 +94,7 @@ header{
       font-size: 18px;
       line-height: 1.6em;
       margin: 11px auto 0;
-      width:690px;
+      width:516px;
       box-sizing:border-box;
 }
 #stick-menu nav ul{
@@ -240,6 +250,120 @@ header{
 	font-size: 12px;
 }
 
+/* Main page */
+
+.events{
+	width: 979px;
+	margin: 0 auto;
+}
+
+.events p{
+	color: #636466;
+    height: 113px;
+    left: 160px;
+    margin-top: 10px;
+    overflow: hidden;
+    position: absolute;
+    width: 253px;
+}
+
+.event-body{
+	height: 216px;
+    position: relative;
+}
+
+.events em{
+	color: #2d2d2e;
+	font-style: normal;
+}
+
+.event-description{
+	background-color: #FFFFFF;
+    border: 3px solid #D9D5D3;
+    border-radius: 150px;
+    height: 150px;
+    position: relative;
+    width: 460px;
+}
+
+.event-description img{
+	height: 150px;
+    position: absolute;
+    width: 150px;
+}
+
+.event-description a{
+	float: right;
+    left: 342px;
+    position: absolute;
+    top: 123px;
+}
+
+.event-title{
+	width: 460px;
+	text-align: center;
+}
+
+.event-title h2, .event-date-title h2{
+	font-size: 20px;
+	color: #2d2d2e;
+	font-weight: none;
+}
+
+.left-event-half{
+	position: absolute;
+    width: 466px;
+}
+
+.right-event-half{
+ 	left: 466px;
+    position: absolute;
+    width: 495px;
+}
+
+.event-date-title{
+	width: 520px;
+	text-align: center;
+}
+
+.date-circle{
+	background-color: #FFFFFF;
+    border: 3px solid #D9D5D3;
+    border-radius: 150px;
+    height: 150px;
+    width: 150px;
+    margin-left: 15px;
+    text-align: center;
+}
+
+.date-circle h1{
+	color: #E74C3C;
+    display: block;
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 16px;
+	border:none;
+}
+
+.date-circle h3{
+	color: #636466;
+    display: block;
+    font-size: 25px;
+    font-weight: normal;
+    padding-top: 28px;
+}
+
+#day{
+	position: absolute;
+}
+#month{
+	position: absolute;
+	left: 170px;
+}
+#year{
+	position: absolute;
+	left: 340px;
+}
 
 /* Tablet */
 @media screen and (max-width: 1024px) {
@@ -306,3 +430,4 @@ header{
 	position: relative;
 	padding:20px 0;
 }
+
