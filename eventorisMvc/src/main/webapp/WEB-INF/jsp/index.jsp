@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-
+<%@ page import = "java.util.*" %> 
 <%@ include file="/WEB-INF/jsp/include_links.jsp" %>
-
+<%@ page import ="eventoris.datatypes.EventInfo" %>
 <title>Eventoris | Home</title>
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp" %>
@@ -56,7 +56,13 @@
 			<div class="grid_12">
 				<div class = "events">
 				<c:forEach items="${model.lastEvents}" var="event">
-					
+					<%
+					Calendar cal = Calendar.getInstance();
+				    String tmp = ((eventoris.datatypes.EventInfo)pageContext.findAttribute("event")).getDateOfEvent();
+				    String year = tmp.substring(0, 4);
+				    String date = tmp.substring(8,10);
+					String month = tmp.substring(5,7);
+					%>
 					<div class = "event-body">
 						<div class="left-event-half">
 							<div class="event-title">
@@ -75,13 +81,17 @@
 									<h2>Data</h2>
 								</div>
 								<div class = "date-circle" id="day">
+<<<<<<< HEAD
 									<h1>21</h1>
+=======
+									<h1><c:out value="<%=date%>"/></h1>
+>>>>>>> origin/master
 								</div>
 								<div class = "date-circle" id="month">
-									<h3>Septembrie</h3>
+									<h3><%=month %></h3>
 								</div>
 								<div class = "date-circle" id="year">
-									<h1>2014</h1>
+									<h1><%=year %></h1>
 								</div>
 						</div>
 					</div>	
