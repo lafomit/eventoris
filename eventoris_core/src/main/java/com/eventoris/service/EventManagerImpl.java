@@ -4,6 +4,7 @@ import java.util.List;
 
 import eventoris.dao.EventDAO;
 import eventoris.dao.EventJDBCTemplate;
+import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
 
 public class  EventManagerImpl implements EventManager {
@@ -42,6 +43,10 @@ public class  EventManagerImpl implements EventManager {
 
 	public List<EventInfo> getEventByTitle(String searchText) {
 		return eventDaoProvider.getEventsByTitle(searchText);
+	}
+
+	public List<CommentInfo> getCommentsForEvent(int eventId) {
+		return eventDaoProvider.getCommentsForEvent(eventId);
 	}
 	
 }

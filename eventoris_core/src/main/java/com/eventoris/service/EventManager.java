@@ -17,4 +17,6 @@ public interface EventManager {
 	public EventInfo getEventById(int id);
 	
 	public List<EventInfo> getEventByTitle(String searchText);
+	
+	public List<CommentInfo> getCommentsForEvent(int eventId);
 }
