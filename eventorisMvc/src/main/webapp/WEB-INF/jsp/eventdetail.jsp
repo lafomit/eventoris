@@ -11,14 +11,16 @@
 	<div id="content" class="grid_12">
 		<div class="event-detail-wrapper">
 			<%
-				Map<String, Object> map = (Map<String, Object>) request.getAttribute("dataMap");
+				Map<String, Object> map = (Map<String, Object>) request
+						.getAttribute("dataMap");
 
 				if (map == null) {
 			%>
 			Ne cerem scuze, dar evenimentul cerut nu a fost gasit
 			<%
 				} else {
-					eventoris.datatypes.EventInfo eventInfo = ((eventoris.datatypes.EventInfo) map.get("eventInfo"));
+					eventoris.datatypes.EventInfo eventInfo = ((eventoris.datatypes.EventInfo) map
+							.get("eventInfo"));
 					String name = eventInfo.getTitle();
 			%>
 			<div class="left-column-eventdetail">
@@ -41,71 +43,76 @@
 									String month = tmp.substring(5, 7);
 							%>
 							<em>Data: </em>
-							<%=date%>.<%=month%>.<%=year%><br>
-							<br>
+							<%=date%>.<%=month%>.<%=year%><br> <br>
 							<%
 								String hour = tmp.substring(11, 13);
-								String minutes = tmp.substring(14, 16);
+									String minutes = tmp.substring(14, 16);
 							%>
-							<em>Ora: </em> <%=hour%>:<%=minutes %><br>
-							<a href="#">Subscribe</a><br>
+							<em>Ora: </em>
+							<%=hour%>:<%=minutes%><br> <a href="#">Subscribe</a><br>
 						</p>
 					</div>
 				</div>
-				<div class = "block" id="coming">
-					<div class = "block-header">
+				<div class="block" id="coming">
+					<div class="block-header">
 						<img alt="icon" src="resources/img/block icons/comming.jpg">
 						<h1>Cine va veni?</h1>
 					</div>
-					<div class = "participants-content">
+					<div class="participants-content">
+						<%
+							int participantsComing = (Integer) map.get("participantsNumber");
+								if (participantsComing > 0) {
+						%>
 						<div class="participant">
 							<img alt="profile picture" src="resources/img/avatars/0.jpg">
 							<em>Vasea Mamaliga</em>
 						</div>
-						<div class="participant">
-							<img alt="profile picture" src="resources/img/avatars/2.jpg">
-							<em>Uashiva Patlajica</em>
-						</div>
-						<div class="participant">
-							<img alt="profile picture" src="resources/img/avatars/3.jpg">
-							<em>Alina Stepanida</em>
-						</div>
-						<a href="#">Vezi toţi (32)</a><br><br>
+				
+						<a href="#">Vezi toţi (${dataMap.participantsNumber})</a><br>
+						<br>
+						<%
+							} else {
+						%>Fii primul care se inscrie
+						<%
+							}
+						%>
 						<button>Hai!</button>
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="right-column-eventdetail">
-				<div class = "block" id="event-owner">
-					<div class = "block-header">
+				<div class="block" id="event-owner">
+					<div class="block-header">
 						<img alt="icon" src="resources/img/block icons/owner.jpg">
 						<h1>Autorul evenimentului</h1>
 					</div>
-					<div class = "owner-content">
-							<div class="owner-picture">
-								<img alt="profile picture" src="resources/img/avatars/0.jpg">
-							</div>
-							<div class="owner-name">
-								<h2>${dataMap.ownerInfo.name } ${dataMap.ownerInfo.familyName }</h2>
-							</div>
+					<div class="owner-content">
+						<div class="owner-picture">
+							<img alt="profile picture" src="resources/img/avatars/0.jpg">
+						</div>
+						<div class="owner-name">
+							<h2>${dataMap.ownerInfo.name }
+								${dataMap.ownerInfo.familyName }</h2>
+						</div>
 					</div>
 				</div>
-				<div class = "block" id="address">
-					<div class = "block-header">
+				<div class="block" id="address">
+					<div class="block-header">
 						<img alt="icon" src="resources/img/block icons/address.jpg">
 						<h1>Unde va avea loc?</h1>
 					</div>
-					<div class = "address-content">
-						<p><em>Adresa: </em><%=eventInfo.getAddress()%></p>
+					<div class="address-content">
+						<p>
+							<em>Adresa: </em><%=eventInfo.getAddress()%></p>
 					</div>
 				</div>
 			</div>
 			<%
-			}
+				}
 			%>
 		</div>
-				
+
 	</div>
 </div>
 
@@ -129,7 +136,9 @@
 			</div>
 
 		</c:forEach>
-		<%}%>
+		<%
+			}
+		%>
 	</div>
 </div>
 

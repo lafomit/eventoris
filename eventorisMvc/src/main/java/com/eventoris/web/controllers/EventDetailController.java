@@ -22,41 +22,46 @@ import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
 import eventoris.datatypes.UserInfo;
 
-public class EventDetailController implements Controller{
+public class EventDetailController implements Controller {
 
 	protected final Log logger = LogFactory.getLog(getClass());
 	private EventManager eventManager;
 	private CategoryManager categoryManager;
-	
+
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
 		Map<String, Object> myModel = new HashMap<String, Object>();
-		
-		
+
 		String eventIdAsString = request.getParameter("event");
-		
+
 		int eventId = -1;
-		try{
-		    eventId = Integer.parseInt(eventIdAsString);
-		}catch(NumberFormatException ex){
-		 
+		try {
+			eventId = Integer.parseInt(eventIdAsString);
+		} catch (NumberFormatException ex) {
+
 			return new ModelAndView("eventdetail", "dataMap", null);
 		}
 		EventInfo resultEventInfo = eventManager.getEventById(eventId);
-		if(resultEventInfo == null)
+		if (resultEventInfo == null)
 			return new ModelAndView("eventdetail", "dataMap", null);
-		
+
 		logger.info("returning eventInfo:" + resultEventInfo);
-	 
+
 		UserInfo owner = eventManager.getOnwerOfTheEvent(eventId);
-		CategoryInfo category = categoryManager.getCategoryById(resultEventInfo.getCategoryID());
+		int participantNumber = eventManager
+				.getNumberOfTotalParticipants(eventId);
+		CategoryInfo category = categoryManager.getCategoryById(resultEventInfo
+				.getCategoryID());
+		logger.info("returning categoryInfo:" + category);
 		
-	    List<CommentInfo> comments = eventManager.getCommentsForEvent(eventId);
+		List<CommentInfo> comments = eventManager.getCommentsForEvent(eventId);
 		myModel.put("eventInfo", resultEventInfo);
 		myModel.put("comments", comments);
 		myModel.put("ownerInfo", owner);
 		myModel.put("categoryInfo", category);
+		myModel.put("participantsNumber", participantNumber);
+		
 		return new ModelAndView("eventdetail", "dataMap", myModel);
 	}
 
@@ -64,9 +69,8 @@ public class EventDetailController implements Controller{
 		this.eventManager = eventManager;
 	}
 
-    public void setCategoryManager(CategoryManager categoryManager) {
+	public void setCategoryManager(CategoryManager categoryManager) {
 		this.categoryManager = categoryManager;
 	}
- 
-	
+
 }

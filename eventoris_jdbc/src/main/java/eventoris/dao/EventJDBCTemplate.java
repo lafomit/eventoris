@@ -208,7 +208,7 @@ public class EventJDBCTemplate implements EventDAO {
 	}
 
 	public int getSubscribedUsersCount(int eventId, int status) {
-		String SQL = "select count(*) from participants where id_event = 10 and id_status = ?";
+		String SQL = "select count(*) from participants where id_event = ? and id_status = ?";
 		return jdbcTemplateObject.queryForInt(SQL, eventId, status);
 	}
 
