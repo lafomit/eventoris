@@ -45,6 +45,9 @@ public interface EventDAO {
 	public int getSubscribedUsersCount(int eventId, int status);
 	
 	public UserInfo getEventOwnerInfo(int eventId);
+	
+	public List<EventInfo> getEventsUserIsSubscribedTo(int userId, int statusId);
+	
 	// public boolean compareExistingAndRequestedStatus(int idEvent, int idUser,
 	// int participationStatus);
 	// public boolean checkIfParticipantExists(int idUser, int idEvent);

@@ -70,4 +70,12 @@ public class EventManagerImpl implements EventManager {
 		return eventDaoProvider.getEventOwnerInfo(eventId);
 	}
 
+	public List<EventInfo> getAllEventsUserIsGoing(int userId) {
+		return eventDaoProvider.getEventsUserIsSubscribedTo(userId,1);
+	}
+
+	public List<EventInfo> getAllEventsUserMaybeComes(int userId) {
+		return eventDaoProvider.getEventsUserIsSubscribedTo(userId,2);
+	}
+
 }
