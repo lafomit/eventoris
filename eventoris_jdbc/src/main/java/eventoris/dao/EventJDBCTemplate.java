@@ -9,6 +9,7 @@ import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import eventoris.datatypes.CategoryInfo;
+import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
 
 public class EventJDBCTemplate implements EventDAO{
@@ -190,5 +191,11 @@ public class EventJDBCTemplate implements EventDAO{
 		List<EventInfo> events = jdbcTemplateObject.query(SQL,  new EventMapper());
 		
 		return events;
+	}
+
+	public List<CommentInfo> getCommentsForEvent(int eventId) {
+		String SQL = "select * from comments where id_event=?";
+		List<CommentInfo> comments = jdbcTemplateObject.query(SQL,new Object[]{eventId}, new CommentMapper());
+		return comments;
 	}
 }

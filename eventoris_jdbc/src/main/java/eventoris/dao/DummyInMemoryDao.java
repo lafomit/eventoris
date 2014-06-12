@@ -6,6 +6,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import eventoris.datatypes.CategoryInfo;
+import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
 
 public class DummyInMemoryDao implements EventDAO{
@@ -100,6 +101,10 @@ public class DummyInMemoryDao implements EventDAO{
 		return category;
 	}
 	public List<EventInfo> getEventsByTitle(String searchText) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public List<CommentInfo> getCommentsForEvent(int eventId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

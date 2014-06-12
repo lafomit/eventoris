@@ -20,6 +20,7 @@ import org.springframework.web.servlet.mvc.Controller;
 
 import com.eventoris.service.EventManager;
 
+import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
 
 public class EventDetailController implements Controller{
@@ -30,6 +31,9 @@ public class EventDetailController implements Controller{
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
+		Map<String, Object> myModel = new HashMap<String, Object>();
+		
+		
 		String eventIdAsString = request.getParameter("event");
 		
 		int eventId = -1;
@@ -37,15 +41,19 @@ public class EventDetailController implements Controller{
 		    eventId = Integer.parseInt(eventIdAsString);
 		}catch(NumberFormatException ex){
 		 
-			return new ModelAndView("eventdetail", "eventInfo", null);
+			return new ModelAndView("eventdetail", "dataMap", null);
 		}
 		EventInfo resultEventInfo = eventManager.getEventById(eventId);
+		if(resultEventInfo == null)
+			return new ModelAndView("eventdetail", "dataMap", null);
 		
 		logger.info("returning eventInfo:" + resultEventInfo);
 	 
-	 
-
-		return new ModelAndView("eventdetail", "eventInfo", resultEventInfo);
+	    List<CommentInfo> comments = eventManager.getCommentsForEvent(eventId);
+		myModel.put("eventInfo", resultEventInfo);
+		myModel.put("comments", comments);
+	
+		return new ModelAndView("eventdetail", "dataMap", myModel);
 	}
 
 	public void setEventManager(EventManager eventManager) {

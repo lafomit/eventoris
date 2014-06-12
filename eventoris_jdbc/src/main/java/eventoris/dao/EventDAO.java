@@ -1,8 +1,10 @@
 package eventoris.dao;
 
 import java.util.List;
+
 import javax.sql.DataSource;
 
+import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
 import eventoris.datatypes.CategoryInfo;
 
@@ -25,6 +27,7 @@ public interface EventDAO {
 	
 	public void subscribeToEvent(int idEvent, int idUser, int participationStatus);
 	public List<EventInfo> getEventsByTitle(String searchText);
+	public List<CommentInfo> getCommentsForEvent(int eventId);
 	//public boolean compareExistingAndRequestedStatus(int idEvent, int idUser, int participationStatus);
 	//public boolean checkIfParticipantExists(int idUser, int idEvent);
 	
