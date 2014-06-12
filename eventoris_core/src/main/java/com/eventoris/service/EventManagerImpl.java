@@ -6,6 +6,7 @@ import eventoris.dao.EventDAO;
 import eventoris.dao.EventJDBCTemplate;
 import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
+import eventoris.datatypes.UserInfo;
 
 public class EventManagerImpl implements EventManager {
 
@@ -59,6 +60,10 @@ public class EventManagerImpl implements EventManager {
 
 	public int getNumberOfMaybeGoingParticipants(int eventId) {
 		return eventDaoProvider.getSubscribedUsersCount(eventId, 2);
+	}
+
+	public UserInfo getOnwerOfTheEvent(int eventId) {
+		return eventDaoProvider.getEventOwnerInfo(eventId);
 	}
 
 }

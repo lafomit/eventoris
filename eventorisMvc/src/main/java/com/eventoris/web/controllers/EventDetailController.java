@@ -11,23 +11,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
+import com.eventoris.service.CategoryManager;
 import com.eventoris.service.EventManager;
 
+import eventoris.datatypes.CategoryInfo;
 import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
+import eventoris.datatypes.UserInfo;
 
 public class EventDetailController implements Controller{
 
 	protected final Log logger = LogFactory.getLog(getClass());
 	private EventManager eventManager;
-
+	private CategoryManager categoryManager;
+	
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
@@ -49,10 +49,14 @@ public class EventDetailController implements Controller{
 		
 		logger.info("returning eventInfo:" + resultEventInfo);
 	 
+		UserInfo owner = eventManager.getOnwerOfTheEvent(eventId);
+		CategoryInfo category = categoryManager.getCategoryById(resultEventInfo.getCategoryID());
+		
 	    List<CommentInfo> comments = eventManager.getCommentsForEvent(eventId);
 		myModel.put("eventInfo", resultEventInfo);
 		myModel.put("comments", comments);
-	
+		myModel.put("ownerInfo", owner);
+		myModel.put("categoryInfo", category);
 		return new ModelAndView("eventdetail", "dataMap", myModel);
 	}
 
@@ -60,7 +64,9 @@ public class EventDetailController implements Controller{
 		this.eventManager = eventManager;
 	}
 
-	
+    public void setCategoryManager(CategoryManager categoryManager) {
+		this.categoryManager = categoryManager;
+	}
  
 	
 }

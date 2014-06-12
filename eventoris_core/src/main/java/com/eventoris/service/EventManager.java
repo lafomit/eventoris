@@ -25,4 +25,6 @@ public interface EventManager {
 	public int getNumberOfTotalParticipants(int eventId);
 	
 	public int getNumberOfMaybeGoingParticipants(int eventId);
+	
+	public UserInfo getOnwerOfTheEvent(int eventId);
 }

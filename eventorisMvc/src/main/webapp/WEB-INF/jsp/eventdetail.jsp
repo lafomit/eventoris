@@ -15,7 +15,7 @@
 
 				if (map == null) {
 			%>
-			Ne cerem scuze dar evenimentul cerut nu a fost gasit
+			Ne cerem scuze, dar evenimentul cerut nu a fost gasit
 			<%
 				} else {
 					eventoris.datatypes.EventInfo eventInfo = ((eventoris.datatypes.EventInfo) map.get("eventInfo"));
@@ -31,7 +31,7 @@
 					</div>
 					<div class="information-content">
 						<p>
-							<em>Categorie:</em> XXXXX<br>
+							<em>Categorie:</em> ${dataMap.categoryInfo.categoryName } <br>
 							<br> <em>Descriere: </em><%=eventInfo.getDescription()%><br>
 							<br>
 							<%
@@ -87,7 +87,7 @@
 								<img alt="profile picture" src="resources/img/avatars/0.jpg">
 							</div>
 							<div class="owner-name">
-								<h2>Vasea Mamaliga</h2>
+								<h2>${dataMap.ownerInfo.name } ${dataMap.ownerInfo.familyName }</h2>
 							</div>
 					</div>
 				</div>

@@ -54,6 +54,7 @@
 	
 	<bean name="/eventdetail.htm" class="com.eventoris.web.controllers.EventDetailController">
 		<property name="eventManager" ref="eventManager" />
+		<property name="categoryManager" ref="categoryManager"/>
 	</bean>
 	
 	<bean name="/events.htm" class="com.eventoris.web.controllers.EventListController">
