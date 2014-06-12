@@ -285,8 +285,6 @@ footer{
     position: relative;
 }
 
-
-
 .event-description{
 	background-color: #FFFFFF;
     border: 3px solid #D9D5D3;
@@ -379,11 +377,15 @@ footer{
 /* event details */
 
 .event-detail-wrapper{
-	padding-top: 130px;
+	margin: 0 auto;
+    padding-top: 100px;
+    position: relative;
+    width: 990px;
 }
 
 .left-column-eventdetail{
-
+	float: left;
+	width: 475px;
 }
 
 .block{
@@ -402,6 +404,10 @@ footer{
 
 .information-content p{
 	padding: 20px;
+}
+
+.information-content a{
+	float: right;
 }
 
 .block img{
@@ -446,6 +452,30 @@ footer{
 #coming{
 	margin-top: 50px;
 	height: 405px;
+}
+
+.right-column-eventdetail{
+	float: left;
+    margin-left: 40px;
+    width: 475px;
+}
+
+#event-owner{
+	height: 240px;
+}
+
+.owner-content{
+	padding: 20px;
+	position: relative;
+}
+
+.owner-picture{
+	position: absolute;
+}
+.owner-name{
+	position: absolute;
+	left: 140px;
+	top: 30px;	
 }
 
 /* Tablet */
