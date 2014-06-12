@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
 import eventoris.datatypes.CategoryInfo;
+import eventoris.datatypes.UserInfo;
 
 import java.util.Date;
 
@@ -40,6 +41,8 @@ public interface EventDAO {
 	public List<CommentInfo> getCommentsForEvent(int eventId);
 
 	public int getSubscribedUsersCount(int eventId, int status);
+	
+	public UserInfo getEventOwnerInfo(int eventId);
 	// public boolean compareExistingAndRequestedStatus(int idEvent, int idUser,
 	// int participationStatus);
 	// public boolean checkIfParticipantExists(int idUser, int idEvent);
