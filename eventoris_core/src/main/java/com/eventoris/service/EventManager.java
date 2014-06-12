@@ -19,4 +19,10 @@ public interface EventManager {
 	public List<EventInfo> getEventByTitle(String searchText);
 	
 	public List<CommentInfo> getCommentsForEvent(int eventId);
+	
+	public int getNumberOfComingParticipants(int eventId);
+	
+	public int getNumberOfTotalParticipants(int eventId);
+	
+	public int getNumberOfMaybeGoingParticipants(int eventId);
 }

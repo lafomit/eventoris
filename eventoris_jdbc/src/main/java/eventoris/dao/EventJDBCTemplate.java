@@ -198,4 +198,9 @@ public class EventJDBCTemplate implements EventDAO{
 		List<CommentInfo> comments = jdbcTemplateObject.query(SQL,new Object[]{eventId}, new CommentMapper());
 		return comments;
 	}
+
+	public int getSubscribedUsersCount(int eventId,int status) {
+		String SQL = "select count(*) from participants where id_event = 10 and id_status = ?";
+		return jdbcTemplateObject.queryForInt(SQL,eventId,status);
+	}
 }

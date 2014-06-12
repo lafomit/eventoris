@@ -11,29 +11,44 @@ import eventoris.datatypes.CategoryInfo;
 import java.util.Date;
 
 public interface EventDAO {
-	
-	public void setDataSource(DataSource dataSource);	
-	public void create(EventInfo event);	
-	public EventInfo getEvent(int id);	
-	public List<EventInfo> getAll();	
+
+	public void setDataSource(DataSource dataSource);
+
+	public void create(EventInfo event);
+
+	public EventInfo getEvent(int id);
+
+	public List<EventInfo> getAll();
+
 	public void delete(int id);
+
 	public void update(EventInfo event);
-	
+
 	public List<EventInfo> getLastEventsByDate(int eventsCount);
+
 	public CategoryInfo getCategory(int id);
+
 	public List<CategoryInfo> getAllCategories();
-	
+
 	public List<EventInfo> getTopEvents(int eventsCount);
-	
-	public void subscribeToEvent(int idEvent, int idUser, int participationStatus);
+
+	public void subscribeToEvent(int idEvent, int idUser,
+			int participationStatus);
+
 	public List<EventInfo> getEventsByTitle(String searchText);
+
 	public List<CommentInfo> getCommentsForEvent(int eventId);
-	//public boolean compareExistingAndRequestedStatus(int idEvent, int idUser, int participationStatus);
-	//public boolean checkIfParticipantExists(int idUser, int idEvent);
-	
+
+	public int getSubscribedUsersCount(int eventId, int status);
+	// public boolean compareExistingAndRequestedStatus(int idEvent, int idUser,
+	// int participationStatus);
+	// public boolean checkIfParticipantExists(int idUser, int idEvent);
+
 	// check if participant exists, it may need only status change
-	//getParticipants(id_event) select all participants where id event = id and id_status = 1
-	//getPotentialParticipants(id_event) select all participants where id event = id and id_status = 2
+	// getParticipants(id_event) select all participants where id event = id and
+	// id_status = 1
+	// getPotentialParticipants(id_event) select all participants where id event
+	// = id and id_status = 2
 	// participant class (id_participant, firstName, lastName)
 	// searchEvent(title)
 	// searchUser(firstName, lastName)
@@ -44,8 +59,8 @@ public interface EventDAO {
 	// deleteUser(id_User)
 	// selectUsersEventsAsAuthor
 	// selectUsersSubsribedEvents
-	
-	//notifications for user
+
+	// notifications for user
 	// comments on events
 	// send invitation by owner
 }
