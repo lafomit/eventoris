@@ -23,10 +23,12 @@
 					</nav>
 				</div>
 				<div class = "grid_4 margin-padding-clear">
-				<form action="searchevent.htm" method="post">
-  					<input type="search" name="search_text"><br>
- 					 <input type="submit">
-				</form>
+				<div class = "search">
+					<form action="searchevent.htm" method="post">
+	  					<input type="text" placeholder="Caută eveniment" name="search_text" id="search">
+	  					<button type="submit"><i class = "icon-search-outline"></i></button>
+					</form>
+				</div>
 				</div>
 			</div>
 		</div>

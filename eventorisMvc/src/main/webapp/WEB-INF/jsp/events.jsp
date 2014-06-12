@@ -8,7 +8,7 @@
 	<div id="stick-menu">
 		<div class="container clearfix">
 			<div class="grid_12 margin-padding-clear">
-			<nav>
+			<nav id="add-event-nav">
 				<ul>
 					<li><a href="<c:url value="addevent.htm"/>">Adaugă Eveniment</a></li>
 					<a href="myevents.htm">Evnimentele mele</a>
@@ -40,7 +40,7 @@
 						    String tmp = ((eventoris.datatypes.EventInfo)pageContext.findAttribute("event")).getDateOfEvent();
 						    String year = tmp.substring(0, 4);
 						    String date = tmp.substring(8,10);
-							String month = tmp.substring(5,7);
+						    int month = Integer.parseInt(tmp.substring(5,7));
 						%>
 						<div class = "event-body">
 							<div class="left-event-half">
@@ -63,16 +63,17 @@
 									<h1><%=date%></h1>
 								</div>
 								<div class = "date-circle" id="month">
-									<h3><%=month %></h3>
+									<h3><%=com.eventoris.web.LangUtil.getRoMonthName(month) %></h3>
 								</div>
 								<div class = "date-circle" id="year">
 									<h1><%=year %></h1>
 								</div>
 						</div>
-						</div>
-					</c:forEach>
-				</div>
+					</div>
+				</c:forEach>
 			</div>
+		</div>
+	</div>
 			
 			
 <%@ include file="/WEB-INF/jsp/include_footer.jsp" %>

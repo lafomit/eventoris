@@ -9,7 +9,7 @@
 	<div id="stick-menu">
 		<div class="container clearfix">
 			<div class="grid_12 margin-padding-clear">
-			<nav>
+			<nav id="index-nav">
 				<ul class="navigation">
 					<li data-slide="1">Home</li>
 					<li data-slide="2">Ultimele Evenimente</li>
