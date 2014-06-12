@@ -234,3 +234,9 @@ eventoris_jdbc/target/classes/eventoris/datatypes/EventInfo.class
 eventorisMvc/target/classes/com/home/controllers/IndexController.class
 *.properties
 >>>>>>> origin/master
+eventorisMvc/target/eventorisMvc.war
+eventorisMvc/target/eventorisMvc/WEB-INF/lib/eventoris_jdbc-1.0.jar
+eventorisMvc/target/eventorisMvc/resources/css/style.css
+eventoris_jdbc/target/maven-archiver/pom.properties
+eventoris_jdbc/target/surefire-reports/TEST-eventoris.AppTest.xml
+eventoris_jdbc/target/surefire-reports/eventoris.AppTest.txt

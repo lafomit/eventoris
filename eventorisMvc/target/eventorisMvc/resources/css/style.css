@@ -450,7 +450,7 @@ footer{
 }
 
 #coming{
-	margin-top: 50px;
+	margin-top: 70px;
 	height: 405px;
 }
 
@@ -476,6 +476,15 @@ footer{
 	position: absolute;
 	left: 140px;
 	top: 30px;	
+}
+
+#address{
+	margin-top: 25px;
+}
+
+.address-content p{
+	font-size: 18px;
+	padding: 20px;
 }
 
 /* Tablet */
