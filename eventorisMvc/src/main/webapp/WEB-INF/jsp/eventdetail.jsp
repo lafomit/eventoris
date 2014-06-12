@@ -100,6 +100,29 @@
 						<p><em>Adresa: </em><%=eventInfo.getAddress()%></p>
 					</div>
 				</div>
+				<div class = "block" id="maybe-coming">
+					<div class = "block-header">
+						<img alt="icon" src="resources/img/block icons/maybe.jpg">
+						<h1>Cine posibil va veni?</h1>
+					</div>
+					<div class = "participants-content">
+						<div class="participant">
+							<img alt="profile picture" src="resources/img/avatars/0.jpg">
+							<em>Vasea Mamaliga</em>
+						</div>
+						<div class="participant">
+							<img alt="profile picture" src="resources/img/avatars/2.jpg">
+							<em>Uashiva Patlajica</em>
+						</div>
+						<div class="participant">
+							<img alt="profile picture" src="resources/img/avatars/3.jpg">
+							<em>Alina Stepanida</em>
+						</div>
+						<a href="#">Vezi toţi (32)</a><br><br>
+						<button>Hai!</button>
+						<br>
+					</div>
+				</div>
 			</div>
 			<%
 			}
