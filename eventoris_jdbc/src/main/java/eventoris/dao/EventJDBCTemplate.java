@@ -94,9 +94,13 @@ public class EventJDBCTemplate implements EventDAO {
 
 	public CategoryInfo getCategory(int id) {
 		String SQL = "select * from event_categories where id_event_categories = ? ";
-
-		CategoryInfo category = jdbcTemplateObject.queryForObject(SQL,
-				new Object[] { id }, new CategoryMapper());
+		CategoryInfo category;
+		try {
+			category = jdbcTemplateObject.queryForObject(SQL,
+					new Object[] { id }, new CategoryMapper());
+		} catch (IncorrectResultSizeDataAccessException ex) {
+			return null;
+		}
 
 		return category;
 	}
@@ -216,8 +220,13 @@ public class EventJDBCTemplate implements EventDAO {
 		String SQL = "select users.* from event_info "
 				+ "join users on event_info.id_owner = users.id_users "
 				+ "where event_info.id_event_info = ?";
-		UserInfo owner = jdbcTemplateObject.queryForObject(SQL,
-				new Object[] { eventId }, new UserInfoMapper());
+		UserInfo owner;
+		try {
+			owner = jdbcTemplateObject.queryForObject(SQL,
+					new Object[] { eventId }, new UserInfoMapper());
+		} catch (IncorrectResultSizeDataAccessException ex) {
+			return null;
+		}
 		return owner;
 	}
 }

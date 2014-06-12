@@ -60,7 +60,7 @@
 					</div>
 					<div class="participants-content">
 						<%
-							int participantsComing = (Integer) map.get("participantsNumber");
+							int participantsComing = (Integer) map.get("comingPartNumb");
 								if (participantsComing > 0) {
 						%>
 						<div class="participant">
@@ -112,6 +112,10 @@
 						<img alt="icon" src="resources/img/block icons/maybe.jpg">
 						<h1>Cine posibil va veni?</h1>
 					</div>
+						<%
+							int participantsMaybe = (Integer) map.get("maybePartNumb");
+								if (participantsMaybe > 0) {
+						%>
 					<div class = "participants-content">
 						<div class="participant">
 							<img alt="profile picture" src="resources/img/avatars/0.jpg">
@@ -125,7 +129,13 @@
 							<img alt="profile picture" src="resources/img/avatars/3.jpg">
 							<em>Alina Stepanida</em>
 						</div>
-						<a href="#">Vezi toţi (32)</a><br><br>
+						<a href="#">Vezi toţi (<%=participantsMaybe %> %>)</a><br><br>
+						<%
+							} else {
+						%>Nikogo netu
+						<%
+							}
+						%>
 						<button>Hai!</button>
 						<br>
 					</div>
