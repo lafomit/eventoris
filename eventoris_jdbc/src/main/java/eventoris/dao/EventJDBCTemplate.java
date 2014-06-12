@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import eventoris.datatypes.CategoryInfo;
 import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
+import eventoris.datatypes.UserInfo;
 
 public class EventJDBCTemplate implements EventDAO{
 	private DataSource dataSource;
@@ -202,5 +203,12 @@ public class EventJDBCTemplate implements EventDAO{
 	public int getSubscribedUsersCount(int eventId,int status) {
 		String SQL = "select count(*) from participants where id_event = 10 and id_status = ?";
 		return jdbcTemplateObject.queryForInt(SQL,eventId,status);
+	}
+
+	public UserInfo getEventOwnerInfo(int eventId) {
+		String SQL = "select users.* from event_info"
+				+ "join users on event_info.id_owner = users.id_users"
+				+ "where event_info.id_event_info = ?";
+		return null;
 	}
 }
