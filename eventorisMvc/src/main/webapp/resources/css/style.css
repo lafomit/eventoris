@@ -479,12 +479,17 @@ footer{
 }
 
 #address{
-	margin-top: 25px;
+	margin-top: 30px;
 }
 
 .address-content p{
 	font-size: 18px;
 	padding: 0 20px 20px 20px;
+}
+
+#maybe-coming{
+	height: 405px;
+	margin-top: 30px;
 }
 
 /* Tablet */
