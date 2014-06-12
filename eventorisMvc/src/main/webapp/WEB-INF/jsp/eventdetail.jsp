@@ -11,8 +11,7 @@
 	<div id="content" class="grid_12">
 		<div class="event-detail-wrapper">
 			<%
-				Map<String, Object> map = (Map<String, Object>) request
-						.getAttribute("dataMap");
+				Map<String, Object> map = (Map<String, Object>) request.getAttribute("dataMap");
 
 				if (map == null) {
 			%>
@@ -46,49 +45,61 @@
 							<br>
 							<%
 								String hour = tmp.substring(11, 13);
-									String minutes = tmp.substring(14, 16);
+								String minutes = tmp.substring(14, 16);
 							%>
 							<em>Ora: </em> <%=hour%>:<%=minutes %>
-							</p>
-							</div>
-						</div>
-						<div class = "block" id="coming">
-							<div class = "block-header">
-								<img alt="category" src="resources/img/block icons/comming.jpg">
-							
-							<h1>Cine va veni?</h1>
-							</div>
-							<div class = "participants-content">
-								<div class="participant">
-									<img alt="profile picture" src="resources/img/avatars/0.jpg">
-									<em>Vasea Mamaliga</em>
-								</div>
-								<div class="participant">
-									<img alt="profile picture" src="resources/img/avatars/2.jpg">
-									<em>Uashiva Patlajica</em>
-								</div>
-								<div class="participant">
-									<img alt="profile picture" src="resources/img/avatars/3.jpg">
-									<em>Alina Stepanida</em>
-								</div>
-									<a href="#">Vezi toţi (32)</a><br><br>
-									<button>Hai!</button>
-							</div>
-						</div>
+							<a href="#">Subscribe</a><br>
+						</p>
 					</div>
 				</div>
-				<%
-				}
-				%>
+				<div class = "block" id="coming">
+					<div class = "block-header">
+						<img alt="icon" src="resources/img/block icons/comming.jpg">
+						<h1>Cine va veni?</h1>
+					</div>
+					<div class = "participants-content">
+						<div class="participant">
+							<img alt="profile picture" src="resources/img/avatars/0.jpg">
+							<em>Vasea Mamaliga</em>
+						</div>
+						<div class="participant">
+							<img alt="profile picture" src="resources/img/avatars/2.jpg">
+							<em>Uashiva Patlajica</em>
+						</div>
+						<div class="participant">
+							<img alt="profile picture" src="resources/img/avatars/3.jpg">
+							<em>Alina Stepanida</em>
+						</div>
+						<a href="#">Vezi toţi (32)</a><br><br>
+						<button>Hai!</button>
+					</div>
+				</div>
 			</div>
+			
+			<div class="right-column-eventdetail">
+				<div class = "block" id="event-owner">
+					<div class = "block-header">
+						<img alt="icon" src="resources/img/block icons/owner.jpg">
+						<h1>Autorul evenimentului</h1>
+					</div>
+					<div class = "owner-content">
+							<div class="owner-picture">
+								<img alt="profile picture" src="resources/img/avatars/0.jpg">
+							</div>
+							<div class="owner-name">
+								<h2>Vasea Mamaliga</h2>
+							</div>
+					</div>
+				</div>
+			</div>
+			<%
+			}
+			%>
 		</div>
-<!-- 	</div>
-	
-	
+				
+	</div>
 </div>
-</div>
-</div>
- -->
+
 <div class="container clearfix">
 	<div id="content" class="grid_12">
 		<h1>Discuţii</h1>
@@ -110,9 +121,6 @@
 
 		</c:forEach>
 		<%}%>
-
-
-
 	</div>
 </div>
 
