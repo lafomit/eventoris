@@ -13,17 +13,28 @@
 		<div class="grid_12">
 			<h1><fmt:message key="addevent.heading"/></h1>
 			<form:form method="post" commandName="createEvent">
+			TITLE
 				<form:input path="title"/>
 			    <form:errors path="title" cssClass="error"/>
-			          
+			          <br/>
+			DESCRIPTION
 			    <form:input path="description"/>
 			    <form:errors path="description" cssClass="error"/>
-			        
+			    <br/>     
+			ADDRESS
+			    <form:input path="address"/>
+			    <form:errors path="address" cssClass="error"/>
+			    <br/>     
+		    DATE OF EVENT
+			    <form:input path="eventdate"/>
+			    <form:errors path="eventdate" cssClass="error"/>
+			    <br/>    
+			CATEGORY
 			    <form:select path="category">
 			    	<form:options items="${categories}" />
 			    </form:select>			        
 			    <form:errors path="category" cssClass="error"/>
-			  
+			   <br/>
 			  <br>
 			  <input type="submit" value="Execute">
 			</form:form>

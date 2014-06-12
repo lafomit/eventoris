@@ -30,6 +30,12 @@ public class CreateEventValidator implements Validator{
 	            if (eventData.getDescription() == null || eventData.getDescription().trim().length() == 0) {
 	                errors.rejectValue("description", "error.empty-description");
 	            }
+	            if (eventData.getAddress() == null || eventData.getAddress().trim().length() == 0) {
+	                errors.rejectValue("address", "error.empty-address");
+	            }
+	            if (eventData.getEventdate() == null || eventData.getEventdate().trim().length() == 0) {
+	                errors.rejectValue("eventdate", "error.empty-eventdate");
+	            }
 	        }
 	    }
 

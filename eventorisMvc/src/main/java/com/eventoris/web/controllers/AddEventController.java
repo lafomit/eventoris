@@ -41,6 +41,10 @@ public class AddEventController extends SimpleFormController {
         
         event.setTitle(newEvent.getTitle());
         event.setDescription(newEvent.getDescription());
+        event.setAddress(newEvent.getAddress());
+        event.setDateOfEvent(newEvent.getEventdate());
+        event.setCategoryID(newEvent.getCategory());
+        event.setOwnerID(99);
         SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-d HH:mm:ss");
         Date date = new Date();
         event.setDateCreated(format.format( date));
