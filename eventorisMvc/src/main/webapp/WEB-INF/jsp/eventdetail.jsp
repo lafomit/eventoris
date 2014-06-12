@@ -47,7 +47,7 @@
 								String hour = tmp.substring(11, 13);
 								String minutes = tmp.substring(14, 16);
 							%>
-							<em>Ora: </em> <%=hour%>:<%=minutes %>
+							<em>Ora: </em> <%=hour%>:<%=minutes %><br>
 							<a href="#">Subscribe</a><br>
 						</p>
 					</div>
@@ -89,6 +89,15 @@
 							<div class="owner-name">
 								<h2>Vasea Mamaliga</h2>
 							</div>
+					</div>
+				</div>
+				<div class = "block" id="address">
+					<div class = "block-header">
+						<img alt="icon" src="resources/img/block icons/address.jpg">
+						<h1>Unde va avea loc?</h1>
+					</div>
+					<div class = "address-content">
+						<p><em>Adresa: </em><%=eventInfo.getAddress()%></p>
 					</div>
 				</div>
 			</div>
