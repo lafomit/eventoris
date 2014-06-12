@@ -20,13 +20,13 @@
 					    	String name =  eventInfo.getTitle();
 	 				%>
 					<div class = "left-column-eventdetail">
-						<div class = "block">
-							<div class = "block-header">
+						<div class = "block" id="details">
+							<div class = "block-header" >
 								<img alt="category" src="resources/img/categories/<%=eventInfo.getCategoryID()%>.png">
 							
 							<h1><%=name %></h1>
 							</div>
-							<div class = "block-content">
+							<div class = "details-content">
 							<p>
 							<em>Categorie:</em> XXXXX<br><br>
 							<em>Descriere: </em><%=eventInfo.getDescription()%><br><br>
@@ -43,6 +43,29 @@
 							%>
 							<em>Ora: </em> <%=hour%>:<%=minutes %>
 							</p>
+							</div>
+						</div>
+						<div class = "block" id="coming">
+							<div class = "block-header">
+								<img alt="category" src="resources/img/block icons/comming.jpg">
+							
+							<h1>Cine va veni?</h1>
+							</div>
+							<div class = "participants-content">
+								<div class="participant">
+									<img alt="profile picture" src="resources/img/avatars/0.jpg">
+									<em>Vasea Mamaliga</em>
+								</div>
+								<div class="participant">
+									<img alt="profile picture" src="resources/img/avatars/2.jpg">
+									<em>Uashiva Patlajica</em>
+								</div>
+								<div class="participant">
+									<img alt="profile picture" src="resources/img/avatars/3.jpg">
+									<em>Alina Stepanida</em>
+								</div>
+									<a href="#">Vezi toţi (32)</a><br><br>
+									<button>Hai!</button>
 							</div>
 						</div>
 					</div>
