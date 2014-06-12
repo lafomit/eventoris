@@ -15,30 +15,41 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
 import com.eventoris.service.EventManager;
+import com.eventoris.web.formbeans.AddEventFormData;
 
 import eventoris.datatypes.EventInfo;
 
-public class EventListController implements Controller{
+public class MyCalendarController implements Controller {
 
+	/** Logger for this class and subclasses */
 	protected final Log logger = LogFactory.getLog(getClass());
+
 	private EventManager eventManager;
+
 
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		String now = (new java.util.Date()).toString();
-		logger.info("returning eventlist view with " + now);
-		List<EventInfo> events = this.eventManager.getAllEvents();
+		String searchText = "craciun";//request.getParameter("search_text");
+		logger.info("Searching for:" + searchText);
+
+		List<EventInfo> events = eventManager.getEventByTitle(searchText);
+
+		logger.info("Found event:" + events.size());
 		Map<String, Object> myModel = new HashMap<String, Object>();
-		myModel.put("now", now);
 		myModel.put("products", events);
 
 		return new ModelAndView("events", "model", myModel);
 	}
 
+	protected Object formBackingObject(HttpServletRequest request)
+			throws ServletException {
+		AddEventFormData eventInfo = new AddEventFormData();
+		return eventInfo;
+	}
+
 	public void setEventManager(EventManager eventManager) {
 		this.eventManager = eventManager;
 	}
-
 
 }

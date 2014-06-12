@@ -6,7 +6,7 @@ import eventoris.datatypes.*;
 
 public interface EventManager {
 
-	public List<EventInfo> getAllEventsForUser();
+	public List<EventInfo> getAllEventsCreatedByUser(int userId);
 	
 	public void createNewEventInfo(EventInfo event);
 	
@@ -27,4 +27,6 @@ public interface EventManager {
 	public int getNumberOfMaybeGoingParticipants(int eventId);
 	
 	public UserInfo getOnwerOfTheEvent(int eventId);
+	
+	public List<EventInfo> getAllEvents();
 }

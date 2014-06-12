@@ -91,7 +91,16 @@
      <bean name="/searchevent.htm" class="com.eventoris.web.controllers.SearchEventByTextController">
        <property name="eventManager" ref="eventManager" />
      </bean>
-    
+	
+	 <bean name="/myevents.htm" class="com.eventoris.web.controllers.MyEventsController">
+       <property name="eventManager" ref="eventManager" />
+     </bean>
+     
+     <bean name="/mycalendar.htm" class="com.eventoris.web.controllers.MyCalendarController">
+       <property name="eventManager" ref="eventManager" />
+     </bean>
+     
+         
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"

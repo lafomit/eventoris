@@ -229,4 +229,12 @@ public class EventJDBCTemplate implements EventDAO {
 		}
 		return owner;
 	}
+
+	public List<EventInfo> getEventsOwnedByUser(int userId) {
+		String SQL = "select * from event_info where id_owner= ?";
+		List<EventInfo> events = jdbcTemplateObject.query(SQL,new Object[]{userId},
+				new EventMapper());
+
+		return events;
+	}
 }

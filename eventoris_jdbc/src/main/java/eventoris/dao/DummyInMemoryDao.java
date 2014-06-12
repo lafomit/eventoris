@@ -117,5 +117,9 @@ public class DummyInMemoryDao implements EventDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public List<EventInfo> getEventsOwnedByUser(int userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

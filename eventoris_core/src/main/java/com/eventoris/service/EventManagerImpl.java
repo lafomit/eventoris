@@ -20,10 +20,14 @@ public class EventManagerImpl implements EventManager {
 		eventDaoProvider = dataSource;
 	}
 
-	public List<EventInfo> getAllEventsForUser() {
-		return eventDaoProvider.getAll();
+	public List<EventInfo> getAllEventsCreatedByUser(int userId) {
+		return eventDaoProvider.getEventsOwnedByUser(userId);
 	}
 
+	public List<EventInfo> getAllEvents() {
+		return eventDaoProvider.getAll();
+	}
+	
 	public void createNewEventInfo(EventInfo event) {
 		eventDaoProvider.create(event);
 	}

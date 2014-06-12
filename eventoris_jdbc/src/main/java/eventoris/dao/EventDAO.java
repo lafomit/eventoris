@@ -20,6 +20,8 @@ public interface EventDAO {
 	public EventInfo getEvent(int id);
 
 	public List<EventInfo> getAll();
+	
+	public List<EventInfo> getEventsOwnedByUser(int userId);
 
 	public void delete(int id);
 
