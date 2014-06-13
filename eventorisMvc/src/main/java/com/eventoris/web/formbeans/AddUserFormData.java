@@ -5,6 +5,8 @@ public class AddUserFormData {
 	private String name;
 	private String familyName;
 	private String email;
+	private String password;
+	private String passwordRepeat;
 
 	public String getName() {
 		return name;
@@ -14,6 +16,22 @@ public class AddUserFormData {
 		this.name = name;
 	}
 
+	public void setPassword(String password){
+		this.password = password;
+	}
+	
+	public void setPasswordRepeat(String passwordRepeat){
+		this.passwordRepeat = passwordRepeat;
+	}
+	
+	public String getPassword(){
+		return this.password;
+	}
+	
+	public String getPasswordRepeat(){
+		return this.passwordRepeat;
+	}
+	
 	public String getFamilyName() {
 		return familyName;
 	}

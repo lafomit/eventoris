@@ -57,4 +57,5 @@
 .icon-user-outline:before { content: '\e804'; color: #ffffff; margin-top: 15px;} /* '' */
 .icon-pencil:before { content: '\e805'; } /* '' */
 .icon-doc-add:before { content: '\e806'; } /* '' */
-.icon-thumbs-up:before { content: '\e807'; } /* '' */
+.icon-thumbs-up:before { content: '\e807'; color: #ffffff; margin-top: 15px;} /* '' */
+.icon-user-add-outline:before { content: '\e808'; color: #ffffff; margin-top: 15px;} /* '' */
