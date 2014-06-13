@@ -24,7 +24,7 @@
 				</div>
 				<div class = "grid_4 margin-padding-clear">
 				<div class = "search">
-					<form action="searchevent.htm" method="post">
+					<form action="searchevent.htm" >
 	  					<input type="text" placeholder="Caută eveniment" name="search_text" id="search">
 	  					<button type="submit"><i class = "icon-search-outline"></i></button>
 					</form>
