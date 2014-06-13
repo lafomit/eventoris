@@ -30,16 +30,15 @@ public class MyCalendarController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		String searchText = "craciun";//request.getParameter("search_text");
-		logger.info("Searching for:" + searchText);
 
-		List<EventInfo> events = eventManager.getEventByTitle(searchText);
-
-		logger.info("Found event:" + events.size());
+		List<EventInfo> eventsGoing = eventManager.getAllEventsUserIsGoing(99);
+		List<EventInfo> eventsMaybe = eventManager.getAllEventsUserMaybeComes(99);
+		
+ 
 		Map<String, Object> myModel = new HashMap<String, Object>();
-		myModel.put("products", events);
-
-		return new ModelAndView("events", "model", myModel);
+		myModel.put("productsGoing", eventsGoing);
+		myModel.put("productsMaybe", eventsMaybe);
+		return new ModelAndView("events_calendar", "model", myModel);
 	}
 
 	protected Object formBackingObject(HttpServletRequest request)
