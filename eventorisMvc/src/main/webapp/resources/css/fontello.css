@@ -54,7 +54,7 @@
 .icon-camera-outline:before { content: '\e801';  padding-top: 16px;} /* '' */
 .icon-calendar-outlilne:before { content: '\e802'; padding-top: 17px;} /* '' */
 .icon-search-outline:before { content: '\e803';} /* '' */
-.icon-user-outline:before { content: '\e804'; } /* '' */
+.icon-user-outline:before { content: '\e804'; color: #ffffff; margin-top: 15px;} /* '' */
 .icon-pencil:before { content: '\e805'; } /* '' */
 .icon-doc-add:before { content: '\e806'; } /* '' */
 .icon-thumbs-up:before { content: '\e807'; } /* '' */
