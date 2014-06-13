@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page session="true"%>
 <%@ page import = "java.util.*" %> 
 <%@ include file="/WEB-INF/jsp/include_links.jsp" %>
 <%@ page import ="eventoris.datatypes.EventInfo" %>

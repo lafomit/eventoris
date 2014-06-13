@@ -1,8 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page session="true"%>
-<html>
-<head>
-<title>Login Page</title>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import = "java.util.*" %> 
+<%@ include file="/WEB-INF/jsp/include_links.jsp" %>
+ 
+<title>Eventoris | Login </title>
+
 <style>
 .error {
 	padding: 15px;
@@ -34,10 +37,24 @@
 	border: 1px solid #000;
 }
 </style>
-</head>
-<body onload='document.loginForm.username.focus();'>
 
-	<h1>Spring Security Login Form (Database Authentication)</h1>
+<%@ include file="/WEB-INF/jsp/include_menu.jsp" %>
+
+	<div id="stick-menu">
+		<div class="container clearfix">
+			<div class="grid_12 margin-padding-clear">
+			<nav id="index-nav">
+				<ul class="navigation">
+					<li data-slide="1">Home</li>
+					<li data-slide="2">Ultimele Evenimente</li>
+					<li data-slide="3">Top Evenimente</li>
+<!-- 					<li data-slide="4">Ultimele Noutăţi</li> -->
+				</ul>
+				</nav>
+			</div>	
+		</div>
+	</div>
+
 
 	<div id="login-box">
 
@@ -59,7 +76,7 @@
 					<td><input type='text' name='username'></td>
 				</tr>
 				<tr>
-					<td>Password:</td>
+					<td>Parola:</td>
 					<td><input type='password' name='password' /></td>
 				</tr>
 				<tr>
@@ -74,5 +91,5 @@
 		</form>
 	</div>
 
-</body>
-</html>
+ <%@ include file="/WEB-INF/jsp/include_footer.jsp" %>
+<%@ include file="/WEB-INF/jsp/include_scripts.jsp" %>
