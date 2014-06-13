@@ -32,7 +32,7 @@
 						<li>să fim prieteni</li>
 					</ul>
 					
-					<button onclick="window.location.href=''">Logare</button>
+					<button onclick="window.location.href='login'">Logare</button>
 				</div>
 			</div>
 			<div class="grid_6 omega">

@@ -34,7 +34,7 @@ public class EventsController {
 
 	}
 
-	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	@RequestMapping(value = "/searching", method = RequestMethod.POST)
 	public ModelAndView searchEvents(
 			@RequestParam(value = "search_text", required = false) String searchText) {
 
