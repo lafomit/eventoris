@@ -3,6 +3,7 @@
 <%@ page import = "java.util.*" %> 
 <%@ include file="/WEB-INF/jsp/include_links.jsp" %>
 <%@ page import ="eventoris.datatypes.EventInfo" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <title>Eventoris | Home</title>
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp" %>
@@ -22,7 +23,7 @@
 		</div>
 	</div>
 
-<div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0.2">
+	<div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0.2">
 		<div class="container clearfix">
 			<div id="content" class="grid_6">
 				<div class="intro-text">
@@ -38,8 +39,20 @@
 			</div>
 			<div class="grid_6 omega">
 				<div class = "registration">
+					<div class="form-block">
+					
+					<i class = "icon-thumbs-up"></i>
+					<h1>Înregistrează-te acum!</h1><br>
+
+						<h2>Creează evenimente noi!</h2><br>
+						<h2>Participă activ la evenimente!</h2><br>
+						<h2>Urmăreşte propriul calendar!</h2><br>
+
+			
 					<button onclick="window.location.href='register_new.htm'">Înregistrare</button>
+					</div>
 				</div>
+				
 			</div>
 
 		</div>

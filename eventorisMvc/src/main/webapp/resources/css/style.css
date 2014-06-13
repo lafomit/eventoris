@@ -66,6 +66,25 @@ em{
 	font-style: normal;
 	color: #2d2d2e;
 }
+
+button{
+	background-color: #3498db;
+    border: medium none;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-family: 'Didact Gothic',sans-serif;
+    font-size: 25px;
+    padding: 10px 0;
+    width: 300px;
+}
+
+button:hover{
+	background-color: #298bcc;
+}
+
+button:active{
+	background-color: #3498db;
+}
 /* placeholders */
 
 ::-webkit-input-placeholder {
@@ -173,8 +192,6 @@ width:516px;
 	padding:20px 0;
 }
 
-
-
 /* Slide 1 */ 
 
 #slide1{
@@ -185,7 +202,7 @@ width:516px;
 
 .intro-text{
 	max-width: 300px;
-	margin: 110px auto 0;
+	margin: 250px auto 0;
 }
 
 .intro-text ul{
@@ -193,24 +210,11 @@ width:516px;
 	color: #ffffff;
 }
 
-button{
-	background-color: #3498db;
-    border: medium none;
-    border-radius: 20px;
-    color: #FFFFFF;
-    font-family: 'Didact Gothic',sans-serif;
-    font-size: 25px;
-    padding: 10px 0;
-    width: 300px;
+.registration{
+	font-style: normal;
 }
 
-button:hover{
-	background-color: #298bcc;
-}
 
-button:active{
-	background-color: #3498db;
-}
 /* Slide 2 */ 
 
 #slide2{
@@ -264,6 +268,7 @@ footer{
     padding-top: 60px;
     text-decoration: none;
     width: 100%;
+    cursor: pointer;
 }
 
 .social-networks .facebook a:hover{
@@ -615,7 +620,7 @@ height: 46px;
 /* Forms */
 
 .form-block{
-	background-color: #F5F7F8;
+	background-color: rgba(255,255,255,0.4);
     border-radius: 30px;
     margin: 100px auto;
     padding: 30px;
@@ -629,6 +634,21 @@ height: 46px;
     display: block;
     font-size: 25px;
     font-weight: normal;
+}
+
+.form-block h2{
+	color: #7f8c8d;
+	font-size: 18px;
+	border: 3px solid #D9D5D3;
+    border-radius: 30px;
+    height: 35px;
+    margin: 15px auto;
+    text-align: center;
+    width: 300px;
+    display: block;
+    background-color: #ffffff;
+    font-weight: normal;
+    padding-top: 5px;
 }
 
 .form-block i{
