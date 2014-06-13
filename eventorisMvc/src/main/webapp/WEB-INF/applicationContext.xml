@@ -28,6 +28,10 @@
 	</bean>
 
 
+     <bean name="eventsController" class="com.eventoris.web.controllers.EventsController">
+       <property name="eventManager" ref="eventManager" />
+     </bean>
+     
 	<bean id="categoryManager" class="com.eventoris.service.CategoryManagerImpl">
 		<property name="dataSource" ref="mysqlDao" />
 	</bean>
