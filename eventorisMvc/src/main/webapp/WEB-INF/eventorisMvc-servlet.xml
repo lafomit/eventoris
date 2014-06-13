@@ -12,6 +12,7 @@
     <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <context:component-scan base-package="com.eventoris.web.controllers" />  
        
        <!-- Initialization for data source -->
@@ -44,6 +45,10 @@
 	<bean id="categoryManager" class="com.eventoris.service.CategoryManagerImpl">
 		<property name="dataSource" ref="mysqlDao" />
 	</bean>
+=======
+    <context:component-scan base-package="com.eventoris.web.controllers.*" />  
+    <context:component-scan base-package="com.eventoris.web.controllers" />       
+>>>>>>> 24acca7b4fe49a67b29f1e56b2c1c0fee3305f20
 =======
     <context:component-scan base-package="com.eventoris.web.controllers.*" />  
     <context:component-scan base-package="com.eventoris.web.controllers" />       
