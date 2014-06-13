@@ -11,16 +11,16 @@
     
     <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/" />
-    <context:component-scan base-package="com.eventoris.web.controllers" />  
-       
-       <!-- Initialization for data source -->
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-   		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-   		<property name="url" value="jdbc:mysql://localhost:3306/eventoris_db"/>
-   		<property name="username" value="root"/>
-   		<property name="password" value=""/>
+    <context:component-scan base-package="com.eventoris.web.controllers.*" />  
+           
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView"></property>
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
 	</bean>
- 
+	
     <!-- Definition for  JDBCTemplate bean -->
    <bean id="mysqlDao" class="eventoris.dao.EventJDBCTemplate">
       <property name="dataSource"  ref="dataSource" />    
@@ -100,14 +100,7 @@
        <property name="eventManager" ref="eventManager" />
      </bean>
      
-         
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.JstlView"></property>
-		<property name="prefix" value="/WEB-INF/jsp/"></property>
-		<property name="suffix" value=".jsp"></property>
-	</bean>
+
 
 
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">

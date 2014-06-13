@@ -16,13 +16,13 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
-
+<!--
 	<welcome-file-list>
 		<welcome-file>
-      home.jsp
-    </welcome-file>
+           home.jsp
+        </welcome-file>
 	</welcome-file-list>
-
+-->
 	<jsp-config>
 		<taglib>
 			<taglib-uri>/spring</taglib-uri>
@@ -36,8 +36,8 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring-security.xml
-					 /WEB-INF/eventorisMvc-servlet.xml
+		<param-value>/WEB-INF/spring-security.xml,
+					/WEB-INF/spring-database.xml
 		</param-value>
 	</context-param>
 
