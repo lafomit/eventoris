@@ -12,7 +12,8 @@
     <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/" />
     <context:component-scan base-package="com.eventoris.web.controllers.*" />  
-           
+    <context:component-scan base-package="com.eventoris.web.controllers" />       
+	
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"
@@ -21,32 +22,7 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
-    <!-- Definition for  JDBCTemplate bean -->
-   <bean id="mysqlDao" class="eventoris.dao.EventJDBCTemplate">
-      <property name="dataSource"  ref="dataSource" />    
-   </bean>
-
-
-   <bean id="userMysqlDao" class="eventoris.dao.UserJDBCTemplate">
-      <property name="dataSource"  ref="dataSource" />    
-   </bean>
-	<!-- the application context definition for the springapp DispatcherServlet -->
-
-    <bean id="inMemoryDao" class="eventoris.dao.DummyInMemoryDao">
-	</bean>
-
-	<bean id="eventManager" class="com.eventoris.service.EventManagerImpl">
-		<property name="dataSource" ref="mysqlDao" />
-	</bean>
-
-
-	<bean id="categoryManager" class="com.eventoris.service.CategoryManagerImpl">
-		<property name="dataSource" ref="mysqlDao" />
-	</bean>
-	
-	<bean id="userManager" class="com.eventoris.service.UserManagerImpl">
-		<property name="dataSource" ref="userMysqlDao" />
-	</bean>
+ 
 	
 	<bean name="/index.htm" class="com.eventoris.web.controllers.IndexController">
 		<property name="eventManager" ref="eventManager" />
@@ -103,7 +79,5 @@
 
 
 
-    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basename" value="messages"/>
-    </bean>
+
 </beans>
