@@ -237,4 +237,14 @@ public class EventJDBCTemplate implements EventDAO {
 
 		return events;
 	}
+
+	public List<EventInfo> getEventsUserIsSubscribedTo(int userId, int statusId) {
+		String SQL = "select * from event_info "
+				+ " join participants on  participants.id_event = event_info.id_event_info "
+				+ "where id_user = ? and id_status =?";
+		List<EventInfo> events = jdbcTemplateObject.query(SQL,new Object[]{userId,statusId},
+				new EventMapper());
+
+		return events;
+	}
 }

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page session="true"%>
 <%@ page import = "java.util.*" %> 
 <%@ include file="/WEB-INF/jsp/include_links.jsp" %>
 <%@ page import ="eventoris.datatypes.EventInfo" %>
@@ -32,7 +33,7 @@
 						<li>să fim prieteni</li>
 					</ul>
 					
-					<button onclick="window.location.href=''">Logare</button>
+					<button onclick="window.location.href='login'">Logare</button>
 				</div>
 			</div>
 			<div class="grid_6 omega">

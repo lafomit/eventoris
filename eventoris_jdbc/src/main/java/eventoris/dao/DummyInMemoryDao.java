@@ -121,5 +121,9 @@ public class DummyInMemoryDao implements EventDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public List<EventInfo> getEventsUserIsSubscribedTo(int userId, int statusId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

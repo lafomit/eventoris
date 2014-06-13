@@ -8,6 +8,11 @@ public interface EventManager {
 
 	public List<EventInfo> getAllEventsCreatedByUser(int userId);
 	
+	public List<EventInfo> getAllEventsUserIsGoing(int userId);
+	
+	public List<EventInfo> getAllEventsUserMaybeComes(int userId);
+	
+	
 	public void createNewEventInfo(EventInfo event);
 	
 	public List<EventInfo> getLastEventsByDate(int eventsCount);

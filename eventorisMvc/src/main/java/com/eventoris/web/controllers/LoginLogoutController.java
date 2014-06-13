@@ -1,64 +1,78 @@
 package com.eventoris.web.controllers;
 
-import java.util.logging.Logger;
-
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/auth")
 public class LoginLogoutController {
 
-	protected static Logger logger = Logger.getLogger("controller");
+	@RequestMapping(value ="/welcome**" , method = RequestMethod.GET)
+	public ModelAndView defaultPage() {
 
-	/**
-	 * Handles and retrieves the login JSP page
-	 * 
-	 * @return the name of the JSP page
-	 */
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String getLoginPage(
-			@RequestParam(value = "error", required = false) boolean error,
-			ModelMap model) {
-		logger.fine("Received request to show login page");
+		ModelAndView model = new ModelAndView();
+		model.addObject("title", "Spring Security Login Form - Database Authentication");
+		model.addObject("message", "This is default page!");
+		model.setViewName("hello");
+		return model;
 
-		// Add an error message to the model if login is unsuccessful
-		// The 'error' parameter is set to true based on the when the
-		// authentication has failed.
-		// We declared this under the authentication-failure-url attribute
-		// inside the spring-security.xml
-		/*
-		 * See below: <form-login login-page="/krams/auth/login"
-		 * authentication-failure-url="/krams/auth/login?error=true"
-		 * default-target-url="/krams/main/common"/>
-		 */
-		if (error == true) {
-			// Assign an error message
-			model.put("error",
-					"You have entered an invalid username or password!");
-		} else {
-			model.put("error", "");
-		}
-
-		// This will resolve to /WEB-INF/jsp/loginpage.jsp
-		return "loginpage";
 	}
 
-	/**
-	 * Handles and retrieves the denied JSP page. This is shown whenever a
-	 * regular user tries to access an admin only page.
-	 * 
-	 * @return the name of the JSP page
-	 */
-	@RequestMapping(value = "/denied", method = RequestMethod.GET)
-	public String getDeniedPage() {
-		logger.fine("Received request to show denied page");
+	@RequestMapping(value = "/admin**", method = RequestMethod.GET)
+	public ModelAndView adminPage() {
 
-		// This will resolve to /WEB-INF/jsp/deniedpage.jsp
-		return "deniedpage";
+		ModelAndView model = new ModelAndView();
+		model.addObject("title", "Spring Security Login Form - Database Authentication");
+		model.addObject("message", "This page is for ROLE_ADMIN only!");
+		model.setViewName("admin");
+
+		return model;
+
+	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
+			@RequestParam(value = "logout", required = false) String logout) {
+
+		ModelAndView model = new ModelAndView();
+		if (error != null) {
+			model.addObject("error", "Invalid username and password!");
+		}
+
+		if (logout != null) {
+			model.addObject("msg", "You've been logged out successfully.");
+		}
+		model.setViewName("login");
+
+		return model;
+
+	}
+	
+	//for 403 access denied page
+	@RequestMapping(value = "/403", method = RequestMethod.GET)
+	public ModelAndView accesssDenied() {
+
+		ModelAndView model = new ModelAndView();
+		
+		//check if user is login
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (!(auth instanceof AnonymousAuthenticationToken)) {
+			UserDetails userDetail = (UserDetails) auth.getPrincipal();
+			System.out.println(userDetail);
+		
+			model.addObject("username", userDetail.getUsername());
+			
+		}
+		
+		model.setViewName("403");
+		return model;
+
 	}
 
 }
