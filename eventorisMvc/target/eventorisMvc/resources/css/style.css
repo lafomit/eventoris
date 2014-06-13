@@ -97,12 +97,19 @@ header{
 	width:100%;
 	z-index:100;
 }
+
+#index-nav{
+width:516px;
+}
+
+#add-event-nav{
+	width:603px;
+}
 #stick-menu nav{
       color: #ffffff;
       font-size: 18px;
       line-height: 1.6em;
       margin: 11px auto 0;
-      width:516px;
       box-sizing:border-box;
 }
 #stick-menu nav ul{
@@ -410,7 +417,7 @@ footer{
 	float: right;
 }
 
-.block img{
+.block-header img, .block img{
 	border-radius: 100px;
 	height: 100px;
 	width: 96px;
@@ -479,14 +486,106 @@ footer{
 }
 
 #address{
-	margin-top: 25px;
+	margin-top: 30px;
 }
 
 .address-content p{
 	font-size: 18px;
-	padding: 20px;
+	padding: 0 20px 20px 20px;
 }
 
+#maybe-coming{
+	height: 405px;
+	margin-top: 30px;
+}
+
+.search form {
+    left: -20px;
+    margin: 40px auto;
+    position: relative;
+}
+#search{
+    padding:8px 30px 8px 15px;
+    border: 3px solid #d9d5d3;
+    border-radius: 50px;
+}
+.search button {
+	background-color: #C0392B;
+    border: medium none;
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-size: 19px;
+    height: 32px;
+    left: -38px;
+    padding: 6px 15px;
+    position: relative;
+    top: 2px;
+    width: 32px;
+}
+
+.be-first-message{
+	height: 200px;
+	text-align: center;
+}
+
+.see-all{
+height: 46px;
+    margin: 0 auto;
+    padding-top: 30px;
+    width: 86px;
+}
+
+.participants-wrap{
+	height: 150px;
+}
+
+.comments-wrapper{
+	width: 975px;
+	margin: 0 auto;
+}
+
+.send-comment-area{
+	width: 490px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.send-comment-area textarea{
+	border: 3px solid #d9d5d3;
+	width: 450px;
+	height: 90px;
+	margin: 20px;
+	resize:none;
+}
+
+.display-comments-area{
+	width: 450px;
+	margin: 0 auto;
+}
+
+.display-comments-area img{
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+}
+.comment-block{
+	background: #ffffff;
+	border-top-left-radius: 50px;
+	margin: 30px 0;
+    min-height: 120px;
+}
+.owner-picture{
+	float: left;
+    margin-right: 20px;
+    position: relative;
+}
+.comment-info{
+    padding-top: 20px;
+    text-decoration: underline;
+}
+.comment-text{
+	padding: 0 20px 20px;
+}
 /* Tablet */
 @media screen and (max-width: 1024px) {
 	#nav {
