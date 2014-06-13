@@ -64,9 +64,7 @@
 				    String tmp = ((eventoris.datatypes.EventInfo)pageContext.findAttribute("event")).getDateOfEvent();
 				    String year = tmp.substring(0, 4);
 				    String date = tmp.substring(8,10);
-					int month = Integer.parseInt(tmp.substring(5,7));
-					
-					
+					int month = Integer.parseInt(tmp.substring(5,7));	
 					
 					%>
 					<div class = "event-body">
@@ -122,7 +120,7 @@
 						    String tmp = ((eventoris.datatypes.EventInfo)pageContext.findAttribute("event")).getDateOfEvent();
 						    String year = tmp.substring(0, 4);
 						    String date = tmp.substring(8,10);
-							String month = tmp.substring(5,7);
+						    int month = Integer.parseInt(tmp.substring(5,7));
 						%>
 						<div class = "event-body">
 							<div class="left-event-half">
@@ -145,7 +143,7 @@
 									<h1><%=date%></h1>
 								</div>
 								<div class = "date-circle" id="month">
-									<h3><%=month %></h3>
+									<h3><%=com.eventoris.web.LangUtil.getRoMonthName(month) %></h3>
 								</div>
 								<div class = "date-circle" id="year">
 									<h1><%=year %></h1>
