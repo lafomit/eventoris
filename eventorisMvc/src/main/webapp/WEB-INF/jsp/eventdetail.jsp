@@ -63,20 +63,27 @@
 							int participantsComing = (Integer) map.get("comingPartNumb");
 								if (participantsComing > 0) {
 						%>
-						<div class="participant">
-							<img alt="profile picture" src="resources/img/avatars/0.jpg">
-							<em>Vasea Mamaliga</em>
+						<div class = "participants-wrap">
+							<div class="participant">
+								<img alt="profile picture" src="resources/img/avatars/0.jpg">
+								<em>Vasea Mamaliga</em>
+							</div>
 						</div>
-				
-						<a href="#">Vezi toţi (${dataMap.participantsNumber})</a><br>
-						<br>
+						<div class="see-all">
+							<a href="#">Vezi toţi (<%=participantsComing %>)</a><br>
+							<br>
+						</div>
 						<%
 							} else {
-						%>Fii primul care se inscrie
+						%><div class="be-first-message">
+								<h2>Fii primul care se inscrie</h2>
+						  </div>
 						<%
 							}
 						%>
-						<button>Hai!</button>
+						<div class="hai-button">
+							<button>Hai!</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -112,38 +119,43 @@
 						<img alt="icon" src="resources/img/block icons/maybe.jpg">
 						<h1>Cine posibil va veni?</h1>
 					</div>
+					<div class="participants-content">
 						<%
 							int participantsMaybe = (Integer) map.get("maybePartNumb");
 								if (participantsMaybe > 0) {
 						%>
-					<div class = "participants-content">
-						<div class="participant">
-							<img alt="profile picture" src="resources/img/avatars/0.jpg">
-							<em>Vasea Mamaliga</em>
+						<div class = "participants-wrap">
+							<div class="participant">
+								<img alt="profile picture" src="resources/img/avatars/0.jpg">
+								<em>Vasea Mamaliga</em>
+							</div>
+							<div class="participant">
+								<img alt="profile picture" src="resources/img/avatars/2.jpg">
+								<em>Uashiva Patlajica</em>
+							</div>
+							<div class="participant">
+								<img alt="profile picture" src="resources/img/avatars/3.jpg">
+								<em>Alina Stepanida</em>
+							</div>
 						</div>
-						<div class="participant">
-							<img alt="profile picture" src="resources/img/avatars/2.jpg">
-							<em>Uashiva Patlajica</em>
+						<div class="see-all">
+							<a href="#">Vezi toţi (<%=participantsMaybe %>)</a><br><br>
 						</div>
-						<div class="participant">
-							<img alt="profile picture" src="resources/img/avatars/3.jpg">
-							<em>Alina Stepanida</em>
-						</div>
-						<a href="#">Vezi toţi (<%=participantsMaybe %> %>)</a><br><br>
 						<%
 							} else {
-						%>Nikogo netu
+						%><div class="be-first-message">
+								<h2>Fii primul care se inscrie</h2>
+						  </div>
 						<%
 							}
 						%>
-						<button>Hai!</button>
-						<br>
+						<div class="hai-button">
+							<button>Hai!</button>
+						</div>
 					</div>
 				</div>
 			</div>
-			<%
-				}
-			%>
+			<% } %>
 		</div>
 
 	</div>
@@ -151,27 +163,39 @@
 
 <div class="container clearfix">
 	<div id="content" class="grid_12">
-		<h1>Discuţii</h1>
-		<br>
-		<textarea rows="4" cols="50" name="comment" form="insert-comment"></textarea>
-		<form action="" id="insert-comment">
-			<input type="submit">
-		</form>
-	</div>
-	<div id="content" class="grid_12">
-		<%
-			if (map != null) {
-		%>
-		<c:forEach items="${dataMap.comments}" var="event">
-			<div
-				style="background-color: white; height: 200px; width: 500px; border: 1px solid gray;">
-				<c:out value="${event.comment}" />
+		<div class = "comments-wrapper">
+			<div class = "block-header">
+				<img alt="icon" src="resources/img/block icons/comments.jpg">
+				<h1>Discuţii</h1>
 			</div>
+			<div class="send-comment-area">
+				<textarea rows="4" cols="50" name="comment" form="insert-comment"></textarea>
+				<form action="" id="insert-comment">
+					<button type="submit">Trimite</button>
+				</form>
+			</div>
+	
+			<div class="display-comments-area">
+				<%	if (map != null) {	%>
+					<c:forEach items="${dataMap.comments}" var="event">
+						<div class="comment-block">
+							<div class="owner-picture">
+								<img alt="icon" src="resources/img/avatars/3.jpg">
+							</div>
+							<div class="comment-info">
+								<p><em>Jora Vasea</em> - 2 iunie 2014</p>
+							</div>
+							<div class="comment-text">
+								<p><c:out value="${event.comment}" /></p> 
+							</div>
+						</div>
+					</c:forEach>
+				<%
+				}
+				%>
 
-		</c:forEach>
-		<%
-			}
-		%>
+			</div>
+		</div>
 	</div>
 </div>
 
