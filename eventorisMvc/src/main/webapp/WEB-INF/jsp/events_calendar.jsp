@@ -13,7 +13,7 @@
 				<ul>
 					<li><a href="<c:url value="addevent.htm"/>">Adaugă
 							Eveniment</a></li>
-					<li><a href="myevents.htm">Evnimentele mele</a></li>
+					<li><a href="myevents.htm">Evenimentele mele</a></li>
 					<li><a href="mycalendar.htm">Calendarul meu</a></li>
 				</ul>
 			</nav>
@@ -21,6 +21,7 @@
 
 	</div>
 </div>
+
 GOING
 <div class="container clearfix">
 	<div id="content" class="grid_12">
@@ -143,3 +144,4 @@ MaybeGoing
 
 <%@ include file="/WEB-INF/jsp/include_footer.jsp"%>
 <%@ include file="/WEB-INF/jsp/include_scripts.jsp"%>
+

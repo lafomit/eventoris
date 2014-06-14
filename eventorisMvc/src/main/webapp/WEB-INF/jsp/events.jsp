@@ -20,9 +20,7 @@
 
 	</div>
 </div>
-
 <section>
-
 <div class="container clearfix">
 	<div id="content" class="grid_12">
 		<div class="events">

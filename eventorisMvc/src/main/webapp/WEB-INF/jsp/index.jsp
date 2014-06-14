@@ -24,11 +24,13 @@
 	</div>
 </div>
 <section>
+
 <!-- Do not show section if logged in -->
 <c:if test="${pageContext.request.userPrincipal.name == null}">
 
 
-	<div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0.2">
+	<div class="slide" id="slide1" data-slide="1"
+		data-stellar-background-ratio="0.2">
 		<div class="container clearfix">
 			<div id="content" class="grid_6">
 				<div class="intro-text">
@@ -132,7 +134,9 @@
 
 
 
-<div class="slide" id="slide3" data-slide="3" data-stellar-background-ratio="0.5">
+
+<div class="slide" id="slide3" data-slide="3"
+	data-stellar-background-ratio="0.5">
 	<div class="container clearfix">
 		<div id="content" class="grid_12">
 			<div class="slide-title">
@@ -194,4 +198,3 @@
 </section>
 <%@ include file="/WEB-INF/jsp/include_footer.jsp"%>
 <%@ include file="/WEB-INF/jsp/include_scripts.jsp"%>
-
