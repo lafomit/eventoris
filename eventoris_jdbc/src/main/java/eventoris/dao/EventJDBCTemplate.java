@@ -205,7 +205,9 @@ public class EventJDBCTemplate implements EventDAO {
 	}
 
 	public List<CommentInfo> getCommentsForEvent(int eventId) {
-		String SQL = "select * from comments where id_event=?";
+		String SQL = "select comments.*,user_details.firstname as 'poster_name' ,user_details.lastname as 'poster_family'  from comments "
+				+ " join user_details on user_details.id_user_details = comments.id_owner"
+				+ " where id_event=?";
 		List<CommentInfo> comments = jdbcTemplateObject.query(SQL,
 				new Object[] { eventId }, new CommentMapper());
 		return comments;

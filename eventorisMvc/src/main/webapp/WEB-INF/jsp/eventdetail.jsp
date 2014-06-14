@@ -199,19 +199,20 @@
 				<%
 					if (map != null) {
 				%>
-				<c:forEach items="${dataMap.comments}" var="event">
+				
+				<c:forEach items="${dataMap.comments}" var="commentItem">
 					<div class="comment-block">
 						<div class="owner-picture">
 							<img alt="icon" src="resources/img/avatars/3.jpg">
 						</div>
 						<div class="comment-info">
 							<p>
-								<em>Jora Vasea</em> - 2 iunie 2014
+								<em>${commentItem.ownerName}  ${commentItem.ownerFamily}</em> - ${commentItem.dateAdded}
 							</p>
 						</div>
 						<div class="comment-text">
 							<p>
-								<c:out value="${event.comment}" />
+								<c:out value="${commentItem.comment}" />
 							</p>
 						</div>
 					</div>

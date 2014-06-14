@@ -15,6 +15,8 @@ public class CommentMapper implements RowMapper<CommentInfo> {
 		comment.setDateAdded(rs.getString("date_created"));
 		comment.setEventId(rs.getInt("id_event"));
 		comment.setPosterId(rs.getInt("id_owner"));
+		comment.setOwnerFamily(rs.getString("poster_family"));
+		comment.setOwnerName(rs.getString("poster_name"));
 		return comment;
 	}
 

@@ -8,6 +8,15 @@ public class CommentInfo {
 	String comment;
 	String dateAdded;
 	String ownerName;
+	String ownerFamily;
+
+	public String getOwnerFamily() {
+		return ownerFamily;
+	}
+
+	public void setOwnerFamily(String ownerFamily) {
+		this.ownerFamily = ownerFamily;
+	}
 
 	public String getOwnerName() {
 		return ownerName;
@@ -57,4 +66,19 @@ public class CommentInfo {
 		this.dateAdded = dateAdded;
 	}
 
+	
+	@Override
+	public String toString(){
+		StringBuilder builder = new StringBuilder(this.getClass().getCanonicalName());
+		builder.append("[comment=").append(getComment());
+		builder.append(";commentId=").append(getCommentId());
+		builder.append(";dateAdded=").append(getDateAdded());
+		builder.append(";eventId=").append(getEventId());
+		builder.append(";ownerFamily=").append(getOwnerFamily());
+		builder.append(";ownerName=").append(getOwnerName());
+		builder.append(";posterId=").append(getPosterId());
+		builder.append("]");
+		return builder.toString();
+	}
+	
 }
