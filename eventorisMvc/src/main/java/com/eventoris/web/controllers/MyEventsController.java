@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
 import com.eventoris.service.EventManager;
+import com.eventoris.web.auth.UserSessionInfo;
 import com.eventoris.web.formbeans.AddEventFormData;
 
 import eventoris.datatypes.EventInfo;
@@ -31,7 +33,9 @@ public class MyEventsController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		List<EventInfo> events = eventManager.getAllEventsCreatedByUser(4);
+		UserSessionInfo activeUser = (UserSessionInfo)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
+		List<EventInfo> events = eventManager.getAllEventsCreatedByUser(activeUser.getId());
 
 		logger.info("MyEventsController: Found events=" + events.size());
 		Map<String, Object> myModel = new HashMap<String, Object>();

@@ -6,4 +6,5 @@ public interface UserManager {
 	
 	public void createNewUser(UserInfo userInfo);
 
+	public UserInfo findUser(String userName);
 }

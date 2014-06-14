@@ -2,6 +2,7 @@ package eventoris.dao;
 
 import javax.sql.DataSource;
 
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import eventoris.datatypes.EventInfo;
@@ -35,6 +36,22 @@ public class UserJDBCTemplate implements UserDAO{
 		
 		private int getMaxUserId(){
 			return 800;
+		}
+
+
+		public UserInfo findUser(String userName) {
+			
+				String SQL = "select user_details.* ,users.* from users"
+						+ "	join user_details on user_details.id_user = users.id_users"
+						+ " where users.username = ? ";
+				UserInfo userInfo;
+				try {
+					userInfo = jdbcTemplateObject.queryForObject(SQL,
+							new Object[] { userName }, new UserInfoMapper());
+				} catch (IncorrectResultSizeDataAccessException ex) {
+					return null;
+				}
+				return userInfo;
 		}
 		
 }
