@@ -25,4 +25,8 @@ public class UserManagerImpl implements UserManager{
 		
 	}
 
+	public UserInfo findUser(String userName) {
+		return userDaoProvider.findUser(userName);
+	}
+
 }

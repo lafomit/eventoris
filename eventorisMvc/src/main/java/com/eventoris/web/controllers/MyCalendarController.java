@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
 import com.eventoris.service.EventManager;
+import com.eventoris.web.auth.UserSessionInfo;
 import com.eventoris.web.formbeans.AddEventFormData;
 
 import eventoris.datatypes.EventInfo;
@@ -26,15 +28,16 @@ public class MyCalendarController implements Controller {
 
 	private EventManager eventManager;
 
-
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		UserSessionInfo activeUser = (UserSessionInfo) SecurityContextHolder
+				.getContext().getAuthentication().getPrincipal();
 
+		List<EventInfo> eventsGoing = eventManager
+				.getAllEventsUserIsGoing(activeUser.getId());
+		List<EventInfo> eventsMaybe = eventManager
+				.getAllEventsUserMaybeComes(activeUser.getId());
 
-		List<EventInfo> eventsGoing = eventManager.getAllEventsUserIsGoing(4);
-		List<EventInfo> eventsMaybe = eventManager.getAllEventsUserMaybeComes(4);
-		
- 
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("productsGoing", eventsGoing);
 		myModel.put("productsMaybe", eventsMaybe);

@@ -50,9 +50,8 @@
 								document.getElementById("logoutForm").submit();
 							}
 						</script>
-
 						<c:if test="${pageContext.request.userPrincipal.name != null}">
-							  ${pageContext.request.userPrincipal.name} | 
+							  <sec:authentication property="principal.mainName" /> <sec:authentication property="principal.familyName" /> |
 							  <a href="javascript:formSubmit()" > Logout</a>
 						</c:if>
 					</sec:authorize>
