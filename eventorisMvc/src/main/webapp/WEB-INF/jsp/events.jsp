@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/jsp/include_links.jsp"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="java.util.*"%>
-<title>Eventoris | Events</title>
+<title>Eventoris | Evenimente</title>
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
 
@@ -28,7 +28,14 @@
 
 			<c:choose>
 				<c:when test="${empty model.products} ">
-						${model.noResultsMessage}
+						<div class="error-page">
+					<div class="smile">
+						<i class="icon-emo-unhappy"></i>
+					</div>
+					<div class="message">
+						<h2>Nu sunt rezultate</h2>
+					</div>
+				</div>
 			    </c:when>
 				<c:otherwise>
 					<c:forEach items="${model.products}" var="event">

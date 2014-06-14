@@ -26,7 +26,7 @@
 			<div class="smile">
 				<i class="icon-emo-surprised"></i>
 			</div>
-			<div class="msg">
+			<div class="message">
 				<h2>Aşa pagină nu există!</h2>
 			</div>
 		</div>
