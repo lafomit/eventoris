@@ -3,12 +3,26 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ include file="/WEB-INF/jsp/include_links.jsp" %>
+ <link rel="stylesheet" href="resources/css/datepicker.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script>
+	$(function() {
+		$('#datepicker').datepicker({  
+            inline: true,  
+            showOtherMonths: true,  
+            dayNamesMin: ['Lu', 'Ma', 'Mi', 'Jo', 'Vi', 'Si', 'Du'],  
+            monthNames:['Ianuarie','Februarie','Martie','Aprilie','Mai','Iunie','Iulie','August','Septembrie','Octombrie','Noiembrie','Decembrie'],
+        }); 
+});
+</script>
 
 <title>Eventoris | Home</title>
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp" %>
 
-<div>
+<section>
 	<div class = "container clearfix">
 		<div class="grid_12">
 		<div class="form-block">
@@ -26,7 +40,9 @@
 				
 				    <form:input path="address" placeholder="Adresa"/>
 				    <form:errors path="address" cssClass="error"/>
-		    
+		    		
+	    			<form:input path="eventdate" type="text" id="datepicker" placeholder="Data"/>
+		    		
 				    <form:input path="eventdate" placeholder="Data evenimentului"/>
 				    <form:errors path="eventdate" cssClass="error"/>
 					<br>
@@ -42,6 +58,7 @@
 		</div>
 	</div>
 </div>
-
+<p>Date: <input type="text" id="datepicker"></p>
+</section>
 <%@ include file="/WEB-INF/jsp/include_footer.jsp" %>
 <%@ include file="/WEB-INF/jsp/include_scripts.jsp" %>

@@ -728,9 +728,10 @@ height: 46px;
 
 .log-out{
 	float: right;
+	margin-top:-25px;
 }
 .log-out a{
-	color: #ffffff
+	color: #ffffff;
 }
 
 

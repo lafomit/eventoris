@@ -21,7 +21,6 @@
 
 	</div>
 </div>
-
 <section>
 <div class="container clearfix">
 	<div id="content" class="grid_12">
@@ -82,9 +81,7 @@
 		</div>
 	</div>
 </div>
-
 </section>
 
 <%@ include file="/WEB-INF/jsp/include_footer.jsp"%>
 <%@ include file="/WEB-INF/jsp/include_scripts.jsp"%>
-

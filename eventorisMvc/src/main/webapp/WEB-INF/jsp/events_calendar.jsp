@@ -21,7 +21,6 @@
 
 	</div>
 </div>
-
 <section>
 GOING
 <div class="container clearfix">
