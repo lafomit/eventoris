@@ -55,7 +55,7 @@
 				    <form:input path="address" placeholder="Adresa"/>
 				    <form:errors path="address" cssClass="error"/>
 		    		
-	    			<form:input path="eventdate" type="text" id="datepicker" placeholder="Data"/>
+	    		<!-- <form:input path="eventdate" type="text" id="datepicker" placeholder="Data"/> -->	
 		    		
 				    <form:input path="eventdate" placeholder="Data evenimentului"/>
 				    <form:errors path="eventdate" cssClass="error"/>
