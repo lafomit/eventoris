@@ -11,32 +11,33 @@
 <div>
 	<div class = "container clearfix">
 		<div class="grid_12">
-			<h1><fmt:message key="addevent.heading"/></h1>
+		<div class="form-block">
+					
+			<i class = "icon-doc-add"></i>
+			<h1>Adaugă eveniment</h1><br>
+			
 			<form:form method="post" commandName="createEvent">
-			TITLE
-				<form:input path="title"/>
-			    <form:errors path="title" cssClass="error"/>
-			          <br/>
-			DESCRIPTION
-			    <form:input path="description"/>
-			    <form:errors path="description" cssClass="error"/>
-			    <br/>     
-			ADDRESS
-			    <form:input path="address"/>
-			    <form:errors path="address" cssClass="error"/>
-			    <br/>     
-		    DATE OF EVENT
-			    <form:input path="eventdate"/>
-			    <form:errors path="eventdate" cssClass="error"/>
-			    <br/>    
-			CATEGORY
-			    <form:select path="category">
-			    	<form:options items="${categories}" />
-			    </form:select>			        
-			    <form:errors path="category" cssClass="error"/>
-			   <br/>
-			  <br>
-			  <input type="submit" value="Execute">
+					<form:input path="title" placeholder="Titlu"/>
+				    <form:errors path="title" cssClass="error" id="add-event"/>
+				    
+					<form:textarea path="description" rows="4" cols="50" placeholder="Descriere"/>				
+				    
+				    <form:errors path="description" cssClass="error"/>  
+				
+				    <form:input path="address" placeholder="Adresa"/>
+				    <form:errors path="address" cssClass="error"/>
+		    
+				    <form:input path="eventdate" placeholder="Data evenimentului"/>
+				    <form:errors path="eventdate" cssClass="error"/>
+					<br>
+					<form:label path="category">Categorie </form:label>
+				    <form:select path="category">
+				    	<form:option value=""/>
+				    	<form:options items="${categories}" />
+				    </form:select><br>			        
+				    <form:errors path="category" cssClass="error"/>
+				  <br>
+				  <button type="submit">Adaugă</button>
 			</form:form>
 		</div>
 	</div>

@@ -240,3 +240,4 @@ eventorisMvc/target/eventorisMvc/resources/css/style.css
 eventoris_jdbc/target/maven-archiver/pom.properties
 eventoris_jdbc/target/surefire-reports/TEST-eventoris.AppTest.xml
 eventoris_jdbc/target/surefire-reports/eventoris.AppTest.txt
+eventorisMvc/src/main/webapp/WEB-INF/spring-database.xml
