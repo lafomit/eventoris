@@ -42,11 +42,11 @@ public class LoginLogoutController {
 
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
-			model.addObject("error", "Invalid username and password!");
+			model.addObject("error", "Ai greşit parola sau email-ul!");
 		}
 
 		if (logout != null) {
-			model.addObject("msg", "You've been logged out successfully.");
+			model.addObject("msg", "Te aşteptăm înapoi!");
 		}
 		model.setViewName("login");
 
