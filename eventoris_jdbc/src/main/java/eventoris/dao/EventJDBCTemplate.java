@@ -217,9 +217,10 @@ public class EventJDBCTemplate implements EventDAO {
 	}
 
 	public UserInfo getEventOwnerInfo(int eventId) {
-		String SQL = "select users.* from event_info "
-				+ "join users on event_info.id_owner = users.id_users "
-				+ "where event_info.id_event_info = ?";
+		String SQL = "select user_details.* ,users.* from event_info"
+				+ "	join users on event_info.id_owner = users.id_users"
+				+ "	join user_details on user_details.id_user = users.id_users"
+				+ " where event_info.id_event_info = ? ";
 		UserInfo owner;
 		try {
 			owner = jdbcTemplateObject.queryForObject(SQL,

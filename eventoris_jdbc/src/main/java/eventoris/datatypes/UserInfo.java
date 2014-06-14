@@ -2,10 +2,29 @@ package eventoris.datatypes;
 
 public class UserInfo {
 
-
 	private String name;
 	private String familyName;
 	private String email;
+	private String userName;
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	private String birthday;
+
+	public String getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+
 	private int id;
 
 	public int getId() {
@@ -40,4 +59,6 @@ public class UserInfo {
 		this.email = email;
 	}
 
+	
+	
 }
