@@ -534,6 +534,7 @@ footer{
 
 .search{
 	float: right;
+	width: 280px;
 }
 
 .search form {
