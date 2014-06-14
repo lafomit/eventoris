@@ -13,12 +13,19 @@
 		<div id="content" class="grid_12">
 			<div class="event-detail-wrapper">
 				<%
-					Map<String, Object> map = (Map<String, Object>) request
-							.getAttribute("dataMap");
+					Map<String, Object> map = (Map<String, Object>) request.getAttribute("dataMap");
 	
 					if (map == null) {
 				%>
-				Ne cerem scuze, dar evenimentul cerut nu a fost gasit
+				<div class="error-page">
+				<div class="smile">
+					<i class="icon-emo-unhappy"></i>
+				</div>
+				<div class="message">
+					<h2>Ne cerem scuze, dar evenimentul cerut nu a fost gasit</h2>
+				</div>
+				
+				</div>
 				<%
 					} else {
 						eventoris.datatypes.EventInfo eventInfo = ((eventoris.datatypes.EventInfo) map
@@ -168,9 +175,6 @@
 						</div>
 					</div>
 				</div>
-				<%
-					}
-				%>
 			</div>
 	
 		</div>
@@ -224,6 +228,9 @@
 			</div>
 		</div>
 	</div>
+	<%
+		}
+	%>
 </section>
 <%@ include file="/WEB-INF/jsp/include_footer.jsp"%>
 <%@ include file="/WEB-INF/jsp/include_scripts.jsp"%>

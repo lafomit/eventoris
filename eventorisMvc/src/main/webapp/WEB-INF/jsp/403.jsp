@@ -1,16 +1,38 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html>
-<body>
-	<h1>HTTP Status 403 - Access is denied</h1>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ include file="/WEB-INF/jsp/include_links.jsp"%>
+<%@ page import="java.util.*"%>
+<title>Eventoris | Eroare 404</title>
 
-	<c:choose>
-		<c:when test="${empty username}">
-			<h2>You do not have permission to access this page!</h2>
-		</c:when>
-		<c:otherwise>
-			<h2>Username : ${username} <br/>You do not have permission to access this page!</h2>
-		</c:otherwise>
-	</c:choose>
+<%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
 
-</body>
-</html>
+<div id="stick-menu">
+	<div class="container clearfix">
+		<div class="grid_12 margin-padding-clear">
+			<nav id="index-nav">
+				<ul class="navigation">
+					<li data-slide="1">Home</li>
+					<li data-slide="2">Ultimele Evenimente</li>
+					<li data-slide="3">Top Evenimente</li>
+					<!-- 					<li data-slide="4">Ultimele Noutăţi</li> -->
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<section class="error-page">
+	<div class="container clearfix">
+		<div id="content" class="grid_12">
+			<h1>Eroare 403</h1>
+			<div class="smile">
+				<i class="icon-emo-displeased"></i>
+			</div>
+			<div class="msg">
+				<h2>Accesare interzisă!</h2>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<%@ include file="/WEB-INF/jsp/include_footer.jsp"%>
+<%@ include file="/WEB-INF/jsp/include_scripts.jsp"%>
