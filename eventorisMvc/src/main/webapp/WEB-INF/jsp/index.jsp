@@ -23,11 +23,8 @@
 		</div>
 	</div>
 </div>
-<<<<<<< HEAD
-<section>
 
-=======
->>>>>>> 7b8028cb92aca1752987315741c9329b30f5f1ed
+<section>
 <!-- Do not show section if logged in -->
 <c:if test="${pageContext.request.userPrincipal.name == null}">
 
@@ -61,11 +58,7 @@
 						<br>
 						<h2>Urmăreşte propriul calendar!</h2>
 						<br>
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 7b8028cb92aca1752987315741c9329b30f5f1ed
 						<button onclick="window.location.href='register_new.htm'">Înregistrare</button>
 					</div>
 				</div>
@@ -141,11 +134,6 @@
 </div>
 
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 7b8028cb92aca1752987315741c9329b30f5f1ed
 <div class="slide" id="slide3" data-slide="3"
 	data-stellar-background-ratio="0.5">
 	<div class="container clearfix">
@@ -202,33 +190,14 @@
 						</div>
 					</div>
 				</c:forEach>
-<<<<<<< HEAD
 			</div>
 		</div>
 	</div>
 </div>
+
 </section>
-<%@ include file="/WEB-INF/jsp/include_footer.jsp"%>
-<%@ include file="/WEB-INF/jsp/include_scripts.jsp"%>
-=======
-			</div>
-		</div>
-	</div>
-</div>
 
-
-<!-- 
-	<div class="slide" id="slide4" data-slide="4" data-stellar-background-ratio="0.2">
-		<div class="container clearfix">
-			<div id="content" class="grid_12">
-				<div class="slide-title">
-					<h1>Ultimele Noutăţi</h1>
-				</div>
-			</div>
-		</div>
-	</div>
-	 -->
 
 <%@ include file="/WEB-INF/jsp/include_footer.jsp"%>
 <%@ include file="/WEB-INF/jsp/include_scripts.jsp"%>
->>>>>>> 7b8028cb92aca1752987315741c9329b30f5f1ed
+
