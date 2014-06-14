@@ -9,9 +9,9 @@ public class CategoryInfo {
 	@Override
 	public String toString(){
 		StringBuilder builder = new StringBuilder(this.getClass().getCanonicalName());
-		builder.append("[Category Name=").append(getCategoryName());
-		builder.append(";Category Description=").append(getCategoryDescription());
-		
+		builder.append("[ name=").append(getCategoryName());
+		builder.append("; description=").append(getCategoryDescription());
+		builder.append("]");
 		return builder.toString();
 	}
 	

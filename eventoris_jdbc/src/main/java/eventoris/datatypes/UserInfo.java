@@ -60,5 +60,17 @@ public class UserInfo {
 	}
 
 	
+	@Override
+	public String toString(){
+		StringBuilder builder = new StringBuilder(this.getClass().getCanonicalName());
+		builder.append("[birthday=").append(getBirthday());
+		builder.append(";email=").append(getEmail());
+		builder.append(";family=").append(getFamilyName());
+		builder.append(";id=").append(getId());
+		builder.append(";name=").append(getName());
+		builder.append(";userName=").append(getUserName());
+		builder.append("]");
+		return builder.toString();
+	}
 	
 }

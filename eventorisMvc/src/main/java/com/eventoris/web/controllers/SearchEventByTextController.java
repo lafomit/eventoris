@@ -26,35 +26,16 @@ public class SearchEventByTextController implements Controller {
 
 	private EventManager eventManager;
 
-	// public ModelAndView onSubmit(Object command)
-	// throws ServletException {
-	//
-	// AddEventFormData newEvent = ((AddEventFormData) command) ;
-	// logger.info("Creating event " + newEvent);
-	//
-	// EventInfo event = new EventInfo();
-	//
-	// event.setTitle(newEvent.getTitle());
-	// event.setDescription(newEvent.getDescription());
-	// SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-d HH:mm:ss");
-	// Date date = new Date();
-	// event.setDateCreated(format.format( date));
-	// logger.info("Creating info" +event );
-	// eventManager.createNewEventInfo(event);
-	//
-	//
-	// return new ModelAndView(new RedirectView(getSuccessView()));
-	// }
 
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
 		String searchText = request.getParameter("search_text");
-		logger.info("Searching for:" + searchText);
+		logger.info("SearchEventByTextController: searching for text:" + searchText);
 
 		List<EventInfo> events = eventManager.getEventByTitle(searchText);
 
-		logger.info("Found event:" + events.size());
+		logger.info("SearchEventByTextController: found events:" + events.size());
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("products", events);
 

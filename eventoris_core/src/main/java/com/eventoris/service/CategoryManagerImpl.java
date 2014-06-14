@@ -28,8 +28,7 @@ public class CategoryManagerImpl implements CategoryManager{
 
 
 	public CategoryInfo getCategoryById(int id) {
-		eventDaoProvider.getCategory(id);
-		return null;
+		return eventDaoProvider.getCategory(id);
 	}
 
 

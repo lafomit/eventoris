@@ -31,12 +31,9 @@ public class MyEventsController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		String searchText = request.getParameter("search_text");
-		logger.info("Searching for:" + searchText);
-
 		List<EventInfo> events = eventManager.getAllEventsCreatedByUser(99);
 
-		logger.info("Found event:" + events.size());
+		logger.info("MyEventsController: Found events=" + events.size());
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("products", events);
 

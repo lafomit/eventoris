@@ -46,15 +46,18 @@ public class EventDetailController implements Controller {
 		if (resultEventInfo == null)
 			return new ModelAndView("eventdetail", "dataMap", null);
 
-		logger.info("returning eventInfo:" + resultEventInfo);
+		logger.info("EventDetailController: returning eventInfo:" + resultEventInfo);
 
 		UserInfo owner = eventManager.getOnwerOfTheEvent(eventId);
+		logger.info("EventDetailController: returning ownerInfo:" + owner);
+		
 		int totalParticipantNumber = eventManager.getNumberOfTotalParticipants(eventId);
 		int comingParticipantNumber = eventManager.getNumberOfComingParticipants(eventId);
 		int maybeParticipantNumber = eventManager.getNumberOfMaybeGoingParticipants(eventId);
+		logger.info("EventDetailController: searching for categoryId:" + resultEventInfo.getCategoryID());
 		CategoryInfo category = categoryManager.getCategoryById(resultEventInfo
 				.getCategoryID());
-		logger.info("returning categoryInfo:" + category);
+		logger.info("EventDetailController: returning categoryInfo:" + category);
 		
 		List<CommentInfo> comments = eventManager.getCommentsForEvent(eventId);
 		myModel.put("eventInfo", resultEventInfo);

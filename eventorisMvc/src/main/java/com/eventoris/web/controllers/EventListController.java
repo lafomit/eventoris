@@ -26,11 +26,9 @@ public class EventListController implements Controller{
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		String now = (new java.util.Date()).toString();
-		logger.info("returning eventlist view with " + now);
 		List<EventInfo> events = this.eventManager.getAllEvents();
 		Map<String, Object> myModel = new HashMap<String, Object>();
-		myModel.put("now", now);
+		logger.info("EventListController; returning eventlist view with " + events);
 		myModel.put("products", events);
 
 		return new ModelAndView("events", "model", myModel);
