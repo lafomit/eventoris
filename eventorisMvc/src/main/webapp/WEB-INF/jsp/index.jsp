@@ -51,14 +51,12 @@
 						<i class="icon-thumbs-up"></i>
 						<h1>Înregistrează-te acum!</h1>
 						<br>
-
 						<h2>Creează evenimente noi!</h2>
 						<br>
 						<h2>Participă activ la evenimente!</h2>
 						<br>
 						<h2>Urmăreşte propriul calendar!</h2>
 						<br>
-
 						<button onclick="window.location.href='register_new.htm'">Înregistrare</button>
 					</div>
 				</div>
@@ -133,7 +131,6 @@
 	</div>
 </div>
 
-
 <div class="slide" id="slide3" data-slide="3"
 	data-stellar-background-ratio="0.5">
 	<div class="container clearfix">
@@ -200,4 +197,3 @@
 
 <%@ include file="/WEB-INF/jsp/include_footer.jsp"%>
 <%@ include file="/WEB-INF/jsp/include_scripts.jsp"%>
-
