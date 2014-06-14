@@ -30,7 +30,7 @@ public class EventListController implements Controller{
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		logger.info("EventListController; returning eventlist view with " + events);
 		myModel.put("products", events);
-
+		myModel.put("noResultsMessage", "Nu este nici un eveniment in sistem");
 		return new ModelAndView("events", "model", myModel);
 	}
 

@@ -31,8 +31,8 @@ public class MyCalendarController implements Controller {
 			HttpServletResponse response) throws ServletException, IOException {
 
 
-		List<EventInfo> eventsGoing = eventManager.getAllEventsUserIsGoing(99);
-		List<EventInfo> eventsMaybe = eventManager.getAllEventsUserMaybeComes(99);
+		List<EventInfo> eventsGoing = eventManager.getAllEventsUserIsGoing(4);
+		List<EventInfo> eventsMaybe = eventManager.getAllEventsUserMaybeComes(4);
 		
  
 		Map<String, Object> myModel = new HashMap<String, Object>();

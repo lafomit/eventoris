@@ -38,7 +38,7 @@ public class SearchEventByTextController implements Controller {
 		logger.info("SearchEventByTextController: found events:" + events.size());
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("products", events);
-
+		myModel.put("noResultsMessage", "Nu am gasit nici un eveniment pentru \""+searchText+"\". Mai incearca");
 		return new ModelAndView("events", "model", myModel);
 	}
 

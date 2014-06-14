@@ -31,12 +31,12 @@ public class MyEventsController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		List<EventInfo> events = eventManager.getAllEventsCreatedByUser(99);
+		List<EventInfo> events = eventManager.getAllEventsCreatedByUser(4);
 
 		logger.info("MyEventsController: Found events=" + events.size());
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("products", events);
-
+		myModel.put("noResultsMessage", "Nu ai creat inca nici un event. Creeaza acum!");
 		return new ModelAndView("events", "model", myModel);
 	}
 
