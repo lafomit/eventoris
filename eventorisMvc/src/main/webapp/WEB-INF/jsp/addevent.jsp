@@ -21,7 +21,21 @@
 <title>Eventoris | Home</title>
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp" %>
+<div id="stick-menu">
+	<div class="container clearfix">
+		<div class="grid_12 margin-padding-clear">
+			<nav id="add-event-nav">
+				<ul>
+					<li><a href="<c:url value="addevent.htm"/>">Adaugă
+							Eveniment</a></li>
+					<li><a href="myevents.htm">Evnimentele mele</a></li>
+					<li><a href="mycalendar.htm">Calendarul meu</a></li>
+				</ul>
+			</nav>
+		</div>
 
+	</div>
+</div>
 <section>
 	<div class = "container clearfix">
 		<div class="grid_12">

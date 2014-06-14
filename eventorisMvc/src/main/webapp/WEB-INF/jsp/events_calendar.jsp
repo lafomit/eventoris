@@ -28,7 +28,14 @@ GOING
 		<div class="events">
 			<c:choose>
 				<c:when test="${empty model.productsGoing} ">
-						Inca nu participi la nici un eveniment. Join now - nu fii Ghita bomba
+					<div class="error-page">
+						<div class="smile">
+							<i class="icon-emo-unhappy"></i>
+						</div>
+						<div class="message">
+							<h2>Nu participi la nici un eveniment. Alătură-te acum!</h2>
+						</div>
+					</div>
 			    </c:when>
 				<c:otherwise>
 					<c:forEach items="${model.productsGoing}" var="event">
@@ -88,7 +95,14 @@ MaybeGoing
 		<div class="events">
 			<c:choose>
 				<c:when test="${empty model.productsMaybe} ">
-						Inca nu uramresti nici un eveniment.
+						<div class="error-page">
+						<div class="smile">
+							<i class="icon-emo-unhappy"></i>
+						</div>
+						<div class="message">
+							<h2>Încă nu urmăreşti nici un eveniment</h2>
+						</div>
+					</div>
 			    </c:when>
 				<c:otherwise>
 					<c:forEach items="${model.productsMaybe}" var="event">

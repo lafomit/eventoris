@@ -26,7 +26,7 @@
 			<div class="smile">
 				<i class="icon-emo-displeased"></i>
 			</div>
-			<div class="msg">
+			<div class="message">
 				<h2>Accesare interzisă!</h2>
 			</div>
 		</div>

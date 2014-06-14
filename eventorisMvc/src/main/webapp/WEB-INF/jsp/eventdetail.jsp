@@ -5,7 +5,7 @@
 <%@ page import="java.util.*"%>
 <%@ include file="/WEB-INF/jsp/include_links.jsp"%>
 
-<title>Eventoris | event detail</title>
+<title>Eventoris | Detalii</title>
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
 <section>
@@ -18,13 +18,12 @@
 					if (map == null) {
 				%>
 				<div class="error-page">
-				<div class="smile">
-					<i class="icon-emo-unhappy"></i>
-				</div>
-				<div class="message">
-					<h2>Ne cerem scuze, dar evenimentul cerut nu a fost gasit</h2>
-				</div>
-				
+					<div class="smile">
+						<i class="icon-emo-unhappy"></i>
+					</div>
+					<div class="message">
+						<h2>Ne cerem scuze, dar evenimentul cerut nu a fost gasit</h2>
+					</div>
 				</div>
 				<%
 					} else {
