@@ -59,3 +59,7 @@
 .icon-doc-add:before { content: '\e806'; color: #ffffff; margin-top: 15px; } /* '' */
 .icon-thumbs-up:before { content: '\e807'; color: #ffffff; margin-top: 15px;} /* '' */
 .icon-user-add-outline:before { content: '\e808'; color: #ffffff; margin-top: 15px;} /* '' */
+.icon-emo-surprised:before { content: '\e809'; } /* '' */
+.icon-emo-unhappy:before { content: '\e80a'; } /* '' */
+.icon-emo-cry:before { content: '\e80b'; } /* '' */
+.icon-emo-displeased:before { content: '\e80c'; } /* '' */

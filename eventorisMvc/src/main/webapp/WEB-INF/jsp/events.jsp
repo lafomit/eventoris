@@ -21,18 +21,7 @@
 
 	</div>
 </div>
-<!-- 
-	<div>
-		<div class = "container clearfix">
-			<div class="grid_12">
-				<c:forEach items="${model.products}" var="event">
-      				Title: <c:out value="${event.title}"/> -- Created:<c:out value="${event.dateCreated}"/><br><br>
-    			</c:forEach>
-			</div>
-		</div>
-	</div>		 -->
-
-
+<section>
 <div class="container clearfix">
 	<div id="content" class="grid_12">
 		<div class="events">
@@ -92,7 +81,7 @@
 		</div>
 	</div>
 </div>
-
+</section>
 
 <%@ include file="/WEB-INF/jsp/include_footer.jsp"%>
 <%@ include file="/WEB-INF/jsp/include_scripts.jsp"%>

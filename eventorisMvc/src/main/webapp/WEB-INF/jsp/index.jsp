@@ -14,7 +14,9 @@
 		<div class="grid_12 margin-padding-clear">
 			<nav id="index-nav">
 				<ul class="navigation">
+<c:if test="${pageContext.request.userPrincipal.name == null}">
 					<li data-slide="1">Home</li>
+</c:if>
 					<li data-slide="2">Ultimele Evenimente</li>
 					<li data-slide="3">Top Evenimente</li>
 					<!-- 					<li data-slide="4">Ultimele Noutăţi</li> -->
@@ -23,6 +25,7 @@
 		</div>
 	</div>
 </div>
+<section>
 <!-- Do not show section if logged in -->
 <c:if test="${pageContext.request.userPrincipal.name == null}">
 
@@ -45,19 +48,15 @@
 			<div class="grid_6 omega">
 				<div class="registration">
 					<div class="form-block">
-
 						<i class="icon-thumbs-up"></i>
 						<h1>Înregistrează-te acum!</h1>
 						<br>
-
 						<h2>Creează evenimente noi!</h2>
 						<br>
 						<h2>Participă activ la evenimente!</h2>
 						<br>
 						<h2>Urmăreşte propriul calendar!</h2>
 						<br>
-
-
 						<button onclick="window.location.href='register_new.htm'">Înregistrare</button>
 					</div>
 				</div>
@@ -131,9 +130,6 @@
 		</div>
 	</div>
 </div>
-
-
-
 <div class="slide" id="slide3" data-slide="3"
 	data-stellar-background-ratio="0.5">
 	<div class="container clearfix">
@@ -195,18 +191,6 @@
 	</div>
 </div>
 
-
-<!-- 
-	<div class="slide" id="slide4" data-slide="4" data-stellar-background-ratio="0.2">
-		<div class="container clearfix">
-			<div id="content" class="grid_12">
-				<div class="slide-title">
-					<h1>Ultimele Noutăţi</h1>
-				</div>
-			</div>
-		</div>
-	</div>
-	 -->
-
+</section>
 <%@ include file="/WEB-INF/jsp/include_footer.jsp"%>
 <%@ include file="/WEB-INF/jsp/include_scripts.jsp"%>

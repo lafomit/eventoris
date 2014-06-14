@@ -27,7 +27,17 @@
 					</nav>
 				</div>
 				<div class="grid_4 margin-padding-clear">
+					<div class="search">
+						<form action="searchevent.htm">
+							<input type="text" placeholder="Caută eveniment"
+								name="search_text" id="search">
+							<button type="submit">
+								<i class="icon-search-outline"></i>
+							</button>
+						</form>
+					</div>
 
+					<div class = "log-out">
 					<sec:authorize access="hasRole('ROLE_USER')">
 						<!-- For login user -->
 						<c:url value="/j_spring_security_logout" var="logoutUrl" />
@@ -40,26 +50,12 @@
 								document.getElementById("logoutForm").submit();
 							}
 						</script>
-
 						<c:if test="${pageContext.request.userPrincipal.name != null}">
-						<sec:authentication property="principal.mainName" /> <sec:authentication property="principal.familyName" /> | <a
-								href="javascript:formSubmit()"> Logout</a>
+							  <sec:authentication property="principal.mainName" /> <sec:authentication property="principal.familyName" /> |
+							  <a href="javascript:formSubmit()" > Logout</a>
 						</c:if>
-
-						
 					</sec:authorize>
-
-					<div class="search">
-						<form action="searchevent.htm">
-							<input type="text" placeholder="Caută eveniment"
-								name="search_text" id="search">
-							<button type="submit">
-								<i class="icon-search-outline"></i>
-							</button>
-						</form>
 					</div>
-
-
 				</div>
 			</div>
 		</div>
