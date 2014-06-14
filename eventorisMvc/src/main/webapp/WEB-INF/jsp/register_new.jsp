@@ -3,6 +3,11 @@
 
 <%@ include file="/WEB-INF/jsp/include_links.jsp"%>
 
+ <!-- Do not show page if logged in -->
+ 	   <c:if test="${pageContext.request.userPrincipal.name != null}">
+			 <c:redirect url="/myevents.htm"/>
+		</c:if>
+		
 <title>Eventoris | Creare cont</title>
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
