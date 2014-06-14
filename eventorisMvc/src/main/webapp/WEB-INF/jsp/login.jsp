@@ -7,7 +7,7 @@
 <title>Eventoris | Logare </title>
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp" %>
-
+<section>
 	<div class="container clearfix">
 			<div id="content" class="grid_12">
 				<div class="form-block">
@@ -35,6 +35,6 @@
 				</div>
 			</div>
 	</div>
-
+</section>
  <%@ include file="/WEB-INF/jsp/include_footer.jsp" %>
 <%@ include file="/WEB-INF/jsp/include_scripts.jsp" %>

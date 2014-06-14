@@ -28,6 +28,9 @@ FOOTER LIGHT 34495e
 }
 
 /* Global */
+section{
+	min-height: 100%;
+}
 
 img {
 	max-width: 100%;
@@ -529,9 +532,13 @@ footer{
 	margin-top: 30px;
 }
 
+.search{
+	float: right;
+}
+
 .search form {
     left: -20px;
-    margin: 40px auto;
+    margin: 25px auto;
     position: relative;
 }
 #search{
@@ -716,6 +723,16 @@ height: 46px;
 	background-color: #d9edf7;
 	border-color: #bce8f1;
 }
+
+/* Autentificatio */
+
+.log-out{
+	float: right;
+}
+.log-out a{
+	color: #ffffff
+}
+
 
 /* Tablet */
 @media screen and (max-width: 1024px) {

@@ -22,7 +22,7 @@
 			</div>	
 		</div>
 	</div>
-
+<section>
 	<div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0.2">
 		<div class="container clearfix">
 			<div id="content" class="grid_6">
@@ -168,19 +168,6 @@
 			</div>
 		</div>
 	</div>
-
-
-<!-- 
-	<div class="slide" id="slide4" data-slide="4" data-stellar-background-ratio="0.2">
-		<div class="container clearfix">
-			<div id="content" class="grid_12">
-				<div class="slide-title">
-					<h1>Ultimele Noutăţi</h1>
-				</div>
-			</div>
-		</div>
-	</div>
-	 -->
-	
+</section>
 <%@ include file="/WEB-INF/jsp/include_footer.jsp" %>
 <%@ include file="/WEB-INF/jsp/include_scripts.jsp" %>
