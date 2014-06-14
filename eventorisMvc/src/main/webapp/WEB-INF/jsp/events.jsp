@@ -11,8 +11,14 @@
 		<div class="grid_12 margin-padding-clear">
 			<nav id="add-event-nav">
 				<ul>
+<<<<<<< HEAD
 					<li><a href="<c:url value="addevent.htm"/>">Adaugă Eveniment</a></li>
 					<li><a href="myevents.htm">Evenimentele mele</a></li>
+=======
+					<li><a href="<c:url value="addevent.htm"/>">Adaugă
+							Eveniment</a></li>
+					<li><a href="myevents.htm">Evnimentele mele</a></li>
+>>>>>>> 7b8028cb92aca1752987315741c9329b30f5f1ed
 					<li><a href="mycalendar.htm">Calendarul meu</a></li>
 				</ul>
 			</nav>
@@ -20,7 +26,22 @@
 
 	</div>
 </div>
+<<<<<<< HEAD
 <section>
+=======
+<!-- 
+	<div>
+		<div class = "container clearfix">
+			<div class="grid_12">
+				<c:forEach items="${model.products}" var="event">
+      				Title: <c:out value="${event.title}"/> -- Created:<c:out value="${event.dateCreated}"/><br><br>
+    			</c:forEach>
+			</div>
+		</div>
+	</div>		 -->
+
+
+>>>>>>> 7b8028cb92aca1752987315741c9329b30f5f1ed
 <div class="container clearfix">
 	<div id="content" class="grid_12">
 		<div class="events">
@@ -80,8 +101,15 @@
 		</div>
 	</div>
 </div>
+<<<<<<< HEAD
 </section>
 
 <%@ include file="/WEB-INF/jsp/include_footer.jsp"%>
 <%@ include file="/WEB-INF/jsp/include_scripts.jsp"%>
 
+=======
+
+
+<%@ include file="/WEB-INF/jsp/include_footer.jsp"%>
+<%@ include file="/WEB-INF/jsp/include_scripts.jsp"%>
+>>>>>>> 7b8028cb92aca1752987315741c9329b30f5f1ed
