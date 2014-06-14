@@ -53,7 +53,7 @@ public class EventJDBCTemplate implements EventDAO {
 	}
 
 	public List<EventInfo> getAll() {
-		String SQL = "select * from event_info";
+		String SQL = "select * from event_info order by date_created DESC";
 		List<EventInfo> events = jdbcTemplateObject.query(SQL,
 				new EventMapper());
 
