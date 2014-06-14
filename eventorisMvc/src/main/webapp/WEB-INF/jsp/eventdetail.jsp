@@ -58,7 +58,10 @@
 										String minutes = tmp.substring(14, 16);
 								%>
 								<em>Ora: </em>
-								<%=hour%>:<%=minutes%><br> <a href="#">Subscribe</a><br>
+								<%=hour%>:<%=minutes%><br>
+								 
+									<a	href="addevent.htm?eventid=<%= eventInfo.getEventID()%>">Editeaza</a> 
+									<br> <a href="#">Subscribe</a><br>
 							</p>
 						</div>
 					</div>

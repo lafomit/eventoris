@@ -54,9 +54,8 @@
 										<em>Descrierea: </em>
 										<c:out value="${event.description}" />
 									</p>
-									<a
-										href="eventdetail.htm?event=<c:out value="${event.eventID}"/>">Vezi
-										tot</a>
+									
+									<a	href="eventdetail.htm?event=<c:out value="${event.eventID}"/>">Vezi	tot</a>
 								</div>
 							</div>
 							<div class="right-event-half">

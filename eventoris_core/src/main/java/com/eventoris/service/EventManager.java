@@ -34,4 +34,6 @@ public interface EventManager {
 	public UserInfo getOnwerOfTheEvent(int eventId);
 	
 	public List<EventInfo> getAllEvents();
+	
+	public void updateEvent(EventInfo eventInfo);
 }
