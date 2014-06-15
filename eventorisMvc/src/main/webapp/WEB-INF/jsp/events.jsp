@@ -13,7 +13,7 @@
 				<ul>
 					<li><a href="<c:url value="addevent.htm"/>">Adaugă
 							Eveniment</a></li>
-					<li><a href="myevents.htm">Evnimentele mele</a></li>
+					<li><a href="myevents.htm">Evenimentele mele</a></li>
 					<li><a href="mycalendar.htm">Calendarul meu</a></li>
 				</ul>
 			</nav>
