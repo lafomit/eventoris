@@ -36,6 +36,12 @@ public class CreateEventValidator implements Validator{
 	            if (eventData.getEventdate() == null || eventData.getEventdate().trim().length() == 0) {
 	                errors.rejectValue("eventdate", "error.empty-eventdate");
 	            }
+	            if (eventData.getHour() == 0) {
+	                errors.rejectValue("hour", "error.empty-hour");
+	            }
+	            if (eventData.getMinutes() == 0) {
+	                errors.rejectValue("int", "error.empty-minutes");
+	            }
 	        }
 	    }
 

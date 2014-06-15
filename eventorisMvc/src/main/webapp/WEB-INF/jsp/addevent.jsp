@@ -56,10 +56,17 @@
 				    <form:input path="address" placeholder="Adresa"/>
 				    <form:errors path="address" cssClass="error"/>
 		    		
-	    		<!-- <form:input path="eventdate" type="text" id="datepicker" placeholder="Data"/> -->	
+	    		   <form:input path="eventdate" type="text" id="datepicker" placeholder="Data"/> 
+	    			<form:errors path="eventdate" cssClass="error"/> -->	
+	    			
+	    			<form:input path="hour" type="text" placeholder="Ora"/>
+	    			<form:errors path="hour" cssClass="error"/>
+	    			
+	    			<form:input path="minutes" type="text" placeholder="Minute"/>
+	    			<form:errors path="minutes" cssClass="error"/>
 		    		
-				    <form:input path="eventdate" placeholder="Data evenimentului"/>
-				    <form:errors path="eventdate" cssClass="error"/>
+				    <!--<form:input path="eventdate" placeholder="Data evenimentului"/>
+				    <form:errors path="eventdate" cssClass="error"/>-->
 					<br>
 					<form:label path="category">Categorie </form:label>
 				    <form:select path="category">
@@ -73,7 +80,6 @@
 		</div>
 	</div>
 </div>
-<p>Date: <input type="text" id="datepicker"></p>
 </section>
 <%@ include file="/WEB-INF/jsp/include_footer.jsp" %>
 <%@ include file="/WEB-INF/jsp/include_scripts.jsp" %>
