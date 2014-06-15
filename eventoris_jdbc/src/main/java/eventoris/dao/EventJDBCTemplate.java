@@ -214,8 +214,8 @@ public class EventJDBCTemplate implements EventDAO {
 	}
 	
 	public void setComment(CommentInfo comment){
-		String SQL = "INSERT INTO comments ('comment', 'id_owner', 'id_event', 'date_created') VALUES (?, ?, ?, ?)";
-		jdbcTemplateObject.update(SQL, new Object[] { comment.getComment(), comment.getPosterId(),comment.getEventId(), comment.getDateAdded() });
+		String SQL = "INSERT INTO comments (comment, id_owner, id_event, date_created) VALUES (?, ?, ?, SYSDATE())";
+		jdbcTemplateObject.update(SQL, new Object[] { comment.getComment(), comment.getPosterId(),comment.getEventId() });
 	}
 
 	public int getSubscribedUsersCount(int eventId, int status) {
