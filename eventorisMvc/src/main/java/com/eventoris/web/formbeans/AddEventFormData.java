@@ -8,6 +8,8 @@ public class AddEventFormData {
 	private String address;
 	private String eventdate; 
 	private int eventid;
+	private int hour = 0;
+	private int minutes = 0;
 	
 	public int getEventid() {
 		return eventid;
@@ -44,6 +46,22 @@ public class AddEventFormData {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public int getHour() {
+		return hour;
+	}
+	
+	public int getMinutes() {
+		return minutes;
+	}
+	
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
+	
+	public void setMinutes(int minutes){
+		this.minutes = minutes;
 	}
 	
 	public String toString(){

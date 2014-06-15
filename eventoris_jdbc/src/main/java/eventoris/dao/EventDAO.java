@@ -48,6 +48,8 @@ public interface EventDAO {
 	
 	public List<EventInfo> getEventsUserIsSubscribedTo(int userId, int statusId);
 	
+	public void setComment(CommentInfo comment);
+	
 	// public boolean compareExistingAndRequestedStatus(int idEvent, int idUser,
 	// int participationStatus);
 	// public boolean checkIfParticipantExists(int idUser, int idEvent);

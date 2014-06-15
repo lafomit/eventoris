@@ -36,4 +36,6 @@ public interface EventManager {
 	public List<EventInfo> getAllEvents();
 	
 	public void updateEvent(EventInfo eventInfo);
+	
+	public void addComment(CommentInfo comment);
 }

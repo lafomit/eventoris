@@ -82,5 +82,9 @@ public class EventManagerImpl implements EventManager {
 		eventDaoProvider.update(eventInfo);
 		
 	}
+	
+	public void addComment(CommentInfo comment){
+		eventDaoProvider.setComment(comment);
+	}
 
 }

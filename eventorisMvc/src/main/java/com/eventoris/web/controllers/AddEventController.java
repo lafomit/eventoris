@@ -36,7 +36,6 @@ public class AddEventController extends SimpleFormController {
     
     public ModelAndView onSubmit(Object command)
             throws ServletException {
-
     	AddEventFormData newEvent = ((AddEventFormData) command) ;
         logger.info("Creating event " + newEvent);
 
@@ -76,11 +75,7 @@ public class AddEventController extends SimpleFormController {
 		myModel.put("categories", countryMap);
     	return myModel;
     }
-    
-    
- 
-	
-	
+   
     protected Object formBackingObject(HttpServletRequest request) throws ServletException {
     	AddEventFormData eventInfo = new AddEventFormData();
     	

@@ -212,6 +212,11 @@ public class EventJDBCTemplate implements EventDAO {
 				new Object[] { eventId }, new CommentMapper());
 		return comments;
 	}
+	
+	public void setComment(CommentInfo comment){
+		String SQL = "INSERT INTO comments ('comment', 'id_owner', 'id_event', 'date_created') VALUES (?, ?, ?, ?)";
+		jdbcTemplateObject.update(SQL, new Object[] { comment.getComment(), comment.getPosterId(),comment.getEventId(), comment.getDateAdded() });
+	}
 
 	public int getSubscribedUsersCount(int eventId, int status) {
 		String SQL = "select count(*) from participants where id_event = ? and id_status = ?";
@@ -234,7 +239,7 @@ public class EventJDBCTemplate implements EventDAO {
 	}
 
 	public List<EventInfo> getEventsOwnedByUser(int userId) {
-		String SQL = "select * from event_info where id_owner= ?";
+		String SQL = "select * from event_info where id_owner= ? order by date_created DESC";
 		List<EventInfo> events = jdbcTemplateObject.query(SQL,new Object[]{userId},
 				new EventMapper());
 
@@ -243,7 +248,7 @@ public class EventJDBCTemplate implements EventDAO {
 
 	public List<EventInfo> getEventsUserIsSubscribedTo(int userId, int statusId) {
 		String SQL = "select * from event_info "
-				+ " join participants on  participants.id_event = event_info.id_event_info "
+				+ " join participants on  participants.id_event = event_info.id_event_info order by date_of_event DESC"
 				+ "where id_user = ? and id_status =?";
 		List<EventInfo> events = jdbcTemplateObject.query(SQL,new Object[]{userId,statusId},
 				new EventMapper());

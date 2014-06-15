@@ -125,5 +125,9 @@ public class DummyInMemoryDao implements EventDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public void setComment(CommentInfo comment) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
