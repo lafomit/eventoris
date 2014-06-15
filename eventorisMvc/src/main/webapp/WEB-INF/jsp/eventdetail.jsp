@@ -192,10 +192,11 @@
 				<c:choose>
 					<c:when test="${pageContext.request.userPrincipal.name != null}">
 						<div class="send-comment-area">
-							<textarea rows="4" cols="50" name="comment" form="insert-comment"></textarea>
-							<form action="" id="insert-comment">
+							<form:form command="addcomment" modelAttribute="commentData" method="POST" action="addcomment">
+							 <form:textarea rows="4" cols="50" path="comments"/>
+							 <form:hidden path="eventid" value="<%=eventInfo.getEventID() %>" />
 								<button type="submit">Trimite</button>
-							</form>
+							</form:form>
 						</div>
 					</c:when>
 					<c:otherwise>Tre sa fii logat ca sa poti posta comentarii</c:otherwise>

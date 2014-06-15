@@ -63,7 +63,7 @@
         <property name="userManager" ref="userManager"/>
 
     </bean>
-    
+ <!--  
       <bean name="/addComment.htm" class="com.eventoris.web.controllers.AddCommentController">
         <property name="sessionForm" value="true"/>
         <property name="commandName" value="addComment"/>
@@ -76,7 +76,7 @@
         <property name="eventManager" ref="eventManager" />
 
     </bean>
-    
+  -->     
      <bean name="/searchevent.htm" class="com.eventoris.web.controllers.SearchEventByTextController">
        <property name="eventManager" ref="eventManager" />
      </bean>
