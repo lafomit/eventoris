@@ -95,7 +95,7 @@ public class EventManagerImpl implements EventManager {
 
 		if (exists) {
 			isEqual =  eventDaoProvider.compareExistingAndRequestedStatus(participant);
-			if (isEqual){
+			if(isEqual){
 				eventDaoProvider.changeParticipationStatus(participant);
 			}
 
