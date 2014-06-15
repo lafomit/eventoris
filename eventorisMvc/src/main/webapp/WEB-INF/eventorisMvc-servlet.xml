@@ -78,6 +78,10 @@
 
     </bean>
   -->     
+  
+  	<bean name="/participate.htm" class="com.eventoris.web.controllers.ParticipateForSure">
+  		
+  	</bean>
      <bean name="/searchevent.htm" class="com.eventoris.web.controllers.SearchEventByTextController">
        <property name="eventManager" ref="eventManager" />
      </bean>

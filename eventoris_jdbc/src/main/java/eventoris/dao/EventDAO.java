@@ -50,6 +50,8 @@ public interface EventDAO {
 	
 	public void setComment(CommentInfo comment);
 	
+	public void addParticipant(int idEvent, int idUser, int idParticipationStatus);
+	
 	// public boolean compareExistingAndRequestedStatus(int idEvent, int idUser,
 	// int participationStatus);
 	// public boolean checkIfParticipantExists(int idUser, int idEvent);

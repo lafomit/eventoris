@@ -38,4 +38,6 @@ public interface EventManager {
 	public void updateEvent(EventInfo eventInfo);
 	
 	public void addComment(CommentInfo comment);
+	
+	public void participate(int eventID, int userId, int status);
 }

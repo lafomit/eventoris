@@ -87,4 +87,8 @@ public class EventManagerImpl implements EventManager {
 		eventDaoProvider.setComment(comment);
 	}
 
+	public void participate(int eventID, int userId, int status) {
+		eventDaoProvider.addParticipant(eventID, userId, status);
+	}
+
 }
