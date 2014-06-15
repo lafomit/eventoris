@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.Controller;
 
 import com.eventoris.service.CategoryManager;
 import com.eventoris.service.EventManager;
+import com.eventoris.web.formbeans.AddCommentFormData;
 
 import eventoris.datatypes.CategoryInfo;
 import eventoris.datatypes.CommentInfo;
@@ -67,8 +68,10 @@ public class EventDetailController implements Controller {
 		myModel.put("totalPartNumb", totalParticipantNumber);
 		myModel.put("comingPartNumb", comingParticipantNumber);
 		myModel.put("maybePartNumb", maybeParticipantNumber);
+		ModelAndView mv = new ModelAndView("eventdetail", "dataMap", myModel);
 		
-		return new ModelAndView("eventdetail", "dataMap", myModel);
+		mv.addObject("commentData",new CommentData());
+		return mv;
 	}
 
 	public void setEventManager(EventManager eventManager) {

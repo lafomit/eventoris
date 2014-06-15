@@ -10,6 +10,7 @@ import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -37,7 +38,7 @@ public class AddEventController extends SimpleFormController {
     public ModelAndView onSubmit(Object command)
             throws ServletException {
     	AddEventFormData newEvent = ((AddEventFormData) command) ;
-        logger.info("Creating event " + newEvent);
+       
 
         EventInfo event = new EventInfo();
         
@@ -52,15 +53,19 @@ public class AddEventController extends SimpleFormController {
         SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-d HH:mm:ss");
         Date date = new Date();
         event.setDateCreated(format.format( date));
-        logger.info("Creating info" + newEvent.getEventid() );
+        logger.info("AddEventController: new eventId=" + newEvent.getEventid() );
         
-        if(newEvent.getEventid()==0)
+        if(newEvent.getEventid()==0){
+        	logger.info("AddEventController: Creating event " + event);
         	eventManager.createNewEventInfo(event);
-        else{
-        	eventManager.updateEvent(event);
-        	 return new ModelAndView(new RedirectView("eventdetail.htm?event="+newEvent.getEventid()));
         }
-        logger.info("EventId " + newEvent);
+        else{
+        	logger.info("AddEventController: Updating event " + event);
+        	event.setEventID(newEvent.getEventid());
+        	eventManager.updateEvent(event);
+        	return new ModelAndView(new RedirectView("eventdetail.htm?event="+newEvent.getEventid()));
+        }
+        logger.info("AddEventController: EventId " + newEvent);
         return new ModelAndView(new RedirectView(getSuccessView()));
     }
 
@@ -76,6 +81,15 @@ public class AddEventController extends SimpleFormController {
     	return myModel;
     }
    
+    
+    @Override
+    protected void onFormChange(HttpServletRequest request,
+    		HttpServletResponse response, Object command) throws Exception {
+    	 logger.info("AddEventController: onFormChange" );
+    	super.onFormChange(request, response, command);
+    }
+	
+	@Override
     protected Object formBackingObject(HttpServletRequest request) throws ServletException {
     	AddEventFormData eventInfo = new AddEventFormData();
     	
