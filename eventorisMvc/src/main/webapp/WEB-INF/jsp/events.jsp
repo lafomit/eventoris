@@ -23,12 +23,11 @@
 </div>
 <section>
 <div class="container clearfix">
-	<div id="content" class="grid_12">
-		<div class="events">
-
-			<c:choose>
-				<c:when test="${empty model.products} ">
-						<div class="error-page">
+	
+	<c:choose>
+		<c:when test="${empty model.products} ">
+			<div id="content" class="grid_12">
+				<div class="error-page">
 					<div class="smile">
 						<i class="icon-emo-unhappy"></i>
 					</div>
@@ -36,57 +35,70 @@
 						<h2>Nu sunt rezultate</h2>
 					</div>
 				</div>
-			    </c:when>
-				<c:otherwise>
-					<c:forEach items="${model.products}" var="event">
-						<%
-							Calendar cal = Calendar.getInstance();
-										String tmp = ((eventoris.datatypes.EventInfo) pageContext
-												.findAttribute("event")).getDateOfEvent();
-										String year = tmp.substring(0, 4);
-										String date = tmp.substring(8, 10);
-										int month = Integer.parseInt(tmp.substring(5, 7));
-						%>
-						<div class="event-body">
-							<div class="left-event-half">
-								<div class="event-title">
-									<h2>
-										<c:out value="${event.title}" />
-									</h2>
+			</div>
+	    </c:when>
+			<c:otherwise>
+				<div id="content" class="grid_2">
+					<div class="category-menu">
+						<ul>
+							<c:forEach items="${model.categories}" var="category">
+								<li><a href="">${category.categoryName}</a></li>
+							</c:forEach>
+						</ul>
+					</div>
+				</div>
+				<div id="content" class="grid_10">
+					<div class="events">
+						<c:forEach items="${model.products}" var="event">
+							<%
+								Calendar cal = Calendar.getInstance();
+											String tmp = ((eventoris.datatypes.EventInfo) pageContext
+													.findAttribute("event")).getDateOfEvent();
+											String year = tmp.substring(0, 4);
+											String date = tmp.substring(8, 10);
+											int month = Integer.parseInt(tmp.substring(5, 7));
+							%>
+							<div class="event-body">
+								<div class="left-event-half">
+									<div class="event-title">
+										<h2>
+											<c:out value="${event.title}" />
+										</h2>
+									</div>
+									<div class="event-description">
+										<img alt="category"
+											src="resources/img/categories/<c:out value="${event.categoryID}"/>.png">
+										<p>
+											<em>Descrierea: </em>
+											<c:out value="${event.description}" />
+										</p>
+										<a
+											href="eventdetail.htm?event=<c:out value="${event.eventID}"/>">Vezi
+											tot</a>
+									</div>
 								</div>
-								<div class="event-description">
-									<img alt="category"
-										src="resources/img/categories/<c:out value="${event.categoryID}"/>.png">
-									<p>
-										<em>Descrierea: </em>
-										<c:out value="${event.description}" />
-									</p>
-									
-									<a	href="eventdetail.htm?event=<c:out value="${event.eventID}"/>">Vezi	tot</a>
+								<div class="right-event-half">
+									<div class="event-date-title">
+										<h2>Data</h2>
+									</div>
+									<div class="date-circle" id="day">
+										<h1><%=date%></h1>
+									</div>
+									<div class="date-circle" id="month">
+										<h3><%=com.eventoris.web.LangUtil
+									.getRoMonthName(month)%></h3>
+									</div>
+									<div class="date-circle" id="year">
+										<h1><%=year%></h1>
+									</div>
 								</div>
 							</div>
-							<div class="right-event-half">
-								<div class="event-date-title">
-									<h2>Data</h2>
-								</div>
-								<div class="date-circle" id="day">
-									<h1><%=date%></h1>
-								</div>
-								<div class="date-circle" id="month">
-									<h3><%=com.eventoris.web.LangUtil
-								.getRoMonthName(month)%></h3>
-								</div>
-								<div class="date-circle" id="year">
-									<h1><%=year%></h1>
-								</div>
-							</div>
-						</div>
-					</c:forEach>
+						</c:forEach>
+					</div>
+					</div>
 				</c:otherwise>
 			</c:choose>
 		</div>
-	</div>
-</div>
 </section>
 
 <%@ include file="/WEB-INF/jsp/include_footer.jsp"%>
