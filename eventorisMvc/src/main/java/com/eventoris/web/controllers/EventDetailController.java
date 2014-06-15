@@ -61,6 +61,9 @@ public class EventDetailController implements Controller {
 		logger.info("EventDetailController: returning categoryInfo:" + category);
 		
 		List<CommentInfo> comments = eventManager.getCommentsForEvent(eventId);
+		
+		logger.info("EventDetailController: found "+comments.size()+" comments for eventId=" + eventId);
+		
 		myModel.put("eventInfo", resultEventInfo);
 		myModel.put("comments", comments);
 		myModel.put("ownerInfo", owner);

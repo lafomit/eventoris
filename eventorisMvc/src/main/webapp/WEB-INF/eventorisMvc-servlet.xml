@@ -78,7 +78,6 @@
 
     </bean>
   -->     
-  
      <bean name="/searchevent.htm" class="com.eventoris.web.controllers.SearchEventByTextController">
        <property name="eventManager" ref="eventManager" />
      </bean>

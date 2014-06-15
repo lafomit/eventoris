@@ -129,5 +129,10 @@ public class DummyInMemoryDao implements EventDAO{
 		// TODO Auto-generated method stub
 		
 	}
+	public void addParticipant(int idEvent, int idUser,
+			int idParticipationStatus) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
