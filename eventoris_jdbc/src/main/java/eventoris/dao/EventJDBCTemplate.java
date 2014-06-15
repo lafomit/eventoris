@@ -259,4 +259,11 @@ public class EventJDBCTemplate implements EventDAO {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public List<EventInfo> getEventsByCategory(int idCategory) {
+		String SQL = "select * from event_info where id_category = ? order by date_created DESC";
+		List<EventInfo> events = jdbcTemplateObject.query(SQL,new Object[]{idCategory},	new EventMapper());
+
+		return events;
+	}
 }

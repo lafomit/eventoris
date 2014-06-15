@@ -52,9 +52,14 @@ public interface EventDAO {
 	public void setComment(CommentInfo comment);
 	
 	public void addParticipant(ParticipantInfo participant);
+	
 	public boolean checkIfParticipantExists(ParticipantInfo participant);
+	
 	public boolean compareExistingAndRequestedStatus(ParticipantInfo participant);
+	
 	public void changeParticipationStatus(ParticipantInfo participant);
+	
+	public List<EventInfo> getEventsByCategory(int idCategory);
 	
 	// public boolean compareExistingAndRequestedStatus(int idEvent, int idUser,
 	// int participationStatus);

@@ -40,4 +40,6 @@ public interface EventManager {
 	public void addComment(CommentInfo comment);
 	
 	public void participate(ParticipantInfo participant);
+	
+	public List<EventInfo> getEventsByCategory(int idCategory);
 }

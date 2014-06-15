@@ -146,5 +146,9 @@ public class DummyInMemoryDao implements EventDAO{
 		// TODO Auto-generated method stub
 		
 	}
+	public List<EventInfo> getEventsByCategory(int idCategory) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
