@@ -74,6 +74,7 @@ public class EventDetailController implements Controller {
 		ModelAndView mv = new ModelAndView("eventdetail", "dataMap", myModel);
 		
 		mv.addObject("commentData",new CommentData());
+		mv.addObject("participantData",new ParticipantData());
 		return mv;
 	}
 

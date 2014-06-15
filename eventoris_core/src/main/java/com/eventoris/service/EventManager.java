@@ -39,5 +39,5 @@ public interface EventManager {
 	
 	public void addComment(CommentInfo comment);
 	
-	public void participate(int eventID, int userId, int status);
+	public void participate(ParticipantInfo participant);
 }

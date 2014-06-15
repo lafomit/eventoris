@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import eventoris.datatypes.CategoryInfo;
 import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
+import eventoris.datatypes.ParticipantInfo;
 import eventoris.datatypes.UserInfo;
 
 public class EventJDBCTemplate implements EventDAO {
@@ -117,12 +118,12 @@ public class EventJDBCTemplate implements EventDAO {
 		return events;
 	}
 
-	private boolean checkIfParticipantExists(int idUser, int idEvent) {
+	public boolean checkIfParticipantExists(ParticipantInfo participant) {
 		String SQL = "select count(*) from participants where id_user = ? and id_event = ?";
 		boolean exists = false;
 
-		int count = jdbcTemplateObject.queryForInt(SQL, new Object[] { idUser,
-				idEvent });
+		int count = jdbcTemplateObject.queryForInt(SQL, new Object[] { participant.getIdUser(),
+				participant.getIdEvent() });
 
 		System.out.println(count);
 
@@ -132,41 +133,39 @@ public class EventJDBCTemplate implements EventDAO {
 		return exists;
 	}
 
-	private boolean compareExistingAndRequestedStatus(int idEvent, int idUser,
-			int idParticipationStatus) {
+	public boolean compareExistingAndRequestedStatus(ParticipantInfo participant) {
 		String SQL = "select id_status from participants where id_event = ? and id_user = ?";
 		boolean isEqual = false;
 
 		int existingStatus = jdbcTemplateObject.queryForInt(SQL, new Object[] {
-				idEvent, idUser });
+				participant.getIdEvent(), participant.getIdUser() });
 
-		if (existingStatus == idParticipationStatus) {
+		if (existingStatus == participant.getIdStatus()) {
 			isEqual = true;
 		}
 		return isEqual;
 	}
 
-	private void changeParticipationStatus(int idEvent, int idUser,
-			int idParticipationStatus) {
+	public void changeParticipationStatus(ParticipantInfo participant) {
 		String SQL = "update participants set id_status = ? where id_event = ? and id_user = ?";
 
-		jdbcTemplateObject.update(SQL, new Object[] { idParticipationStatus,
-				idEvent, idUser });
+		jdbcTemplateObject.update(SQL, new Object[] { participant.getIdStatus(),
+				participant.getIdEvent(), participant.getIdUser() });
 
 		System.out.println("Succesfully changed status");
 	}
 
-	public void addParticipant(int idEvent, int idUser, int idParticipationStatus) {
+	public void addParticipant(ParticipantInfo participant) {
 		String SQL = "insert into participants (id_event, id_user, id_status, date_subscribed) values (?, ?, ?, ?)";
 		Date tempDate = new Date();
 		SimpleDateFormat formatedDate = new SimpleDateFormat(
 				"yyyy-MM-dd HH:mm:ss");
 		String today = formatedDate.format(tempDate);
 
-		jdbcTemplateObject.update(SQL, new Object[] { idEvent, idUser,
-				idParticipationStatus, today });
+		jdbcTemplateObject.update(SQL, new Object[] { participant.getIdEvent(), participant.getIdUser(),
+				participant.getIdStatus(), today });
 	}
-
+/*
 	public void subscribeToEvent(int idEvent, int idUser,
 			int idParticipationStatus) {
 		boolean exists = this.checkIfParticipantExists(idUser, idEvent);
@@ -185,7 +184,7 @@ public class EventJDBCTemplate implements EventDAO {
 		} else
 			this.addParticipant(idEvent, idUser, idParticipationStatus);
 	}
-
+*/
 	public List<CategoryInfo> getAllCategories() {
 		String SQL = "select * from event_categories";
 		List<CategoryInfo> categories = jdbcTemplateObject.query(SQL,
@@ -253,5 +252,11 @@ public class EventJDBCTemplate implements EventDAO {
 				new EventMapper());
 
 		return events;
+	}
+
+	public void subscribeToEvent(int idEvent, int idUser,
+			int participationStatus) {
+		// TODO Auto-generated method stub
+		
 	}
 }

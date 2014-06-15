@@ -95,7 +95,10 @@
 							<c:choose>
 								<c:when test="${pageContext.request.userPrincipal.name != null}">
 									<div class="hai-button">
-										<button>Hai!</button>
+									<form:form commandName = "participate" modelAttribute="participantData" method="POST" action="comeforsure">
+										<form:hidden path="eventid" value="<%=eventInfo.getEventID() %>" />
+										<button type="submit">Hai!</button>
+									</form:form>
 									</div>
 								</c:when>
 								<c:otherwise>Tre sa fii logat ca sa poti participa la eveniment</c:otherwise>
