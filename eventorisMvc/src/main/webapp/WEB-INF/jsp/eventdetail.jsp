@@ -58,8 +58,9 @@
 								%>
 								<em>Ora: </em>
 								<%=hour%>:<%=minutes%><br>
-								 
+								 <c:if test="${dataMap.isLoggedInOwner}">
 									<a	href="addevent.htm?eventid=<%= eventInfo.getEventID()%>">Editeaza</a> 
+								 </c:if>
 									<br> <a href="#">Subscribe</a><br>
 							</p>
 						</div>
