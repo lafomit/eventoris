@@ -13,7 +13,7 @@
 				<ul>
 					<li><a href="<c:url value="addevent.htm"/>">Adaugă
 							Eveniment</a></li>
-					<li><a href="myevents.htm">Evnimentele mele</a></li>
+					<li><a href="myevents.htm">Evenimentele mele</a></li>
 					<li><a href="mycalendar.htm">Calendarul meu</a></li>
 				</ul>
 			</nav>
@@ -22,9 +22,8 @@
 	</div>
 </div>
 <section>
-GOING
 <div class="container clearfix">
-	<div id="content" class="grid_12">
+	<div id="content" class="grid_6">
 		<div class="events">
 			<c:choose>
 				<c:when test="${empty model.productsGoing} ">
@@ -38,6 +37,7 @@ GOING
 					</div>
 			    </c:when>
 				<c:otherwise>
+					<h2>Participi</h2>
 					<c:forEach items="${model.productsGoing}" var="event">
 						<%
 							Calendar cal = Calendar.getInstance();
@@ -51,7 +51,7 @@ GOING
 							<div class="left-event-half">
 								<div class="event-title">
 									<h2>
-										<c:out value="${event.title}" />
+										<c:out value="${event.title}" /> 
 									</h2>
 								</div>
 								<div class="event-description">
@@ -66,32 +66,14 @@ GOING
 										tot</a>
 								</div>
 							</div>
-							<div class="right-event-half">
-								<div class="event-date-title">
-									<h2>Data</h2>
-								</div>
-								<div class="date-circle" id="day">
-									<h1><%=date%></h1>
-								</div>
-								<div class="date-circle" id="month">
-									<h3><%=com.eventoris.web.LangUtil
-								.getRoMonthName(month)%></h3>
-								</div>
-								<div class="date-circle" id="year">
-									<h1><%=year%></h1>
-								</div>
-							</div>
 						</div>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
 		</div>
 	</div>
-</div>
-MaybeGoing
 
-<div class="container clearfix">
-	<div id="content" class="grid_12">
+	<div id="content" class="grid_6">
 		<div class="events">
 			<c:choose>
 				<c:when test="${empty model.productsMaybe} ">
@@ -105,6 +87,7 @@ MaybeGoing
 					</div>
 			    </c:when>
 				<c:otherwise>
+				<h2>Posibil să participi</h2>
 					<c:forEach items="${model.productsMaybe}" var="event">
 						<%
 							Calendar cal = Calendar.getInstance();
@@ -131,21 +114,6 @@ MaybeGoing
 									<a
 										href="eventdetail.htm?event=<c:out value="${event.eventID}"/>">Vezi
 										tot</a>
-								</div>
-							</div>
-							<div class="right-event-half">
-								<div class="event-date-title">
-									<h2>Data</h2>
-								</div>
-								<div class="date-circle" id="day">
-									<h1><%=date%></h1>
-								</div>
-								<div class="date-circle" id="month">
-									<h3><%=com.eventoris.web.LangUtil
-								.getRoMonthName(month)%></h3>
-								</div>
-								<div class="date-circle" id="year">
-									<h1><%=year%></h1>
 								</div>
 							</div>
 						</div>

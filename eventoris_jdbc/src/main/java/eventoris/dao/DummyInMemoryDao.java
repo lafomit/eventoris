@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 import eventoris.datatypes.CategoryInfo;
 import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
+import eventoris.datatypes.ParticipantInfo;
 import eventoris.datatypes.UserInfo;
 
 public class DummyInMemoryDao implements EventDAO{
@@ -129,8 +130,19 @@ public class DummyInMemoryDao implements EventDAO{
 		// TODO Auto-generated method stub
 		
 	}
-	public void addParticipant(int idEvent, int idUser,
-			int idParticipationStatus) {
+	public void addParticipant(ParticipantInfo participant) {
+		// TODO Auto-generated method stub
+		
+	}
+	public boolean checkIfParticipantExists(ParticipantInfo participant) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean compareExistingAndRequestedStatus(ParticipantInfo participant) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public void changeParticipationStatus(ParticipantInfo participant) {
 		// TODO Auto-generated method stub
 		
 	}

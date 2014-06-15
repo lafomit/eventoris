@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
 import eventoris.datatypes.CategoryInfo;
+import eventoris.datatypes.ParticipantInfo;
 import eventoris.datatypes.UserInfo;
 
 import java.util.Date;
@@ -50,7 +51,10 @@ public interface EventDAO {
 	
 	public void setComment(CommentInfo comment);
 	
-	public void addParticipant(int idEvent, int idUser, int idParticipationStatus);
+	public void addParticipant(ParticipantInfo participant);
+	public boolean checkIfParticipantExists(ParticipantInfo participant);
+	public boolean compareExistingAndRequestedStatus(ParticipantInfo participant);
+	public void changeParticipationStatus(ParticipantInfo participant);
 	
 	// public boolean compareExistingAndRequestedStatus(int idEvent, int idUser,
 	// int participationStatus);

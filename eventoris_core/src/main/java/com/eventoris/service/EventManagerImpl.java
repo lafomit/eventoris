@@ -6,6 +6,7 @@ import eventoris.dao.EventDAO;
 import eventoris.dao.EventJDBCTemplate;
 import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
+import eventoris.datatypes.ParticipantInfo;
 import eventoris.datatypes.UserInfo;
 
 public class EventManagerImpl implements EventManager {
@@ -87,8 +88,19 @@ public class EventManagerImpl implements EventManager {
 		eventDaoProvider.setComment(comment);
 	}
 
-	public void participate(int eventID, int userId, int status) {
-		eventDaoProvider.addParticipant(eventID, userId, status);
+	public void participate(ParticipantInfo participant) {
+		
+		boolean exists = eventDaoProvider.checkIfParticipantExists(participant);
+		boolean isEqual = false;
+
+		if (exists) {
+			isEqual =  eventDaoProvider.compareExistingAndRequestedStatus(participant);
+			if(isEqual){
+				eventDaoProvider.changeParticipationStatus(participant);
+			}
+
+		} else
+			eventDaoProvider.addParticipant(participant);
 	}
 
 }
