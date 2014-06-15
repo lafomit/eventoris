@@ -1,11 +1,12 @@
 package eventoris.dao;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -13,11 +14,13 @@ import eventoris.datatypes.CategoryInfo;
 import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
 import eventoris.datatypes.ParticipantInfo;
+import eventoris.datatypes.UserEventStatus;
 import eventoris.datatypes.UserInfo;
 
 public class EventJDBCTemplate implements EventDAO {
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplateObject;
+	protected final Log logger = LogFactory.getLog(getClass());
 
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
@@ -122,8 +125,8 @@ public class EventJDBCTemplate implements EventDAO {
 		String SQL = "select count(*) from participants where id_user = ? and id_event = ?";
 		boolean exists = false;
 
-		int count = jdbcTemplateObject.queryForInt(SQL, new Object[] { participant.getIdUser(),
-				participant.getIdEvent() });
+		int count = jdbcTemplateObject.queryForInt(SQL, new Object[] {
+				participant.getIdUser(), participant.getIdEvent() });
 
 		System.out.println(count);
 
@@ -149,42 +152,33 @@ public class EventJDBCTemplate implements EventDAO {
 	public void changeParticipationStatus(ParticipantInfo participant) {
 		String SQL = "update participants set id_status = ? where id_event = ? and id_user = ?";
 
-		jdbcTemplateObject.update(SQL, new Object[] { participant.getIdStatus(),
-				participant.getIdEvent(), participant.getIdUser() });
+		jdbcTemplateObject.update(SQL, new Object[] {
+				participant.getIdStatus(), participant.getIdEvent(),
+				participant.getIdUser() });
 
 		System.out.println("Succesfully changed status");
 	}
 
 	public void addParticipant(ParticipantInfo participant) {
-		String SQL = "insert into participants (id_event, id_user, id_status, date_subscribed) values (?, ?, ?, ?)";
-		Date tempDate = new Date();
-		SimpleDateFormat formatedDate = new SimpleDateFormat(
-				"yyyy-MM-dd HH:mm:ss");
-		String today = formatedDate.format(tempDate);
+		String SQL = "insert into participants (id_event, id_user, id_status, date_subscribed) values (?, ?, ?, SYSDATE())";
 
-		jdbcTemplateObject.update(SQL, new Object[] { participant.getIdEvent(), participant.getIdUser(),
-				participant.getIdStatus(), today });
+		logger.info("EventJDBCTemplate: adding participant");
+		jdbcTemplateObject.update(SQL, new Object[] { participant.getIdEvent(),
+				participant.getIdUser(), participant.getIdStatus() });
 	}
-/*
-	public void subscribeToEvent(int idEvent, int idUser,
-			int idParticipationStatus) {
-		boolean exists = this.checkIfParticipantExists(idUser, idEvent);
-		boolean isEqual = false;
 
-		if (exists) {
-			isEqual = this.compareExistingAndRequestedStatus(idEvent, idUser,
-					idParticipationStatus);
-			if (isEqual)
-				System.out.println("Dvs. deja sunteţi înscris în lista dată");
-			else {
-				this.changeParticipationStatus(idUser, idEvent,
-						idParticipationStatus);
-			}
-
-		} else
-			this.addParticipant(idEvent, idUser, idParticipationStatus);
-	}
-*/
+	/*
+	 * public void subscribeToEvent(int idEvent, int idUser, int
+	 * idParticipationStatus) { boolean exists =
+	 * this.checkIfParticipantExists(idUser, idEvent); boolean isEqual = false;
+	 * 
+	 * if (exists) { isEqual = this.compareExistingAndRequestedStatus(idEvent,
+	 * idUser, idParticipationStatus); if (isEqual)
+	 * System.out.println("Dvs. deja sunteţi înscris în lista dată"); else {
+	 * this.changeParticipationStatus(idUser, idEvent, idParticipationStatus); }
+	 * 
+	 * } else this.addParticipant(idEvent, idUser, idParticipationStatus); }
+	 */
 	public List<CategoryInfo> getAllCategories() {
 		String SQL = "select * from event_categories";
 		List<CategoryInfo> categories = jdbcTemplateObject.query(SQL,
@@ -210,10 +204,11 @@ public class EventJDBCTemplate implements EventDAO {
 				new Object[] { eventId }, new CommentMapper());
 		return comments;
 	}
-	
-	public void setComment(CommentInfo comment){
+
+	public void setComment(CommentInfo comment) {
 		String SQL = "INSERT INTO comments (comment, id_owner, id_event, date_created) VALUES (?, ?, ?, SYSDATE())";
-		jdbcTemplateObject.update(SQL, new Object[] { comment.getComment(), comment.getPosterId(),comment.getEventId() });
+		jdbcTemplateObject.update(SQL, new Object[] { comment.getComment(),
+				comment.getPosterId(), comment.getEventId() });
 	}
 
 	public int getSubscribedUsersCount(int eventId, int status) {
@@ -238,8 +233,8 @@ public class EventJDBCTemplate implements EventDAO {
 
 	public List<EventInfo> getEventsOwnedByUser(int userId) {
 		String SQL = "select * from event_info where id_owner= ? order by date_created DESC";
-		List<EventInfo> events = jdbcTemplateObject.query(SQL,new Object[]{userId},
-				new EventMapper());
+		List<EventInfo> events = jdbcTemplateObject.query(SQL,
+				new Object[] { userId }, new EventMapper());
 
 		return events;
 	}
@@ -248,8 +243,8 @@ public class EventJDBCTemplate implements EventDAO {
 		String SQL = "select * from event_info "
 				+ "join participants on  participants.id_event = event_info.id_event_info "
 				+ "where id_user = ? and id_status =? order by date_of_event DESC";
-		List<EventInfo> events = jdbcTemplateObject.query(SQL,new Object[]{userId,statusId},
-				new EventMapper());
+		List<EventInfo> events = jdbcTemplateObject.query(SQL, new Object[] {
+				userId, statusId }, new EventMapper());
 
 		return events;
 	}
@@ -257,13 +252,52 @@ public class EventJDBCTemplate implements EventDAO {
 	public void subscribeToEvent(int idEvent, int idUser,
 			int participationStatus) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public List<EventInfo> getEventsByCategory(int idCategory) {
 		String SQL = "select * from event_info where id_category = ? order by date_created DESC";
-		List<EventInfo> events = jdbcTemplateObject.query(SQL,new Object[]{idCategory},	new EventMapper());
+		List<EventInfo> events = jdbcTemplateObject.query(SQL,
+				new Object[] { idCategory }, new EventMapper());
 
 		return events;
+	}
+
+	public UserEventStatus getEventStatusForEvent(int eventId, int userId) {
+		String SQL = "select participants.id_status from participants  where id_user = ? and id_event = ?";
+		UserEventStatus result = new UserEventStatus();
+		int sqlResult = -1;
+		try {
+			sqlResult = jdbcTemplateObject.queryForInt(SQL, new Object[] {
+					userId, eventId });
+		} catch (EmptyResultDataAccessException erdae) {
+			return result;
+		}
+		if (sqlResult == 0) {
+			return result;
+		}
+		if (sqlResult == 1) {
+			result.setComing(true);
+			return result;
+		}
+		if (sqlResult == 2) {
+			result.setMaybeComing(true);
+			return result;
+		}
+
+		return result;
+	}
+
+	public List<UserInfo> getTopParticipatingUsers(int eventId, int statusId,
+			int resultCount) {
+		String SQL = "select user_details.* ,users.* from users"
+				+ " join user_details on user_details.id_user = users.id_users"
+				+ " join participants on participants.id_user = users.id_users"
+				+ " where participants.id_event = ? and participants.id_status = ?"
+				+ " order by participants.date_subscribed desc  limit ?";
+		List<UserInfo> users = jdbcTemplateObject.query(SQL, new Object[] {
+				eventId, statusId, resultCount }, new UserInfoMapper());
+
+		return users;
 	}
 }

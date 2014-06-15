@@ -42,4 +42,10 @@ public interface EventManager {
 	public void participate(ParticipantInfo participant);
 	
 	public List<EventInfo> getEventsByCategory(int idCategory);
+	
+	public UserEventStatus getUserEventStatus(int eventId, int userId);
+	
+	public List<UserInfo> getTop3ComingUsers(int eventId);
+	
+	public List<UserInfo> getTop3MaybeComingUsers(int eventId);
 }

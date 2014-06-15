@@ -8,6 +8,7 @@ import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
 import eventoris.datatypes.CategoryInfo;
 import eventoris.datatypes.ParticipantInfo;
+import eventoris.datatypes.UserEventStatus;
 import eventoris.datatypes.UserInfo;
 
 import java.util.Date;
@@ -60,6 +61,10 @@ public interface EventDAO {
 	public void changeParticipationStatus(ParticipantInfo participant);
 	
 	public List<EventInfo> getEventsByCategory(int idCategory);
+	
+	public UserEventStatus getEventStatusForEvent(int eventId, int userId);
+	
+	public List<UserInfo> getTopParticipatingUsers(int eventId, int status, int resultCount);
 	
 	// public boolean compareExistingAndRequestedStatus(int idEvent, int idUser,
 	// int participationStatus);

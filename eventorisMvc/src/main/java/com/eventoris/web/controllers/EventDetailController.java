@@ -23,6 +23,7 @@ import com.eventoris.web.auth.UserSessionInfo;
 import eventoris.datatypes.CategoryInfo;
 import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
+import eventoris.datatypes.UserEventStatus;
 import eventoris.datatypes.UserInfo;
 
 public class EventDetailController implements Controller {
@@ -63,6 +64,8 @@ public class EventDetailController implements Controller {
 		int totalParticipantNumber = eventManager.getNumberOfTotalParticipants(eventId);
 		int comingParticipantNumber = eventManager.getNumberOfComingParticipants(eventId);
 		int maybeParticipantNumber = eventManager.getNumberOfMaybeGoingParticipants(eventId);
+		
+		logger.info("EventDetailController: comingParticipantNumber:" + comingParticipantNumber + " maybeParticipantNumber:" + maybeParticipantNumber);
 		logger.info("EventDetailController: searching for categoryId:" + resultEventInfo.getCategoryID());
 		CategoryInfo category = categoryManager.getCategoryById(resultEventInfo
 				.getCategoryID());
@@ -72,11 +75,18 @@ public class EventDetailController implements Controller {
 		
 		logger.info("EventDetailController: found "+comments.size()+" comments for eventId=" + eventId);
 		
-		if(activeUser!= null && activeUser.getId() == owner.getId()){
-			myModel.put("isLoggedInOwner", true);
+		if(activeUser!= null){
+			UserEventStatus eventStatus = eventManager.getUserEventStatus(eventId, activeUser.getId());
+			myModel.put("userEventStatus", eventStatus);
+			if(activeUser.getId() == owner.getId())
+				myModel.put("isLoggedInOwner", true);
 		}else{
 			myModel.put("isLoggedInOwner", false);
 		}
+		
+		List<UserInfo> comingUsers = eventManager.getTop3ComingUsers(eventId);
+		List<UserInfo> maybeComingUsers = eventManager.getTop3MaybeComingUsers(eventId);
+		
 		myModel.put("eventInfo", resultEventInfo);
 		myModel.put("comments", comments);
 		myModel.put("ownerInfo", owner);
@@ -84,6 +94,9 @@ public class EventDetailController implements Controller {
 		myModel.put("totalPartNumb", totalParticipantNumber);
 		myModel.put("comingPartNumb", comingParticipantNumber);
 		myModel.put("maybePartNumb", maybeParticipantNumber);
+		
+		myModel.put("comingUsers", comingUsers);
+		myModel.put("maybeComingUsers", maybeComingUsers);
 		ModelAndView mv = new ModelAndView("eventdetail", "dataMap", myModel);
 		
 		mv.addObject("commentData",new CommentData());
