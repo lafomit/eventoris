@@ -156,8 +156,7 @@ public class EventJDBCTemplate implements EventDAO {
 		System.out.println("Succesfully changed status");
 	}
 
-	private void addParticipant(int idEvent, int idUser,
-			int idParticipationStatus) {
+	public void addParticipant(int idEvent, int idUser, int idParticipationStatus) {
 		String SQL = "insert into participants (id_event, id_user, id_status, date_subscribed) values (?, ?, ?, ?)";
 		Date tempDate = new Date();
 		SimpleDateFormat formatedDate = new SimpleDateFormat(
