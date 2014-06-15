@@ -41,9 +41,6 @@
 				<div id="content" class="grid_2">
 					<div class="category-menu">
 						<ul>
-							
-							<li><a href="">Turism</a></li>
-							<li><a href="">Beţii</a></li>
 							<c:forEach items="${model.categories}" var="category">
 								<li><a href="">${category.categoryName}</a></li>
 							</c:forEach>

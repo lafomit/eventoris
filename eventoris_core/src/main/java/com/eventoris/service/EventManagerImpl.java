@@ -78,4 +78,9 @@ public class EventManagerImpl implements EventManager {
 		return eventDaoProvider.getEventsUserIsSubscribedTo(userId,2);
 	}
 
+	public void updateEvent(EventInfo eventInfo) {
+		eventDaoProvider.update(eventInfo);
+		
+	}
+
 }

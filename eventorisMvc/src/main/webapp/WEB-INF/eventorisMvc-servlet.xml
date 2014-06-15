@@ -65,6 +65,19 @@
 
     </bean>
     
+      <bean name="/addComment.htm" class="com.eventoris.web.controllers.AddCommentController">
+        <property name="sessionForm" value="true"/>
+        <property name="commandName" value="addComment"/>
+        <property name="commandClass" value="com.eventoris.web.formbeans.AddCommentFormData"/>
+        <property name="validator">
+            <bean class="com.eventoris.web.validator.CreateCommentValidator"/>
+        </property>
+        <property name="formView" value="eventdetails"/>
+        <property name="successView" value="eventdetail.htm"/>
+        <property name="eventManager" ref="eventManager" />
+
+    </bean>
+    
      <bean name="/searchevent.htm" class="com.eventoris.web.controllers.SearchEventByTextController">
        <property name="eventManager" ref="eventManager" />
      </bean>

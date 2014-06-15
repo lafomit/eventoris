@@ -7,7 +7,14 @@ public class AddEventFormData {
 	private int category;
 	private String address;
 	private String eventdate; 
+	private int eventid;
 	
+	public int getEventid() {
+		return eventid;
+	}
+	public void setEventid(int eventid) {
+		this.eventid = eventid;
+	}
 	public int getCategory() {
 		return category;
 	}

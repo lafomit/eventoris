@@ -46,6 +46,7 @@
 			
 			<form:form method="post" commandName="createEvent">
 					<form:input path="title" placeholder="Titlu"/>
+					<form:hidden path="eventid" />
 				    <form:errors path="title" cssClass="error" id="add-event"/>
 				    
 					<form:textarea path="description" rows="4" cols="50" placeholder="Descriere"/>				
