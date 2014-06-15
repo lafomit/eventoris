@@ -448,6 +448,7 @@ footer{
 
 .information-content a{
 	float: right;
+	margin: 0 7px;
 }
 
 .block-header img, .block img{

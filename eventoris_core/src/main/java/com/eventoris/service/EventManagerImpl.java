@@ -103,4 +103,8 @@ public class EventManagerImpl implements EventManager {
 			eventDaoProvider.addParticipant(participant);
 	}
 
+	public List<EventInfo> getEventsByCategory(int idCategory) {
+		return eventDaoProvider.getEventsByCategory(idCategory);
+	}
+
 }

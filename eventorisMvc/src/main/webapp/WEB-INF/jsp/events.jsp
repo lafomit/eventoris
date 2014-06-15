@@ -38,16 +38,22 @@
 			</div>
 	    </c:when>
 			<c:otherwise>
-				<div id="content" class="grid_2">
-					<div class="category-menu">
-						<ul>
-							<c:forEach items="${model.categories}" var="category">
-								<li><a href="">${category.categoryName}</a></li>
-							</c:forEach>
-						</ul>
-					</div>
-				</div>
-				<div id="content" class="grid_10">
+				<% int i = 0; %>
+					<c:forEach items="${model.categories}" var="category">
+						<% i++; %>
+					</c:forEach>
+					<% if(i!=0){ %>
+						<div id="content" class="grid_2">
+							<div class="category-menu">
+								<ul>
+									<c:forEach items="${model.categories}" var="category">
+										<li><a href="eventdetail.htm?category=<c:out value="${category.idCategory}"/>">${category.categoryName}</a></li>
+									</c:forEach>
+								</ul>
+							</div>
+						</div>
+						<div id="content" class="grid_10">
+					<%} else{   %> <div id="content" class="grid_12"> <% }%>
 					<div class="events">
 						<c:forEach items="${model.products}" var="event">
 							<%
