@@ -37,7 +37,7 @@
 		<property name="eventManager" ref="eventManager" />
 	</bean>
 
-    <bean name="/addevent.htm" class="com.eventoris.web.controllers.AddEventController">
+    <bean name="/addevent.htm**" class="com.eventoris.web.controllers.AddEventController">
         <property name="sessionForm" value="true"/>
         <property name="commandName" value="createEvent"/>
         <property name="commandClass" value="com.eventoris.web.formbeans.AddEventFormData"/>

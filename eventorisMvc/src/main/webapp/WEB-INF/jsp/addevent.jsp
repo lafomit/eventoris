@@ -44,7 +44,7 @@
 			<i class = "icon-doc-add"></i>
 			<h1>Adaugă eveniment</h1><br>
 			
-			<form:form method="post" commandName="createEvent">
+			<form:form method="post" commandName="createEvent" action="/eventorisMvc/addevent.htm">
 					<form:input path="title" placeholder="Titlu"/>
 					<form:hidden path="eventid" />
 				    <form:errors path="title" cssClass="error" id="add-event"/>
