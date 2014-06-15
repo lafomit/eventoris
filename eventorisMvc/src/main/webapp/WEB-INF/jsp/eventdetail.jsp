@@ -58,9 +58,10 @@
 								%>
 								<em>Ora: </em>
 								<%=hour%>:<%=minutes%><br>
-								 
+								 	
+								 	<a	href="delete.htm?eventid=<%= eventInfo.getEventID()%>">Şterge</a>
 									<a	href="addevent.htm?eventid=<%= eventInfo.getEventID()%>">Editeaza</a> 
-									<br> <a href="#">Subscribe</a><br>
+									<a href="#">Subscribe</a><br>
 							</p>
 						</div>
 					</div>
