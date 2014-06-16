@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ include file="/WEB-INF/jsp/include_links.jsp"%>
 <%@ page import="java.util.*"%>
-<title>Eventoris | Eroare 404</title>
+<title>Eventoris | Eroare 400</title>
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
 
@@ -22,12 +22,12 @@
 <section class="error-page">
 	<div class="container clearfix">
 		<div id="content" class="grid_12">
-			<h1>Eroare 404</h1>
+			<h1>Eroare 400</h1>
 			<div class="smile">
 				<i class="icon-emo-surprised"></i>
 			</div>
 			<div class="message">
-				<h2>Aşa pagină nu există!</h2>
+				<h2>Muah I almost crashed</h2>
 			</div>
 		</div>
 	</div>
