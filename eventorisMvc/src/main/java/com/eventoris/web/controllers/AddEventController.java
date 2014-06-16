@@ -41,18 +41,23 @@ public class AddEventController extends SimpleFormController {
        
 
         EventInfo event = new EventInfo();
+        String hour = newEvent.getHour();
+        String minutes = newEvent.getMinutes();
+        String date = newEvent.getEventdate();
+        
+        String dateOfEvent = date.substring(6, 10)+"-"+date.substring(0, 2)+"-"+date.substring(3, 5)+" "+hour+":"+minutes;
         
         event.setTitle(newEvent.getTitle());
         event.setDescription(newEvent.getDescription());
         event.setAddress(newEvent.getAddress());
-        event.setDateOfEvent(newEvent.getEventdate());
+        event.setDateOfEvent(dateOfEvent);
         event.setCategoryID(newEvent.getCategory());
 		UserSessionInfo activeUser = (UserSessionInfo) SecurityContextHolder
 				.getContext().getAuthentication().getPrincipal();
         event.setOwnerID(activeUser.getId());
         SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-d HH:mm:ss");
-        Date date = new Date();
-        event.setDateCreated(format.format( date));
+        Date dateCreated = new Date();
+        event.setDateCreated(format.format( dateCreated));
         logger.info("AddEventController: new eventId=" + newEvent.getEventid() );
         
         if(newEvent.getEventid()==0){

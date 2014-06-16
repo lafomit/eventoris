@@ -55,18 +55,16 @@
 				
 				    <form:input path="address" placeholder="Adresa"/>
 				    <form:errors path="address" cssClass="error"/>
-		    		<!--
+		    		
 	    		   <form:input path="eventdate" type="text" id="datepicker" placeholder="Data"/> 
 	    			<form:errors path="eventdate" cssClass="error"/> 	
 	    			
-	    			<form:input path="hour" type="text" placeholder="Ora"/>
+	    			<form:input path="hour" type="text" placeholder="Ora" value=""/>
 	    			<form:errors path="hour" cssClass="error"/>
 	    			
-	    			<form:input path="minutes" type="text" placeholder="Minute"/>
-	    			<form:errors path="minutes" cssClass="error"/>-->
-		    		
-				    <form:input path="eventdate" placeholder="Data evenimentului"/>
-				    <form:errors path="eventdate" cssClass="error"/>
+	    			<form:input path="minutes" type="text" placeholder="Minute" value=""/>
+	    			<form:errors path="minutes" cssClass="error"/>
+
 					<br>
 					<form:label path="category">Categorie </form:label>
 				    <form:select path="category">

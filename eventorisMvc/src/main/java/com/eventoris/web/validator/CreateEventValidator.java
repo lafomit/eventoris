@@ -35,13 +35,13 @@ public class CreateEventValidator implements Validator{
 	            }
 	            if (eventData.getEventdate() == null || eventData.getEventdate().trim().length() == 0) {
 	                errors.rejectValue("eventdate", "error.empty-eventdate");
-	            }/*
-	            if (eventData.getHour() == 0) {
+	            }
+	            if (eventData.getHour()== null || eventData.getHour().trim().length() == 0) {
 	                errors.rejectValue("hour", "error.empty-hour");
 	            }
-	            if (eventData.getMinutes() == 0) {
-	                errors.rejectValue("int", "error.empty-minutes");
-	            }*/
+	            if (eventData.getMinutes() == null || eventData.getMinutes().trim().length() == 0) {
+	                errors.rejectValue("minutes", "error.empty-minutes");
+	            }
 	        }
 	    }
 
