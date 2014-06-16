@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ include file="/WEB-INF/jsp/include_links.jsp"%>
 <%@ page import="java.util.*"%>
-<title>Eventoris | Eroare 404</title>
+<title>Eventoris | Confirmare</title>
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
 
@@ -22,13 +22,14 @@
 <section class="error-page">
 	<div class="container clearfix">
 		<div id="content" class="grid_12">
+		<h1>${eventTitle}</h1>
 			<div class="smile">
 				<i class="icon-emo-surprised"></i>
 			</div>
 			<div class="message">
 				<h2>Sigur doriţi să ştergeţi acest eveniment?</h2>
 				<a href="#">Da</a> <br>
-				<a href = "#">Nu</a>
+				<a href = "eventdetail.htm?event=${eventId}">Nu</a>
 			</div>
 		</div>
 	</div>
