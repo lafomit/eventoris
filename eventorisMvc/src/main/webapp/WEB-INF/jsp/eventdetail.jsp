@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*"%>
@@ -13,8 +14,9 @@
 		<div id="content" class="grid_12">
 			<div class="event-detail-wrapper">
 				<%
-					Map<String, Object> map = (Map<String, Object>) request.getAttribute("dataMap");
-	
+					Map<String, Object> map = (Map<String, Object>) request
+							.getAttribute("dataMap");
+
 					if (map == null) {
 				%>
 				<div class="error-page">
@@ -36,7 +38,7 @@
 						<div class="block-header">
 							<img alt="category"
 								src="resources/img/categories/<%=eventInfo.getCategoryID()%>.png">
-	
+
 							<h1><%=name%></h1>
 						</div>
 						<div class="information-content">
@@ -58,10 +60,14 @@
 								%>
 								<em>Ora: </em>
 								<%=hour%>:<%=minutes%><br>
-								 	
-								 	<a	href="delete.htm?eventid=<%= eventInfo.getEventID()%>">Şterge</a>
-									<a	href="addevent.htm?eventid=<%= eventInfo.getEventID()%>">Editeaza</a> 
-									<a href="#">Subscribe</a><br>
+
+								<c:if test="${dataMap.isLoggedInOwner}">
+									<a href="delete.htm?eventid=<%=eventInfo.getEventID()%>">Şterge</a>
+									<a href="addevent.htm?eventid=<%=eventInfo.getEventID()%>">Editeaza</a>
+								</c:if>
+								<br> <a href="#">Subscribe</a><br>
+
+
 							</p>
 						</div>
 					</div>
@@ -76,10 +82,14 @@
 									if (participantsComing > 0) {
 							%>
 							<div class="participants-wrap">
-								<div class="participant">
-									<img alt="profile picture" src="resources/img/avatars/0.jpg">
-									<em>Vasea Mamaliga</em>
-								</div>
+								<c:forEach items="${dataMap.comingUsers}" var="userInfo">
+
+									<div class="participant">
+										<img alt="profile picture" src="resources/img/avatars/0.jpg">
+										<em>${userInfo.name } ${userInfo.familyName }</em>
+									</div>
+
+								</c:forEach>
 							</div>
 							<div class="see-all">
 								<a href="#">Vezi toţi (<%=participantsComing%>)
@@ -94,20 +104,29 @@
 								}
 							%>
 							<c:choose>
-								<c:when test="${pageContext.request.userPrincipal.name != null}">
+								<c:when
+									test="${pageContext.request.userPrincipal.name != null && !dataMap.userEventStatus.coming}">
 									<div class="hai-button">
-									<form:form modelAttribute="comeForSure" method="POST" action="comeforsure">
-										<form:hidden path="eventid" value="<%=eventInfo.getEventID() %>" />
-										<button type="submit">Hai!</button>
-									</form:form>
+
+										<form:form modelAttribute="comeForSure" method="POST"
+											action="comeforsure">
+											<form:hidden path="eventid"
+												value="<%=eventInfo.getEventID()%>" />
+											<button type="submit">Hai!</button>
+										</form:form>
 									</div>
 								</c:when>
+								<c:when
+									test="${pageContext.request.userPrincipal.name != null && dataMap.userEventStatus.coming}">
+								  		Deja esti inscris la acest eveniment.
+								</c:when>
+
 								<c:otherwise>Tre sa fii logat ca sa poti participa la eveniment</c:otherwise>
 							</c:choose>
 						</div>
 					</div>
 				</div>
-	
+
 				<div class="right-column-eventdetail">
 					<div class="block" id="event-owner">
 						<div class="block-header">
@@ -145,18 +164,14 @@
 									if (participantsMaybe > 0) {
 							%>
 							<div class="participants-wrap">
-								<div class="participant">
-									<img alt="profile picture" src="resources/img/avatars/0.jpg">
-									<em>Vasea Mamaliga</em>
-								</div>
-								<div class="participant">
-									<img alt="profile picture" src="resources/img/avatars/2.jpg">
-									<em>Uashiva Patlajica</em>
-								</div>
-								<div class="participant">
-									<img alt="profile picture" src="resources/img/avatars/3.jpg">
-									<em>Alina Stepanida</em>
-								</div>
+								<c:forEach items="${dataMap.maybeComingUsers}" var="userInfo">
+
+									<div class="participant">
+										<img alt="profile picture" src="resources/img/avatars/0.jpg">
+										<em>${userInfo.name } ${userInfo.familyName }</em>
+									</div>
+
+								</c:forEach>
 							</div>
 							<div class="see-all">
 								<a href="#">Vezi toţi (<%=participantsMaybe%>)
@@ -171,24 +186,33 @@
 								}
 							%>
 							<c:choose>
-								<c:when test="${pageContext.request.userPrincipal.name != null}">
+								<c:when
+									test="${pageContext.request.userPrincipal.name != null && !dataMap.userEventStatus.maybeComing}">
 									<div class="hai-button">
-										<form:form modelAttribute="maybeComming" method="POST" action="maybe">
-											<form:hidden path="eventid" value="<%=eventInfo.getEventID() %>" />
+										<form:form modelAttribute="maybeComming" method="POST"
+											action="maybe">
+											<form:hidden path="eventid"
+												value="<%=eventInfo.getEventID()%>" />
 											<button type="submit">Hai!</button>
 										</form:form>
 									</div>
 								</c:when>
+								<c:when
+									test="${pageContext.request.userPrincipal.name != null && dataMap.userEventStatus.maybeComing}">
+								  		Deja esti inscris la acest eveniment.
+																		
+									
+									</c:when>
 								<c:otherwise>Tre sa fii logat ca sa poti participa la eveniment</c:otherwise>
 							</c:choose>
 						</div>
 					</div>
 				</div>
 			</div>
-	
+
 		</div>
 	</div>
-	
+
 	<div class="container clearfix">
 		<div id="content" class="grid_12">
 			<div class="comments-wrapper">
@@ -199,9 +223,10 @@
 				<c:choose>
 					<c:when test="${pageContext.request.userPrincipal.name != null}">
 						<div class="send-comment-area">
-							<form:form command="addcomment" modelAttribute="commentData" method="POST" action="addcomment">
-							 <form:textarea rows="4" cols="50" path="comments"/>
-							 <form:hidden path="eventid" value="<%=eventInfo.getEventID() %>" />
+							<form:form command="addcomment" modelAttribute="commentData"
+								method="POST" action="addcomment">
+								<form:textarea rows="4" cols="50" path="comments" />
+								<form:hidden path="eventid" value="<%=eventInfo.getEventID()%>" />
 								<button type="submit">Trimite</button>
 							</form:form>
 						</div>
@@ -212,7 +237,7 @@
 					<%
 						if (map != null) {
 					%>
-					
+
 					<c:forEach items="${dataMap.comments}" var="commentItem">
 						<div class="comment-block">
 							<div class="owner-picture">
@@ -220,7 +245,8 @@
 							</div>
 							<div class="comment-info">
 								<p>
-									<em>${commentItem.ownerName}  ${commentItem.ownerFamily}</em> - ${commentItem.dateAdded}
+									<em>${commentItem.ownerName} ${commentItem.ownerFamily}</em> -
+									${commentItem.dateAdded}
 								</p>
 							</div>
 							<div class="comment-text">
@@ -233,7 +259,7 @@
 					<%
 						}
 					%>
-	
+
 				</div>
 			</div>
 		</div>

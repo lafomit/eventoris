@@ -9,6 +9,7 @@ import eventoris.datatypes.CategoryInfo;
 import eventoris.datatypes.CommentInfo;
 import eventoris.datatypes.EventInfo;
 import eventoris.datatypes.ParticipantInfo;
+import eventoris.datatypes.UserEventStatus;
 import eventoris.datatypes.UserInfo;
 
 public class DummyInMemoryDao implements EventDAO{
@@ -147,6 +148,19 @@ public class DummyInMemoryDao implements EventDAO{
 		
 	}
 	public List<EventInfo> getEventsByCategory(int idCategory) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public UserEventStatus getEventStatusForEvent(int eventId, int userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public List<UserInfo> getTopParticipatingUsers(int eventId, int status) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public List<UserInfo> getTopParticipatingUsers(int eventId, int status,
+			int resultCount) {
 		// TODO Auto-generated method stub
 		return null;
 	}
