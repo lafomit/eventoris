@@ -62,7 +62,7 @@
 								<%=hour%>:<%=minutes%><br>
 
 								<c:if test="${dataMap.isLoggedInOwner}">
-									<a href="delete.htm?eventid=<%=eventInfo.getEventID()%>">Şterge</a>
+									<a href="delete.htm?eventid=<%=eventInfo.getEventID()%>" onClick="return confirm('Sigur doriţi să ştergeţi evenimentul cu titlul: <%=eventInfo.getTitle()%>?')">Şterge</a>
 									<a href="addevent.htm?eventid=<%=eventInfo.getEventID()%>">Editeaza</a>
 								</c:if>
 								<br> <a href="#">Subscribe</a><br>

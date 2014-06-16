@@ -23,7 +23,7 @@ import com.eventoris.web.auth.UserSessionInfo;
 import eventoris.datatypes.EventInfo;
 
 @Controller
-@RequestMapping(value = "/delete", params = {"eventid"})
+@RequestMapping(value ="/delete", params="eventid")
 public class DeleteEventController {
 
 	/** Logger for this class and subclasses */
@@ -34,20 +34,8 @@ public class DeleteEventController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String deleteMessage(@RequestParam(value = "eventid") int eventid, ModelMap model){
 		
-		//Map<String, Object> model = new HashMap<String, Object>();
-		
-		EventInfo event = eventManager.getEventById(eventid);
-		model.addAttribute("eventId", eventid);
-		model.addAttribute("eventTitle", event.getTitle());
+		eventManager.deleteEvent(eventid);
 
-		return "delete";
+		return "redirect:/myevents.htm";
 	}
-	
-	@RequestMapping(method = RequestMethod.POST)
-	public String deleteEvent(@RequestParam("eventID") int id, Model model){
-		
-		eventManager.deleteEvent(id);
-		return "redirect:/myevents";
-	}
-
 }
