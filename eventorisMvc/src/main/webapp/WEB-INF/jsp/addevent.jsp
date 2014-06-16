@@ -18,7 +18,7 @@
 });
 </script>
 
-<title>Eventoris | Home</title>
+<title>Eventoris | Adaugă eveniment</title>
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp" %>
 <div id="stick-menu">
@@ -28,7 +28,7 @@
 				<ul>
 					<li><a href="<c:url value="addevent.htm"/>">Adaugă
 							Eveniment</a></li>
-					<li><a href="myevents.htm">Evnimentele mele</a></li>
+					<li><a href="myevents.htm">Evenimentele mele</a></li>
 					<li><a href="mycalendar.htm">Calendarul meu</a></li>
 				</ul>
 			</nav>
