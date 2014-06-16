@@ -32,9 +32,9 @@ public class UserJDBCTemplate implements UserDAO {
 
 		jdbcTemplateObject.update(SqlRoles, user.getEmail(), user.getEmail());
 
-		String SqlDetails = "insert into user_details ( id_user) values ( (select id_users from users where username=?))";
+		String SqlDetails = "insert into user_details ( firstname, lastname, id_user) values ( ?,?,(select id_users from users where username=?))";
 
-		jdbcTemplateObject.update(SqlDetails, user.getEmail());
+		jdbcTemplateObject.update(SqlDetails, user.getName(), user.getFamilyName(), user.getEmail());
 	}
 
 	public UserInfo findUser(String userName) {

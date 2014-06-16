@@ -13,6 +13,23 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="pupin1000" />
+		<property name="password" value="" />
+
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="mailMail" class="com.mkyong.common.MailMail">
+		<property name="mailSender" ref="mailSender" />
+	</bean>
 
 	<bean id="userMysqlDao" class="eventoris.dao.UserJDBCTemplate">
 		<property name="dataSource" ref="dataSource" />
@@ -26,10 +43,10 @@
 		<property name="dataSource" ref="mysqlDao" />
 	</bean>
 
-	<bean name="eventsController"   class="com.eventoris.web.controllers.EventsController">
+	<bean name="eventsController" class="com.eventoris.web.controllers.EventsController">
 		<property name="eventManager" ref="eventManager" />
 	</bean>
- 
+
 	<bean id="categoryManager" class="com.eventoris.service.CategoryManagerImpl">
 		<property name="dataSource" ref="mysqlDao" />
 	</bean>
@@ -39,9 +56,9 @@
 	</bean>
 
 	<bean id="customUserDetailService" class="com.eventoris.web.auth.DbUserDetailService">
-		<property name="userManager" ref="userManager"/>
+		<property name="userManager" ref="userManager" />
 	</bean>
- 
+
 	<bean id="customAuthenticationProvider" scope="prototype"
 		class="com.eventoris.web.auth.DbAuthenticationProvider">
 		<property name="userDetailsService" ref="customUserDetailService" />
