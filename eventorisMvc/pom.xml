@@ -47,7 +47,12 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-
+		<!-- Java Mail API -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.3</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -69,30 +74,30 @@
 		</dependency>
 
 		<dependency>
-		        <groupId>org.springframework.security</groupId>
-		        <artifactId>spring-security-taglibs</artifactId>
-		        <version>${spring.security.version}</version>
-		        <exclusions>
-		            <exclusion>
-		                <artifactId>spring-aop</artifactId>
-		                <groupId>org.springframework</groupId>
-		            </exclusion>
-		        </exclusions>
-		    </dependency>
-        
-        <dependency>
-	        <groupId>org.springframework.security</groupId>
-	        <artifactId>spring-security-core</artifactId>
-	        <version>${spring.security.version}</version>
-	        <exclusions>
-	            <exclusion>
-	                <artifactId>spring-aop</artifactId>
-	                <groupId>org.springframework</groupId>
-	            </exclusion>
-	        </exclusions>
-	    </dependency>
-    
-    
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-aop</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring.security.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-aop</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
