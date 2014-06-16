@@ -1,10 +1,9 @@
 package com.eventoris.service;
 
-import eventoris.dao.EventDAO;
-import eventoris.dao.EventJDBCTemplate;
 import eventoris.dao.UserDAO;
 import eventoris.dao.UserJDBCTemplate;
 import eventoris.datatypes.UserInfo;
+import eventoris.datatypes.UserInfoWithCredentials;
 
 public class UserManagerImpl implements UserManager{
 
@@ -20,7 +19,7 @@ public class UserManagerImpl implements UserManager{
 		userDaoProvider = new UserJDBCTemplate();
 	}
 	
-	public void createNewUser(UserInfo userInfo) {
+	public void createNewUser(UserInfoWithCredentials userInfo) {
 		userDaoProvider.createUser(userInfo);
 		
 	}

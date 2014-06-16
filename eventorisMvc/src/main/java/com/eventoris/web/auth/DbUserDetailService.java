@@ -26,6 +26,8 @@ public class DbUserDetailService implements UserDetailsService {
 		UserInfo userInfo = userManager.findUser(userName);
 
 		if (userInfo == null) {
+			logger.info("DbUserDetailService: could not found user:" + userName);
+			
 			throw new UsernameNotFoundException("Could not find user name");
 		}
 		logger.info("DbUserDetailService: found user:" + userInfo);

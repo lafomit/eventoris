@@ -60,7 +60,7 @@
             <bean class="com.eventoris.web.validator.CreateUserValidator"/>
         </property>
         <property name="formView" value="register_new"/>
-        <property name="successView" value="index.htm"/>
+        <property name="successView" value="register_success.htm"/>
         <property name="userManager" ref="userManager"/>
 
     </bean>

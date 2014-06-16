@@ -27,7 +27,7 @@
 				<i class="icon-emo-surprised"></i>
 			</div>
 			<div class="message">
-				<h2>Muah I almost crashed</h2>
+				<h2>Aşa pagină nu există!</h2>
 			</div>
 		</div>
 	</div>
