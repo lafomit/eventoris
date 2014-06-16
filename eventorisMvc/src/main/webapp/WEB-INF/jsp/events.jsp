@@ -47,7 +47,7 @@
 							<div class="category-menu">
 								<ul>
 									<c:forEach items="${model.categories}" var="category">
-										<li><a href="eventdetail.htm?category=<c:out value="${category.idCategory}"/>">${category.categoryName}</a></li>
+										<li><a href="eventbycateg?id=<c:out value="${category.idCategory}"/>">${category.categoryName}</a></li>
 									</c:forEach>
 								</ul>
 							</div>

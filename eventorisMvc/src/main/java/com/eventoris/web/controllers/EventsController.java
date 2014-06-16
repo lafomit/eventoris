@@ -4,10 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,9 +27,22 @@ public class EventsController {
 	protected final Log logger = LogFactory.getLog(getClass());
 
 	@RequestMapping(value = "/allevents**", method = RequestMethod.GET)
-	public ModelAndView adminPage() {
+	public ModelAndView getAllEvent() {
 
 		List<EventInfo> events = this.eventManager.getAllEvents();
+		Map<String, Object> myModel = new HashMap<String, Object>();
+		myModel.put("products", events);
+
+		return new ModelAndView("events", "model", myModel);
+
+	}
+
+	@RequestMapping(value = "/eventbycateg", method = RequestMethod.GET)
+	public ModelAndView getEventsByCategory(@RequestParam("id") int categoryId,
+			HttpServletResponse response) {
+		logger.info("EventsController.getEventsByCategory: " + categoryId);
+		List<EventInfo> events = this.eventManager
+				.getEventsByCategory(categoryId);
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("products", events);
 
