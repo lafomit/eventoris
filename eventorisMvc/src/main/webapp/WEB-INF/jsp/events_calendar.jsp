@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/jsp/include_links.jsp"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page import="java.util.*"%>
-<title>Eventoris | MyCalendar</title>
+<title>Eventoris | Calendarul meu</title>
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
 
@@ -56,7 +56,7 @@
 								</div>
 								<div class="event-description">
 									<img alt="category"
-										src="resources/img/categories/<c:out value="${event.categoryID}"/>.png">
+										src="resources/img/categories/<c:out value="${event.categoryID}"/>.png"/>
 									<p>
 										<em>Descrierea: </em>
 										<c:out value="${event.description}" />
