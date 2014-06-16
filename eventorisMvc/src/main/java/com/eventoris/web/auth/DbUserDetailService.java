@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,6 +20,7 @@ public class DbUserDetailService implements UserDetailsService {
 	protected final Log logger = LogFactory.getLog(getClass());
 	private UserManager userManager;
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public UserDetails loadUserByUsername(String userName)
 			throws UsernameNotFoundException {
@@ -30,10 +32,17 @@ public class DbUserDetailService implements UserDetailsService {
 			
 			throw new UsernameNotFoundException("Could not find user name");
 		}
+		
+		String password = userManager.getSubscriberPassword(userName);
 		logger.info("DbUserDetailService: found user:" + userInfo);
-		List grantedAuths = new ArrayList();
-		grantedAuths.add(new GrantedAuthorityImpl("ROLE_USER"));
-		UserSessionInfo userSession = new UserSessionInfo(userName, "password",
+		List<String> roles = userManager.getUserRoles(userName);
+		logger.info("DbUserDetailService: user has " + roles.size() + " roles");
+		List<GrantedAuthority> grantedAuths = new ArrayList<GrantedAuthority>();
+		for(String item :roles){
+			logger.info("DbUserDetailService: found role="+ item);
+			grantedAuths.add(new GrantedAuthorityImpl(item));
+		}
+		UserSessionInfo userSession = new UserSessionInfo(userName, password,
 				true, true, true, true, grantedAuths);
 		userSession.setFamilyName(userInfo.getFamilyName());
 		userSession.setId(userInfo.getId());

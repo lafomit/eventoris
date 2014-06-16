@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ include file="/WEB-INF/jsp/include_links.jsp"%>
 <%@ page import="java.util.*"%>
-<title>Eventoris | Eroare 404</title>
+<title>Eventoris | Eroare 403</title>
 
 <%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
 

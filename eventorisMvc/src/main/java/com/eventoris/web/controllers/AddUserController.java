@@ -35,7 +35,7 @@ public class AddUserController extends SimpleFormController {
 		userInfo.setPassword(userFormData.getPassword().trim());
 		userManager.createNewUser(userInfo);
 
-		return new ModelAndView(new RedirectView(getSuccessView()));
+		return new ModelAndView("register_success");
 	}
 
 	@Override
