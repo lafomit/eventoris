@@ -106,5 +106,9 @@ public class EventManagerImpl implements EventManager {
 	public List<EventInfo> getEventsByCategory(int idCategory) {
 		return eventDaoProvider.getEventsByCategory(idCategory);
 	}
+	
+	public void deleteEvent(int idEvent){
+		eventDaoProvider.delete(idEvent);
+	}
 
 }

@@ -42,4 +42,5 @@ public interface EventManager {
 	public void participate(ParticipantInfo participant);
 	
 	public List<EventInfo> getEventsByCategory(int idCategory);
+	public void deleteEvent(int idEvent);
 }
