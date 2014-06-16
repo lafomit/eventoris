@@ -51,7 +51,7 @@
 							}
 						</script>
 						<c:if test="${pageContext.request.userPrincipal.name != null}">
-							  <sec:authentication property="principal.mainName" /> <sec:authentication property="principal.familyName" /> |
+							  <a href="profile" style="color:#000000;"><sec:authentication property="principal.mainName" /> <sec:authentication property="principal.familyName" /></a> |
 							  <a href="javascript:formSubmit()" > Logout</a>
 						</c:if>
 					</sec:authorize>

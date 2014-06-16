@@ -241,7 +241,7 @@
 					<c:forEach items="${dataMap.comments}" var="commentItem">
 						<div class="comment-block">
 							<div class="owner-picture">
-								<img alt="icon" src="resources/img/avatars/3.jpg">
+								<img alt="icon" src="resources/img/avatars/0.jpg">
 							</div>
 							<div class="comment-info">
 								<p>

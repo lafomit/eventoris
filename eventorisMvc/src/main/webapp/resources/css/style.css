@@ -152,6 +152,10 @@ width:516px;
 #add-event-nav{
 	width:603px;
 }
+
+#profile-nav{
+	width:375px;
+}
 #stick-menu nav{
       color: #ffffff;
       font-size: 18px;
@@ -731,9 +735,16 @@ height: 46px;
 .log-out{
 	float: right;
 	margin-top:-25px;
+	color:#000000;
 }
 .log-out a{
 	color: #ffffff;
+}
+
+/* Profile*/
+
+.delete-profile-link a{
+	float: right;
 }
 
 /* Error page */
