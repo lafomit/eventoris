@@ -300,4 +300,12 @@ public class EventJDBCTemplate implements EventDAO {
 
 		return users;
 	}
+	
+	public void removeParticipant(ParticipantInfo participant){
+		String SQL = "delete from participants where id_user = ? and id_event = ?";
+
+		jdbcTemplateObject.update(SQL,new Object[] {participant.getIdUser(), participant.getIdEvent()});
+
+		return;
+	}
 }

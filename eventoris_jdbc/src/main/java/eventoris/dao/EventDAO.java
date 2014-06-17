@@ -66,27 +66,5 @@ public interface EventDAO {
 	
 	public List<UserInfo> getTopParticipatingUsers(int eventId, int status, int resultCount);
 	
-	// public boolean compareExistingAndRequestedStatus(int idEvent, int idUser,
-	// int participationStatus);
-	// public boolean checkIfParticipantExists(int idUser, int idEvent);
-
-	// check if participant exists, it may need only status change
-	// getParticipants(id_event) select all participants where id event = id and
-	// id_status = 1
-	// getPotentialParticipants(id_event) select all participants where id event
-	// = id and id_status = 2
-	// participant class (id_participant, firstName, lastName)
-	// searchEvent(title)
-	// searchUser(firstName, lastName)
-	// reportEvent -> requires column Banned
-	// addParticipantToEvent (id_user, id_event) with status 1
-	// addPossibleParticipant(id_user, id_event) with status 2
-	// banUser(id_user)
-	// deleteUser(id_User)
-	// selectUsersEventsAsAuthor
-	// selectUsersSubsribedEvents
-
-	// notifications for user
-	// comments on events
-	// send invitation by owner
+	public void removeParticipant(ParticipantInfo participant);
 }

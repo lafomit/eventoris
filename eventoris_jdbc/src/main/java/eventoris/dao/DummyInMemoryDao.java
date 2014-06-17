@@ -164,5 +164,9 @@ public class DummyInMemoryDao implements EventDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public void removeParticipant(ParticipantInfo participant) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

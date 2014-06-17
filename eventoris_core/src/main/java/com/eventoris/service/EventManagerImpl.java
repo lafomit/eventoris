@@ -108,6 +108,10 @@ public class EventManagerImpl implements EventManager {
 				logger.info("EventManagerImpl.participate: changing status");
 				eventDaoProvider.changeParticipationStatus(participant);
 			}
+			else{
+				logger.info("EventManagerImpl.participate: remove participant");
+				eventDaoProvider.removeParticipant(participant);
+			}
 
 		} else{
 			logger.info("EventManagerImpl.participate: adding participant");

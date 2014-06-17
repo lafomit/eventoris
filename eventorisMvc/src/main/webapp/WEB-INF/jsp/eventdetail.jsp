@@ -8,7 +8,9 @@
 
 <title>Eventoris | Detalii</title>
 
-<%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
+<jsp:include page="/WEB-INF/jsp/include_menu.jsp">
+	<jsp:param name = "active" value ="event"/>
+</jsp:include>
 <section>
 	<div class="container clearfix">
 		<div id="content" class="grid_12">
@@ -92,7 +94,7 @@
 								</c:forEach>
 							</div>
 							<div class="see-all">
-								<a href="#">Vezi toţi (<%=participantsComing%>)
+								<a href="#">Total toţi (<%=participantsComing%>)
 								</a><br> <br>
 							</div>
 							<%
@@ -118,7 +120,13 @@
 								</c:when>
 								<c:when
 									test="${pageContext.request.userPrincipal.name != null && dataMap.userEventStatus.coming}">
-								  		Deja esti inscris la acest eveniment.
+									<div class="hai-button">
+										<form:form modelAttribute="comeForSure" method="POST"
+												action="comeforsure">
+												<form:hidden path="eventid"	value="<%=eventInfo.getEventID()%>" />
+									  		<button type="submit">Totuşi nu</button>
+									  	</form:form>
+								  	</div>
 								</c:when>
 
 								<c:otherwise>Tre sa fii logat ca sa poti participa la eveniment</c:otherwise>
@@ -174,7 +182,7 @@
 								</c:forEach>
 							</div>
 							<div class="see-all">
-								<a href="#">Vezi toţi (<%=participantsMaybe%>)
+								<a href="#">Total toţi (<%=participantsMaybe%>)
 								</a><br> <br>
 							</div>
 							<%
@@ -199,7 +207,14 @@
 								</c:when>
 								<c:when
 									test="${pageContext.request.userPrincipal.name != null && dataMap.userEventStatus.maybeComing}">
-								  		Deja esti inscris la acest eveniment.
+								  		<div class="hai-button">
+										<form:form modelAttribute="maybeComming" method="POST"
+											action="maybe">
+											<form:hidden path="eventid"
+												value="<%=eventInfo.getEventID()%>" />
+											<button type="submit">Totuşi nu</button>
+										</form:form>
+									</div>
 																		
 									
 									</c:when>
