@@ -109,10 +109,17 @@ public class AddEventController extends SimpleFormController {
 	    	if(evInfo == null){
 	    		return new AddEventController();
 	    	}
+	    	String dateOfEvent = evInfo.getDateOfEvent();
+	    	String date = dateOfEvent.substring(5, 7)+"/"+dateOfEvent.substring(8, 10)+"/"+dateOfEvent.substring(0, 4);
+	    	String hour = dateOfEvent.substring(11, 13);
+	    	String minutes = dateOfEvent.substring(14, 16);
+	    	
 	    	eventInfo.setAddress(evInfo.getAddress());
 	    	eventInfo.setDescription(evInfo.getDescription());
 	    	eventInfo.setCategory(evInfo.getCategoryID());
-	    	eventInfo.setEventdate(evInfo.getDateOfEvent());
+	    	eventInfo.setEventdate(date);
+	    	eventInfo.setHour(hour);
+	    	eventInfo.setMinutes(minutes);
 	    	eventInfo.setTitle(evInfo.getTitle( ));
 	    	eventInfo.setEventid(eventId);
 	    	
