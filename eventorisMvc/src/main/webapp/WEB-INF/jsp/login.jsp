@@ -11,7 +11,9 @@
 		
 <title>Eventoris | Logare </title>
 
-<%@ include file="/WEB-INF/jsp/include_menu.jsp" %>
+<jsp:include page="/WEB-INF/jsp/include_menu.jsp">
+	<jsp:param name = "active" value ="none"/>
+</jsp:include>
 <section>
 	<div class="container clearfix">
 			<div id="content" class="grid_12">

@@ -4,7 +4,9 @@
 <%@ page import="java.util.*"%>
 <title>Eventoris | Calendarul meu</title>
 
-<%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
+<jsp:include page="/WEB-INF/jsp/include_menu.jsp">
+	<jsp:param name = "active" value ="event"/>
+</jsp:include>
 
 <div id="stick-menu">
 	<div class="container clearfix">

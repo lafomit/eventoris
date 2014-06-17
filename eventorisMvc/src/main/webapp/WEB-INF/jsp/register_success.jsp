@@ -10,27 +10,22 @@
 		
 <title>Eventoris | Utilizator creat</title>
 
-<%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
-	<section>
-		<div class="form-block">
-			<form:form method="post" commandName="createUser">
-			
-				<i class = "icon-user-add-outline"></i>
-				<h1>Cum te numeşti?</h1><br>
-			
-				<form:input path="familyName" placeholder="Nume"/>
-				<form:errors path="familyName" cssClass="error" />
-			
-				<form:input path="name" placeholder="Prenume"/>
-				<form:errors path="name" cssClass="error" />
-			
-				<form:hidden path="userid" value=""/>
-		 	
-				<br>
-				<button type="submit">Ok</button><br>
-			</form:form>
+<jsp:include page="/WEB-INF/jsp/include_menu.jsp">
+	<jsp:param name = "active" value ="none"/>
+</jsp:include>
+	<section class="error-page">
+	<div class="container clearfix">
+		<div id="content" class="grid_12">
+			<h1>Eşti înregistrat</h1>
+			<div class="smile">
+				<i class="icon-emo-thumbsup"></i>
+			</div>
+			<div class="message">
+				<h2>Bine ai venit în familia noastră!</h2>
+			</div>
 		</div>
-	</section>
+	</div>
+</section>
 	
 <%@ include file="/WEB-INF/jsp/include_footer.jsp"%>
 <%@ include file="/WEB-INF/jsp/include_scripts.jsp"%>

@@ -20,14 +20,16 @@
 
 <title>Eventoris | Adaugă eveniment</title>
 
-<%@ include file="/WEB-INF/jsp/include_menu.jsp" %>
+
+<jsp:include page="/WEB-INF/jsp/include_menu.jsp">
+	<jsp:param name = "active" value ="event"/>
+</jsp:include>
 <div id="stick-menu">
 	<div class="container clearfix">
 		<div class="grid_12 margin-padding-clear">
 			<nav id="add-event-nav">
 				<ul>
-					<li><a href="<c:url value="addevent.htm"/>">Adaugă
-							Eveniment</a></li>
+					<li><a href="<c:url value="addevent.htm"/>">Adaugă Eveniment</a></li>
 					<li><a href="myevents.htm">Evenimentele mele</a></li>
 					<li><a href="mycalendar.htm">Calendarul meu</a></li>
 				</ul>
@@ -41,8 +43,8 @@
 		<div class="grid_12">
 		<div class="form-block">
 					
-			<i class = "icon-doc-add"></i>
-			<h1>Adaugă eveniment</h1><br>
+			<i class = "icon-pencil"></i>
+			<h1>Gestiune eveniment</h1><br>
 			
 			<form:form method="post" commandName="createEvent" action="/eventorisMvc/addevent.htm">
 					<form:input path="title" placeholder="Titlu"/>
@@ -59,10 +61,10 @@
 	    		   <form:input path="eventdate" type="text" id="datepicker" placeholder="Data"/> 
 	    			<form:errors path="eventdate" cssClass="error"/> 	
 	    			
-	    			<form:input path="hour" type="text" placeholder="Ora" value=""/>
+	    			<form:input path="hour" type="text" placeholder="Ora"/>
 	    			<form:errors path="hour" cssClass="error"/>
 	    			
-	    			<form:input path="minutes" type="text" placeholder="Minute" value=""/>
+	    			<form:input path="minutes" type="text" placeholder="Minute"/>
 	    			<form:errors path="minutes" cssClass="error"/>
 
 					<br>

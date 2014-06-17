@@ -2,9 +2,12 @@
 <%@ include file="/WEB-INF/jsp/include_links.jsp"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page import="java.util.*"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <title>Eventoris | Cabinetul personal</title>
 
-<%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
+<jsp:include page="/WEB-INF/jsp/include_menu.jsp">
+	<jsp:param name = "active" value ="none"/>
+</jsp:include>
 
 
 <section>

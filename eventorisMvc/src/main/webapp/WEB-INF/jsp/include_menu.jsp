@@ -18,11 +18,21 @@
 				<div class="grid_4 margin-padding-clear">
 					<nav id="menu" class="nav">
 						<ul>
-							<li class="active"><a href="<c:url value="index.htm"/>"><i
+						<% String active = request.getParameter("active"); 
+							if(active.equals("event")){
+						%>
+							<li ><a href="<c:url value="index.htm"/>"><i
 									class="icon-home-outline"></i>Home</a></li>
-							<li><a href="<c:url value="events.htm"/>"><i
+							<li><a class="active" href="<c:url value="events.htm"/>"><i
 									class="icon-calendar-outlilne"></i>Evenimente</a></li>
-							<li><a href="#"><i class="icon-camera-outline"></i>Galerie</a></li>
+							<%} else if(active.equals("home")){%>
+							<li ><a class="active" href="<c:url value="index.htm"/>"><i class="icon-home-outline"></i>Home</a></li>
+							<li><a href="<c:url value="events.htm"/>"><i class="icon-calendar-outlilne"></i>Evenimente</a></li>
+							<%} else if(active.equals("none")){%>
+							<li ><a href="<c:url value="index.htm"/>"><i class="icon-home-outline"></i>Home</a></li>
+							<li><a href="<c:url value="events.htm"/>"><i class="icon-calendar-outlilne"></i>Evenimente</a></li>
+					<%} %>
+							<!-- <li><a href="#"><i class="icon-camera-outline"></i>Galerie</a></li> -->
 						</ul>
 					</nav>
 				</div>

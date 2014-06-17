@@ -60,6 +60,8 @@ LIGHT RED #e74c3c
 	.nav .active{
 		background-color: #c0392b;
 		border-bottom: 5px solid #c0392b;
+		height: 105px;
+    	width: 115px;
 	}
 
 	.nav .active i{

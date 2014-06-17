@@ -3,7 +3,9 @@
 <%@ page import="java.util.*"%>
 <title>Eventoris | Eroare 403</title>
 
-<%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
+<jsp:include page="/WEB-INF/jsp/include_menu.jsp">
+	<jsp:param name = "active" value ="none"/>
+</jsp:include>
 
 <div id="stick-menu">
 	<div class="container clearfix">

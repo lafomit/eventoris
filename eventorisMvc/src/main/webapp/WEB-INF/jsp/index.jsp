@@ -7,7 +7,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <title>Eventoris | Home</title>
 
-<%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
+<jsp:include page="/WEB-INF/jsp/include_menu.jsp">
+	<jsp:param name = "active" value ="home"/>
+</jsp:include> 
 
 <div id="stick-menu">
 	<div class="container clearfix">

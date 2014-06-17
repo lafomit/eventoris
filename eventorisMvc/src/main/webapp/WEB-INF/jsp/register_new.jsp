@@ -10,7 +10,9 @@
 		
 <title>Eventoris | Creare cont</title>
 
-<%@ include file="/WEB-INF/jsp/include_menu.jsp"%>
+<jsp:include page="/WEB-INF/jsp/include_menu.jsp">
+	<jsp:param name = "active" value ="none"/>
+</jsp:include>
 <section>
 	<div class="form-block">
 		<form:form method="post" commandName="createUser">

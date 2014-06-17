@@ -55,7 +55,7 @@
 .icon-calendar-outlilne:before { content: '\e802'; padding-top: 17px;} /* '' */
 .icon-search-outline:before { content: '\e803';} /* '' */
 .icon-user-outline:before { content: '\e804'; color: #ffffff; margin-top: 15px;} /* '' */
-.icon-pencil:before { content: '\e805'; } /* '' */
+.icon-pencil:before { content: '\e805'; margin-top: 17px; color: #ffffff;} /* '' */
 .icon-doc-add:before { content: '\e806'; color: #ffffff; margin-top: 15px; } /* '' */
 .icon-thumbs-up:before { content: '\e807'; color: #ffffff; margin-top: 15px;} /* '' */
 .icon-user-add-outline:before { content: '\e808'; color: #ffffff; margin-top: 15px;} /* '' */
@@ -63,3 +63,4 @@
 .icon-emo-unhappy:before { content: '\e80a'; } /* '' */
 .icon-emo-cry:before { content: '\e80b'; } /* '' */
 .icon-emo-displeased:before { content: '\e80c'; } /* '' */
+.icon-emo-thumbsup:before { content: '\e80e'; } /* '' */
